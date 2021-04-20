@@ -291,8 +291,8 @@
         }
 
         &.shape-default {
-            //background: linear-gradient(150deg, shapes-default-color("step-1-gradient-bg") 15%, shapes-default-color("step-2-gradient-bg") 70%, shapes-default-color("step-3-gradient-bg") 94%);
-            background: linear-gradient(150deg, #0034af 15%, #67b1e5 70%, #5571bf 94%);
+            background: linear-gradient(150deg, shapes-default-color("step-1-gradient-bg") 15%, shapes-default-color("step-2-gradient-bg") 70%, shapes-default-color("step-3-gradient-bg") 94%);
+            //background: linear-gradient(150deg, #0034af 15%, #67b1e5 70%, #5571bf 94%);
         }
 
         &.shape-light {

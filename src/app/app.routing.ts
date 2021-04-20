@@ -9,6 +9,7 @@ import { SignupComponent } from './signup/signup.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { LoginComponent } from './login/login.component';
 import { CoursesComponent } from './components/courses/courses.component';
+import { CourseComponent } from './components/courses/course/course.component';
 
 const routes: Routes = [
 
@@ -18,8 +19,16 @@ const routes: Routes = [
   { path: 'register', component: SignupComponent },
   { path: 'landing', component: LandingComponent },
   { path: 'login', component: LoginComponent },
+  
+  //Ruta para ver
+  { path: 'test', component: HomeComponent },
 
-  { path: 'course/:name', component: CoursesComponent }
+  { path: '',
+    children: [
+      { path: 'courses', component: CoursesComponent },
+      { path: ':id/course', component: CourseComponent}
+    ] 
+  }
 ];
 
 @NgModule({

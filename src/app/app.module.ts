@@ -16,6 +16,9 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HomeModule } from './home/home.module';
 import { LoginComponent } from './login/login.component';
 import { CoursesComponent } from './components/courses/courses.component';
+import { SharedModule } from './shared/shared.module';
+import { CourseComponent } from './components/courses/course/course.component';
+
 
 @NgModule({
   declarations: [
@@ -23,10 +26,10 @@ import { CoursesComponent } from './components/courses/courses.component';
     SignupComponent,
     LandingComponent,
     ProfileComponent,
-    NavbarComponent,
-    FooterComponent,
     LoginComponent,
-    CoursesComponent
+    CoursesComponent,
+    CourseComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { CoursesComponent } from './components/courses/courses.component';
     FormsModule,
     RouterModule,
     AppRoutingModule,
-    HomeModule
+    HomeModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -93,3 +93,11 @@
         @include transition($transition-base);
     }
 }
+
+// Card container
+.card-container{
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
