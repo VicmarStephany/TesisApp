@@ -5,9 +5,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
-import { SignupComponent } from './signup/signup.component';
+import { SignupComponent } from './auth/signup/signup.component';
 import { LandingComponent } from './components/landing/landing.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './auth/login/login.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { CourseComponent } from './components/courses/course/course.component';
 
@@ -23,10 +23,10 @@ const routes: Routes = [
   //Ruta para ver
   { path: 'test', component: HomeComponent },
 
-  { path: '',
+  { path: 'courses',
     children: [
-      { path: 'courses', component: CoursesComponent },
-      { path: ':id/course', component: CourseComponent}
+      { path: 'all', component: CoursesComponent },
+      { path: ':id', component: CourseComponent }
     ] 
   }
 ];

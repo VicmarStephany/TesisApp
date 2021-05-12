@@ -40,14 +40,14 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link no-caret" data-toggle="dropdown" role="button" id="categoriesMenu" aria-haspopup="true"
-            aria-expanded="false" href="#courses">
+            aria-expanded="false" [routerLink]="['/courses/all']">
             <i class="ni ni-collection d-lg-none"></i>
             <span class="nav-link-inner--text">Oferta académica</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="categoriesMenu">
             
             <a *ngFor="let course of courses" class="dropdown-item" 
-                [routerLink]="[course+'/course']" (click)="checkType(course)">{{course}}
+                [routerLink]="['/courses/'+course]" (click)="checkType(course)">{{course}}
             </a>
 
           </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-course',
@@ -7,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./course.component.scss']
 })
 export class CourseComponent implements OnInit {
+  circle = faPlusCircle;
 
   type: any;
 
@@ -16,7 +19,9 @@ export class CourseComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.route);
-     this.setType(this.route.snapshot.params['id']);
+    this.route.params.subscribe(params => {
+      this.type =params['id']
+    });
   }
 
   setType(param){

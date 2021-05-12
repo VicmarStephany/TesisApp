@@ -1,28 +1,25 @@
-<div class="section section-lg section-shaped">
+<div class="section section-shaped">
     <div class="shape shape-style-1 shape-default">
     </div>
-    <section class="section-lg container py-lg-md d-flex ">
+    <section class="section-sm container py-lg-md d-flex ">
 
         <h1 class="display-3  text-white">{{ type }}</h1>
     </section>
 </div>
 
 <section class="container">
-    <div class="card shadow border-0">
-        <div class="card-body py-5">
-          <!-- <div class="icon icon-shape icon-shape-primary rounded-circle mb-4">
-            <i class="ni ni-hat-3"></i>
-          </div> -->
-          <h6 class="text-primary text-uppercase">Especializaciones</h6>
-          <p class="description mt-3">Argon is a great free UI package based on Angular that includes the most
-            important components and features.</p>
-          <div>
-            <span class="badge badge-pill badge-primary">angular</span>
-            <span class="badge badge-pill badge-primary">ng-bootstrap</span>
-            <span class="badge badge-pill badge-primary">creative</span>
-          </div>
-          <a href="javascript:void(0)" class="btn btn-primary mt-4">Conoce mas > </a>
+  <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+    <ngb-panel>
+      <ng-template ngbPanelHeader let-opened="opened">
+        <div class="d-flex align-items-center justify-content-between">
+          <span>Título de {{type}} en oferta </span>
+          <button ngbPanelToggle class="btn btn-link p-0"> <fa-icon [icon]="circle" size="lg"></fa-icon></button>
         </div>
-      </div>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
 
 </section>

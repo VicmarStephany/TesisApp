@@ -6,6 +6,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -18,13 +19,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     CommonModule,
     NgbModule,
-    RouterModule
+    RouterModule,
+    FontAwesomeModule
   ],
   exports:[
     SearchBarComponent,
     BubblesComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+
+    FontAwesomeModule
   ]
 })
 export class SharedModule { }

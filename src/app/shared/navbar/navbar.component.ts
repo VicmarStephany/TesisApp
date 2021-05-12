@@ -59,9 +59,10 @@ export class NavbarComponent implements OnInit {
     checkType(type) {
         let url = '#/course/'+type;
         var titlee = this.location.prepareExternalUrl(this.location.path());
-        console.log(titlee)
+        console.log(titlee);
+        console.log(type);
         if (titlee != url) {
-            this.router.navigateByUrl(type+'/course');
+            this.router.navigateByUrl('/courses/'+type);
         }
     }
 }
