@@ -8,15 +8,16 @@ import { AppRoutingModule } from './app.routing';
 
 import { AppComponent } from './app.component';
 import { LandingComponent } from './components/landing/landing.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 import { HomeModule } from './home/home.module';
-import { CoursesComponent } from './components/courses/courses.component';
 import { SharedModule } from './shared/shared.module';
-import { CourseComponent } from './components/courses/course/course.component';
 import { CommonModule } from '@angular/common';
 import { AuthModule } from './auth/auth.module';
 import { AuthService } from './services/auth/auth.service';
+import { AdminComponent } from './components/admin/admin.component';
+import { LandingModule } from './components/landing/landing.module';
+import { LandingRoutingModule } from './components/landing/landing.routing';
 
 
 @NgModule({
@@ -24,8 +25,7 @@ import { AuthService } from './services/auth/auth.service';
     AppComponent,
     LandingComponent,
     ProfileComponent,
-    CoursesComponent,
-    CourseComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +38,9 @@ import { AuthService } from './services/auth/auth.service';
     AppRoutingModule,
     HomeModule,
     SharedModule,
-    AuthModule
+    AuthModule,
+    LandingModule,
+    LandingRoutingModule
     
   ],
   exports: [

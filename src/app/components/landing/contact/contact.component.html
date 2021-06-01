@@ -1,0 +1,39 @@
+<section class="section section-lg section-contact-us" id="contact">
+    <div class="container">
+      <div class="row justify-content-center mt--300">
+        <div class="col-lg-8">
+          <div class="card bg-gradient-secondary shadow">
+            <div class="card-body p-lg-5">
+              <h4 class="mb-4">Contáctanos</h4>
+              <p>¿Tienes alguna duda? Déjanos tu mensaje y te contactaremos a la brevedad posible. </p>
+              <div class="form-group mt-4" [ngClass]="{'focused':focus===true}">
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-user-run"></i></span>
+                  </div>
+                  <input class="form-control" placeholder="Nombre y Apellido" type="text" (focus)="focus=true"
+                    (blur)="focus=false">
+                </div>
+              </div>
+              <div class="form-group" [ngClass]="{'focused':focus1===true}">
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                  </div>
+                  <input class="form-control" placeholder="Correo electrónico" type="email" (focus)="focus1=true"
+                    (blur)="focus1=false">
+                </div>
+              </div>
+              <div class="form-group mb-4">
+                <textarea class="form-control form-control-alternative" name="name" rows="4" cols="80"
+                  placeholder="Mensaje"></textarea>
+              </div>
+              <div>
+                <button type="button" class="btn btn-default btn-round btn-block btn-lg">Enviar Mensaje</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

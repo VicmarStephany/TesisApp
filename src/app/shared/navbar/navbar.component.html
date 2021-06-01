@@ -45,9 +45,9 @@
             <span class="nav-link-inner--text">Oferta académica</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="categoriesMenu">
-            
-            <a *ngFor="let course of courses" class="dropdown-item" 
-                [routerLink]="['/courses/'+course]" (click)="checkType(course)">{{course}}
+
+            <a *ngFor="let course of courses" class="dropdown-item" [routerLink]="['/courses/'+course]"
+              (click)="checkType(course)">{{course}}
             </a>
 
           </div>
@@ -71,7 +71,7 @@
           </a>
         </li>
       </ul>
-      <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+      <ul *ngIf="!user" class="navbar-nav align-items-lg-center ml-lg-auto">
         <li class="nav-item dropdown">
           <a class="nav-link no-caret" [routerLink]="['/login']" role="button">
             <i class="ni ni-collection d-lg-none"></i>
@@ -83,6 +83,23 @@
             <i class="ni ni-collection d-lg-none"></i>
             <span class="nav-link-log nav-link-inner--text">Registrarse</span>
           </a>
+        </li>
+      </ul>
+      <ul *ngIf="user" class="navbar-nav navbar-nav-hover align-items-lg-center ml-lg-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link no-caret" data-toggle="dropdown" role="button" id="profile" aria-haspopup="true"
+            aria-expanded="false">
+            <i class="ni ni-collection d-lg-none"></i>
+            <span class="nav-link-inner--text">{{user.nombres}}</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="profile">
+            <a class="dropdown-item" [routerLink]="['/profile']">Perfil
+            </a>
+            <a class="dropdown-item" [routerLink]="['/profile/resume']">Mis cursos
+            </a>
+            <a class="dropdown-item" (click)="logOut()" >Cerrar Sesión
+            </a>
+          </div>
         </li>
       </ul>
     </div>

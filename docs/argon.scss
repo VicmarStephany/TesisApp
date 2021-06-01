@@ -29,7 +29,7 @@
     --cyan: #2bffc6;
     --white: #fff;
     --gray: #8898aa;
-    --gray-dark: #32325d;
+    --gray-dark: #03277d;
     --light: #ced4da;
     --lighter: #e9ecef;
     --primary: #5e72e4;
@@ -408,7 +408,7 @@ h6 {
     font-weight: 600;
     line-height: 1.5;
     margin-bottom: .5rem;
-    color: #32325d
+    color: #03277d
 }
 
 .h1,
@@ -6353,7 +6353,7 @@ button.close {
     font-size: 1rem;
     margin-bottom: 0;
     padding: .5rem .95rem;
-    color: #32325d;
+    color: #03277d;
     border-bottom: 1px solid #f2f2f2;
     border-top-left-radius: calc(.4375rem - 1px);
     border-top-right-radius: calc(.4375rem - 1px);
@@ -11351,7 +11351,7 @@ button.bg-gray:hover {
 }
 
 .bg-gray-dark {
-    background-color: #32325d!important
+    background-color: #03277d!important
 }
 
 a.bg-gray-dark:focus,
@@ -11480,7 +11480,7 @@ button.bg-lighter:hover {
 }
 
 .bg-gradient-gray-dark {
-    background: linear-gradient(87deg, #32325d 0, #44325d 100%)!important
+    background: linear-gradient(87deg, #0745d8 0, #44325d 100%)!important
 }
 
 .bg-gradient-light {
@@ -12574,7 +12574,7 @@ a.text-gray:hover {
 }
 
 .text-gray-dark {
-    color: #32325d!important
+    color: #03277d!important
 }
 
 a.text-gray-dark:focus,
@@ -12781,7 +12781,7 @@ a.text-lighter:hover {
 }
 
 .badge-dot strong {
-    color: #32325d
+    color: #03277d
 }
 
 .badge-dot i {
@@ -12916,7 +12916,7 @@ a.btn-icon-only {
     text-align: left;
     vertical-align: middle;
     text-decoration: none;
-    color: #32325d;
+    color: #03277d;
     border: 0;
     border-radius: .375rem;
     background-color: #f6f9fc;
@@ -14247,7 +14247,7 @@ textarea[resize=horizontal] {
 
 .list-group-heading {
     font-size: 1rem;
-    color: #32325d
+    color: #03277d
 }
 
 .list-group-heading>small {
@@ -14662,7 +14662,7 @@ textarea[resize=horizontal] {
 }
 
 .navbar-horizontal .navbar-light .navbar-brand {
-    color: #32325d
+    color: #03277d
 }
 
 .navbar-horizontal .navbar-nav .nav-item .media:not(:last-child) {
