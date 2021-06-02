@@ -13,11 +13,13 @@ import { AppRoutingModule } from 'src/app/app.routing';
 import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AuthModule } from 'src/app/auth/auth.module';
+import { LandingComponent } from './landing.component';
 
 
 
 @NgModule({
   declarations: [
+    LandingComponent,
     CoursesComponent,
     CourseComponent,
     ContactComponent,

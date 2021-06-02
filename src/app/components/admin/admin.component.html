@@ -1,1 +1,91 @@
-<p>admin works!</p>
+<section class="section-profile-cover section-shaped my-0">
+  <!-- Circles background -->
+  <app-bubbles></app-bubbles>
+  <!-- SVG separator -->
+  <div class="separator separator-bottom separator-skew">
+    <svg
+      x="0"
+      y="0"
+      viewBox="0 0 2560 100"
+      preserveAspectRatio="none"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+    </svg>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="card card-profile shadow mt--300">
+      <div class="px-4 py-4">
+        <ngb-tabset
+          [justify]="'center'"
+          class="custom-tab-content flex-column flex-md-row"
+          type="pills"
+        >
+          <ngb-tab>
+            <ng-template ngbTabTitle>
+              <i class="ni ni-cloud-upload-96 mr-2"></i> Home
+            </ng-template>
+            <ng-template ngbTabContent>
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Country</th>
+                        <th scope="col">Area</th>
+                        <th scope="col">Population</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let country of countries; index as i">
+                        <th scope="row">{{ i + 1 }}</th>
+                        <td>
+                          <img
+                            [src]="
+                              'https://upload.wikimedia.org/wikipedia/commons/' +
+                              country.flag
+                            "
+                            class="mr-2"
+                            style="width: 20px"
+                          />
+                          {{ country.name }}
+                        </td>
+                        <td>{{ country.area | number }}</td>
+                        <td>{{ country.population | number }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle>
+              <i class="ni ni-bell-55 mr-2"></i> Profile
+            </ng-template>
+            <ng-template ngbTabContent>
+              <p class="description">
+                Cosby sweater eu banh mi, qui irure terry richardson ex squid.
+                Aliquip placeat salvia cillum iphone. Seitan aliquip quis
+                cardigan american apparel, butcher voluptate nisi qui.
+              </p>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle>
+              <i class="ni ni-calendar-grid-58 mr-2"></i> Messages
+            </ng-template>
+            <ng-template ngbTabContent>
+              <p class="description">
+                Raw denim you probably haven't heard of them jean shorts Austin.
+                Nesciunt tofu stumptown aliqua, retro synth master cleanse.
+                Mustache cliche tempor, williamsburg carles vegan helvetica.
+                Reprehenderit butcher retro keffiyeh dreamcatcher synth.
+              </p>
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+      </div>
+    </div>
+  </div>
+</section>

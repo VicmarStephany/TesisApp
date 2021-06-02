@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { LandingComponent } from './components/landing/landing.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
 
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent }, 
   { path: 'register', component: SignupComponent },
   { path: 'landing', component: LandingComponent },
-  
+  { path: 'admin-panel', component: AdminComponent },
+    
   //Ruta para ver
   { path: 'test', component: HomeComponent },
 
