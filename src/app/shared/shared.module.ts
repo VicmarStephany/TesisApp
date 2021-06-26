@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
@@ -20,14 +21,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CommonModule,
     NgbModule,
     RouterModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    BrowserModule
   ],
   exports:[
     SearchBarComponent,
     BubblesComponent,
     NavbarComponent,
     FooterComponent,
-
     FontAwesomeModule
   ]
 })

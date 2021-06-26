@@ -8,12 +8,13 @@ import { CourseComponent } from './courses/course/course.component';
 import { InformationBoardComponent } from './information-board/information-board.component';
 import { ContactComponent } from './contact/contact.component';
 import { InstitutionComponent } from './institution/institution.component';
+import { MainComponent } from './main/main.component';
 
 
-const routes: Routes = [
+const routesL: Routes = [
 
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'landing', component: LandingComponent },
+  { path: 'main', component: MainComponent},
+  //{ path: 'landing',  },
     
   { path: 'courses',
     children: [
@@ -30,9 +31,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes, {
-      useHash: true
-    })
+    RouterModule.forChild(routesL)
   ],
   exports: [
   ],

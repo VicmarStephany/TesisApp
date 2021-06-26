@@ -73,7 +73,7 @@
       </ul>
       <ul *ngIf="!user" class="navbar-nav align-items-lg-center ml-lg-auto">
         <li class="nav-item dropdown">
-          <a class="nav-link no-caret" [routerLink]="['/login']" role="button">
+          <a class="nav-link no-caret" [routerLink]="['/login']" role="button" target="_blank" >
             <i class="ni ni-collection d-lg-none"></i>
             <span class="nav-link-log nav-link-inner--text">Iniciar sesión</span>
           </a>
@@ -93,6 +93,7 @@
             <span class="nav-link-inner--text">{{user.nombres}}</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="profile">
+
             <a class="dropdown-item" [routerLink]="['/profile']">Perfil
             </a>
             <a class="dropdown-item" [routerLink]="['/profile/resume']">Mis cursos

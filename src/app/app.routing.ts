@@ -8,13 +8,21 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { LoginComponent } from './auth/login/login.component';
 
 const routes: Routes = [
 
+  {
+    path: 'home',
+    loadChildren: () => import('./components/landing/landing.module').then(m => m.LandingModule)
+  },
+
+
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: LandingComponent }, //HomeComponent
+  //{ path: 'home', component: LandingComponent }, //HomeComponent
   { path: 'profile', component: ProfileComponent }, 
-  { path: 'register', component: SignupComponent },
+  //{ path: 'login', component: LoginComponent },
+  //{ path: 'register', component: SignupComponent },
   { path: 'landing', component: LandingComponent },
   { path: 'admin-panel', component: AdminComponent },
     

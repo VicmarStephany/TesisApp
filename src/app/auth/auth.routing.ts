@@ -2,14 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
-import { AdminComponent } from './admin.component';
-
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'admin-panel', component: AdminComponent}
-
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: SignupComponent },
+    
 ];
 
 @NgModule({
@@ -21,4 +22,4 @@ const routes: Routes = [
   exports: [
   ],
 })
-export class AdminRoutingModule { }
+export class AuthRoutingModule { }

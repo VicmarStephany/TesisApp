@@ -14,7 +14,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AuthModule } from 'src/app/auth/auth.module';
 import { LandingComponent } from './landing.component';
-
+import { MainComponent } from './main/main.component';
+import { LandingRoutingModule } from './landing.routing';
 
 
 @NgModule({
@@ -25,18 +26,20 @@ import { LandingComponent } from './landing.component';
     ContactComponent,
     InformationBoardComponent,
     InstitutionComponent,
+    MainComponent,
   ],
   imports: [
     CommonModule,
-    BrowserModule,
+    //BrowserModule,
     NgbModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    AppRoutingModule,
+    //AppRoutingModule,
     SharedModule,
     AuthModule,
+    LandingRoutingModule
   ]
 })
 export class LandingModule { }

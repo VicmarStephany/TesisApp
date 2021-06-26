@@ -33,11 +33,10 @@ import { AdminModule } from './components/admin/admin.module';
     ReactiveFormsModule,
     RouterModule,
     AppRoutingModule,
-    HomeModule,
+    //HomeModule,
     SharedModule,
-    AuthModule,
-    LandingModule,
-    LandingRoutingModule,
+    //AuthModule,
+    //LandingModule,
     AdminModule
     
   ],

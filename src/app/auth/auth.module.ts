@@ -8,7 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
+import { AuthRoutingModule } from './auth.routing';
 
 @NgModule({
   declarations: [
@@ -23,6 +23,7 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     RouterModule,
     SharedModule,
+    AuthRoutingModule
   ],
   exports: [
     SignupComponent,    
