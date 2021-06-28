@@ -17,27 +17,29 @@ const routes: Routes = [
     loadChildren: () => import('./components/landing/landing.module').then(m => m.LandingModule)
   },
 
+  {
+    path: 'admin-panel',
+    loadChildren: () => import('./components/admin/admin.module').then(m => m.AdminModule)
+  },
 
+/*
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  //{ path: 'home', component: LandingComponent }, //HomeComponent
+  { path: 'home', component: LandingComponent },
   { path: 'profile', component: ProfileComponent }, 
-  //{ path: 'login', component: LoginComponent },
-  //{ path: 'register', component: SignupComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: SignupComponent },
   { path: 'landing', component: LandingComponent },
   { path: 'admin-panel', component: AdminComponent },
-    
-  //Ruta para ver
-  { path: 'test', component: HomeComponent },
+
+  { path: 'test', component: HomeComponent },*/
 
 ];
 
 @NgModule({
   imports: [
     CommonModule,
-    BrowserModule,
-    RouterModule.forRoot(routes, {
-      useHash: true
-    })
+    //BrowserModule,
+    RouterModule.forRoot(routes)
   ],
   exports: [
   ],

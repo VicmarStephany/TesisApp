@@ -30,7 +30,7 @@ const routesL: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    BrowserModule,
+    //BrowserModule,
     RouterModule.forChild(routesL)
   ],
   exports: [

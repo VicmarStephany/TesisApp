@@ -22,7 +22,7 @@ import { BrowserModule } from '@angular/platform-browser';
     NgbModule,
     RouterModule,
     FontAwesomeModule,
-    BrowserModule
+    //BrowserModule
   ],
   exports:[
     SearchBarComponent,
