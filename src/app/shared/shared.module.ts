@@ -7,7 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { BrowserModule } from '@angular/platform-browser';
+import { NavbarAuthComponent } from './navbar-auth/navbar-auth.component';
 
 
 @NgModule({
@@ -15,21 +15,23 @@ import { BrowserModule } from '@angular/platform-browser';
     SearchBarComponent,
     BubblesComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    NavbarAuthComponent
   ],
   imports: [
     CommonModule,
     NgbModule,
     RouterModule,
     FontAwesomeModule,
-    //BrowserModule
   ],
   exports:[
     SearchBarComponent,
     BubblesComponent,
     NavbarComponent,
     FooterComponent,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NavbarAuthComponent
+
   ]
 })
 export class SharedModule { }

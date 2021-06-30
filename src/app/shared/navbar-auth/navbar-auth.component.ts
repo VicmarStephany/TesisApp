@@ -3,22 +3,19 @@ import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Location, PopStateEvent } from '@angular/common';
 import { Courses } from 'src/app/utils/courses';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { HomeNav, HomeNavChilds } from 'src/app/utils/navbar-type';
 
 @Component({
-    selector: 'app-navbar',
-    templateUrl: './navbar.component.html',
-    styleUrls: ['./navbar.component.scss']
+    selector: 'app-navbar-auth',
+    templateUrl: './navbar-auth.component.html',
+    styleUrls: ['./navbar-auth.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarAuthComponent implements OnInit {
     public isCollapsed = true;
     private lastPoppedUrl: string;
     private yScrollStack: number[] = [];
     public user: any; 
 
     courses = Courses;
-    navbar = HomeNav;
-    navbarChild = HomeNavChilds;
 
     constructor(public location: Location, private router: Router, private authService: AuthService) {
     }

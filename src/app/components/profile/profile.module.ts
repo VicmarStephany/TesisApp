@@ -1,31 +1,30 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AdminComponent } from './admin.component';
-import { SharedModule } from 'src/app/shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { RouterModule, Routes } from '@angular/router';
+import { ProfileComponent } from './profile.component';
 
 const routes: Routes = [
-
-  //{ path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: '', component: AdminComponent},
-
-];
+  {
+    path: 'profile', component: ProfileComponent
+  }
+]
 
 @NgModule({
   declarations: [
-    AdminComponent
+    ProfileComponent
   ],
   imports: [
+    CommonModule,
     NgbModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forChild(routes),
-    CommonModule,
     SharedModule,
+    RouterModule.forChild(routes),
   ]
 })
-export class AdminModule { }
+export class ProfileModule { }

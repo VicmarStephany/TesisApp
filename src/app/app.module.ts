@@ -9,20 +9,18 @@ import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
-import { HomeModule } from './home/home.module';
 import { SharedModule } from './shared/shared.module';
 import { CommonModule } from '@angular/common';
-import { AuthModule } from './auth/auth.module';
+
 import { AuthService } from './services/auth/auth.service';
-import { LandingModule } from './components/landing/landing.module';
-import { LandingRoutingModule } from './components/landing/landing.routing';
-import { AdminModule } from './components/admin/admin.module';
+import { HomeModule } from './home/home.module';
+import { ProfileModule } from './components/profile/profile.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProfileComponent,
+    //ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,11 +31,9 @@ import { AdminModule } from './components/admin/admin.module';
     ReactiveFormsModule,
     RouterModule,
     AppRoutingModule,
-    //HomeModule,
     SharedModule,
-    //AuthModule,
-    //LandingModule,
-    AdminModule
+    HomeModule,
+    ProfileModule
     
   ],
   exports: [

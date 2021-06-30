@@ -19,8 +19,8 @@ export class AuthService {
         console.log(res['d']);
         localStorage.setItem('authToken', res['d'].token);
         localStorage.setItem('user', JSON.stringify(res['d']));
-        this.router.navigateByUrl('/profile');
-        location.reload();
+        this.router.navigateByUrl('/personal/profile');
+        //location.reload();
       }, (err) => {
         console.log(err)
       })
@@ -31,9 +31,9 @@ export class AuthService {
       (res) => {
         localStorage.removeItem('authToken');
         localStorage.removeItem('user');
-        this.router.navigateByUrl('/home');
-        location.reload();
         console.log(res);
+        this.router.navigateByUrl('/home');
+        //location.reload();
       },
       (err) =>{
         console.log(err);

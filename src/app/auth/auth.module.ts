@@ -3,12 +3,20 @@ import { CommonModule } from '@angular/common';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from '../services/auth/auth.service';
-import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from '../shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { AuthRoutingModule } from './auth.routing';
+
+const routes: Routes = [
+
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: SignupComponent },
+    
+];
+
 
 @NgModule({
   declarations: [
@@ -17,13 +25,11 @@ import { AuthRoutingModule } from './auth.routing';
   ],
   imports: [
     CommonModule,
-    //BrowserModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule,
+    RouterModule.forChild(routes),
     SharedModule,
-    AuthRoutingModule
   ],
   exports: [
     SignupComponent,    

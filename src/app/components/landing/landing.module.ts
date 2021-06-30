@@ -9,24 +9,27 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { AppRoutingModule } from 'src/app/app.routing';
-import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AuthModule } from 'src/app/auth/auth.module';
 import { LandingComponent } from './landing.component';
 import { MainComponent } from './main/main.component';
-import { LandingRoutingModule } from './landing.routing';
 
 const routesL: Routes = [
 
-  { path: '', component: MainComponent},
-  { path: 'courses/all', component: InformationBoardComponent},
-  { path: 'courses/:id', component: InformationBoardComponent},
-  { path: 'info-board', component: InformationBoardComponent},
-  { path: 'contact', component: ContactComponent},
-  { path: 'institution', component: InstitutionComponent},
-];
+  {
+    path: '', component: LandingComponent,
+    children: [
 
+      { path: 'home', component: MainComponent },
+      { path: 'courses/all', component: CoursesComponent },
+      { path: 'courses/:id', component: CourseComponent },
+      { path: 'info-board', component: InformationBoardComponent },
+      { path: 'contact', component: ContactComponent },
+      { path: 'institution', component: InstitutionComponent },
+    ]
+  },
+
+];
 
 @NgModule({
   declarations: [
@@ -40,16 +43,13 @@ const routesL: Routes = [
   ],
   imports: [
     CommonModule,
-    //BrowserModule,
     NgbModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule,
-    //AppRoutingModule,
     SharedModule,
     AuthModule,
-    RouterModule.forChild(routesL),    
+    RouterModule.forChild(routesL),
   ]
 })
 export class LandingModule { }

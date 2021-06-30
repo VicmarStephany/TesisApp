@@ -12,7 +12,6 @@ import { SectionsModule } from '../sections/sections.module';
 @NgModule({
     imports: [
         CommonModule,
-        //BrowserModule,
         FormsModule,
         RouterModule,
         SectionsModule

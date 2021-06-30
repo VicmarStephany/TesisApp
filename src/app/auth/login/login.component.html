@@ -1,3 +1,4 @@
+<app-navbar-auth></app-navbar-auth>
 <main>
   <section class="section section-shaped section-lg">
     <app-bubbles></app-bubbles>
@@ -26,7 +27,7 @@
             </div> -->
             <div class="card-body px-lg-5 py-lg-5">
               <div class="text-center text-muted mb-4">
-                <small>Iniciar Sesión</small>
+                <h2 class="mb-0">Iniciar sesión</h2>
               </div>
               <form [formGroup]="login" (submit)="submit()">
                 <div class="form-group mb-3" [ngClass]="{'focused':focus===true}">

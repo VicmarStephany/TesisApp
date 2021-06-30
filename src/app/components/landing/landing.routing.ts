@@ -14,7 +14,6 @@ import { MainComponent } from './main/main.component';
 const routesL: Routes = [
 
   { path: 'main', component: MainComponent},
-  //{ path: 'landing',  },
     
   { path: 'courses',
     children: [
@@ -31,7 +30,7 @@ const routesL: Routes = [
   imports: [
     CommonModule,
     //BrowserModule,
-    RouterModule.forChild(routesL)
+    //RouterModule.forChild(routesL)
   ],
   exports: [
   ],
