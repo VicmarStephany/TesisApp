@@ -6,17 +6,22 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
 
   //{ path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: '', component: AdminComponent},
+  { path: '', component: AdminComponent,
+    children: [
+      { path: 'dashboard', component: DashboardComponent }
+    ]},
 
 ];
 
 @NgModule({
   declarations: [
-    AdminComponent
+    AdminComponent,
+    DashboardComponent
   ],
   imports: [
     NgbModule,

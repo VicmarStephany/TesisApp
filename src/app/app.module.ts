@@ -15,6 +15,7 @@ import { CommonModule } from '@angular/common';
 import { AuthService } from './services/auth/auth.service';
 import { HomeModule } from './home/home.module';
 import { ProfileModule } from './components/profile/profile.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ProfileModule } from './components/profile/profile.module';
     AppRoutingModule,
     SharedModule,
     HomeModule,
-    ProfileModule
+    ProfileModule,
+    BrowserAnimationsModule
     
   ],
   exports: [

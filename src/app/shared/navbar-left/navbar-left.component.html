@@ -1,0 +1,90 @@
+<!--
+<div class="d-flex">
+  <ul
+    ngbNav
+    #nav="ngbNav"
+    [(activeId)]="active"
+    class="nav-pills"
+    orientation="vertical"
+  >
+    <li ngbNavItem="top">
+      <a ngbNavLink>Top</a>
+      <ng-template ngbNavContent>
+        <p>
+          Raw denim you probably haven't heard of them jean shorts Austin.
+          Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache
+          cliche tempor, williamsburg carles vegan helvetica. Reprehenderit
+          butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi,
+          qui irure terry richardson ex squid. Aliquip placeat salvia cillum
+          iphone. Seitan aliquip quis cardigan american apparel, butcher
+          voluptate nisi qui.
+        </p>
+      </ng-template>
+    </li>
+    <li ngbNavItem="middle">
+      <a ngbNavLink>Middle</a>
+      <ng-template ngbNavContent>
+        <p>
+          Exercitation +1 labore velit, blog sartorial PBR leggings next level
+          wes anderson artisan four loko farm-to-table craft beer twee. Qui
+          photo booth letterpress, commodo enim craft beer mlkshk aliquip jean
+          shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda
+          labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia
+          yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio
+          cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY
+          ethical culpa terry richardson biodiesel. Art party scenester
+          stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed
+          echo park.
+        </p>
+      </ng-template>
+    </li>
+    <li ngbNavItem="bottom">
+      <a ngbNavLink>Bottom</a>
+      <ng-template ngbNavContent>
+        <p>
+          Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget
+          sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae
+          odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu,
+          congue et odio. Duis pharetra et nisl at faucibus. Quisque luctus
+          pulvinar arcu, et molestie lectus ultrices et. Sed diam urna, egestas
+          ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu.
+          Vivamus faucibus nisl enim, nec tristique ipsum euismod facilisis.
+          Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque
+          penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+          Mauris aliquet odio ac lorem aliquet ultricies in eget neque.
+          Phasellus nec tortor vel tellus pulvinar feugiat.
+        </p>
+      </ng-template>
+    </li>
+  </ul>
+
+  <div [ngbNavOutlet]="nav" class="ml-4"></div>
+</div>
+-->
+
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+    <mat-toolbar color="primary" class="example-toolbar">
+      <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+      <h1 class="example-app-name">Responsive App</h1>
+    </mat-toolbar>
+  
+    <mat-sidenav-container class="example-sidenav-container"
+                           [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+        <mat-nav-list>
+          <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a>
+        </mat-nav-list>
+      </mat-sidenav>
+  
+      <mat-sidenav-content>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  
+
