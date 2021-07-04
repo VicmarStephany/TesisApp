@@ -7,21 +7,18 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 
 import { AppComponent } from './app.component';
-import { ProfileComponent } from './components/profile/profile.component';
 
 import { SharedModule } from './shared/shared.module';
 import { CommonModule } from '@angular/common';
 
 import { AuthService } from './services/auth/auth.service';
 import { HomeModule } from './home/home.module';
-import { ProfileModule } from './components/profile/profile.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    //ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +31,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     SharedModule,
     HomeModule,
-    ProfileModule,
     BrowserAnimationsModule
     
   ],

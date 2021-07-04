@@ -19,6 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     FooterComponent,
     NavbarAuthComponent,
     NavbarLeftComponent,
+    NavbarAdminComponent,
     SidebarComponent
   ],
   imports: [
@@ -53,6 +55,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     FontAwesomeModule,
     NavbarAuthComponent,
     NavbarLeftComponent,
+    NavbarAdminComponent,
     SidebarComponent
   ]
 })

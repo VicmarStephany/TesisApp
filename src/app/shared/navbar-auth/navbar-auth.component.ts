@@ -13,7 +13,6 @@ export class NavbarAuthComponent implements OnInit {
     public isCollapsed = true;
     private lastPoppedUrl: string;
     private yScrollStack: number[] = [];
-    public user: any; 
 
     courses = Courses;
 
@@ -37,8 +36,6 @@ export class NavbarAuthComponent implements OnInit {
         this.location.subscribe((ev: PopStateEvent) => {
             this.lastPoppedUrl = ev.url;
         });
-        this.user = JSON.parse(localStorage.getItem('user'));
-        console.log(this.user)
     }
 
     isHome() {
@@ -70,9 +67,4 @@ export class NavbarAuthComponent implements OnInit {
         }
     }
 
-    logOut(){
-        this.authService.logOut();
-       // this.router.navigateByUrl('/home');
-        //location.reload()
-    }
 }
