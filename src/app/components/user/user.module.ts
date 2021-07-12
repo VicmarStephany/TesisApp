@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AcademicDataComponent } from './student/academic-data/academic-data.component';
 
 const routes: Routes = [
 
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: '', component: UserComponent,
     children: [
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'profile', component: ProfileComponent}
+      { path: 'profile', component: ProfileComponent},
+      { path: 'academic', component: AcademicDataComponent}
     ]},
 
 ];
@@ -23,7 +25,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     UserComponent,
-    DashboardComponent
+    DashboardComponent,
+    AcademicDataComponent,
   ],
   imports: [
     NgbModule,

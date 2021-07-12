@@ -1,13 +1,10 @@
 //
 // Vertical navbar
 //
-
-
-// Vertical
-//
 // Creates a vertically aligned version of the navbar
 .navbar-vertical {
-    box-shadow: $navbar-vertical-box-shadow;
+    //box-shadow: $navbar-vertical-box-shadow;
+    box-shadow: 3px 15px 35px rgb(50 50 93 / 10%), 0 5px 15px rgb(0 0 0 / 7%) !important;
     
     .navbar {
         border-width: 0 0 1px 0;

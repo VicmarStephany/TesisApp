@@ -1,9 +1,9 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
 import { User } from 'src/app/utils/user.model';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { StudentMenu } from 'src/app/utils/sidebar-menu';
 
 @Component({
   selector: 'app-navbar-admin',
@@ -15,6 +15,7 @@ export class NavbarAdminComponent implements OnInit {
   public user: User;
   public listTitles: any[];
   public location: Location;
+  public personal: Array<any> =[];
 
   constructor(location: Location, private element: ElementRef, 
       private router: Router, private authService: AuthService) {
@@ -22,19 +23,24 @@ export class NavbarAdminComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.listTitles = ROUTES.filter(listTitle => listTitle);
+    this.personal = [{title:"Mi Perfil", path:"/profile"}, {title:"Configuración", path:"/profile"}];
+    this.listTitles = StudentMenu.filter(listTitle => listTitle);
     this.user = JSON.parse(localStorage.getItem('user'));
     console.log(this.user)
   }
   getTitle() {
     var titlee = this.location.prepareExternalUrl(this.location.path());
-    if (titlee.charAt(0) === '#') {
-      titlee = titlee.slice(1);
+    if (titlee.charAt(11) === '/') {
+      titlee = titlee.slice(11);
     }
 
     for (var item = 0; item < this.listTitles.length; item++) {
       if (this.listTitles[item].path === titlee) {
         return this.listTitles[item].title;
+      } else {
+        if (this.personal[item].path === titlee) {
+          return this.personal[item].title;
+        }
       }
     }
     return 'Dashboard';
