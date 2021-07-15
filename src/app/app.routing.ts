@@ -17,13 +17,8 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
-/* {
-    path: 'personal', 
-    loadChildren: () => import('./components/profile/profile.module').then(m => m.ProfileModule)
-    //canActivate: 
-  },
-  */ 
-  { path: 'test', component: HomeComponent }
+
+  { path: 'test', component: HomeComponent }//For testing purposes 
 
 ];
 

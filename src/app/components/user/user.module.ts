@@ -9,6 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AcademicDataComponent } from './student/academic-data/academic-data.component';
+import { PaymentComponent } from './student/payment/payment.component';
 
 const routes: Routes = [
 
@@ -17,7 +18,8 @@ const routes: Routes = [
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'profile', component: ProfileComponent},
-      { path: 'academic', component: AcademicDataComponent}
+      { path: 'academic', component: AcademicDataComponent},
+      { path: 'payment', component: PaymentComponent}
     ]},
 
 ];
@@ -27,6 +29,7 @@ const routes: Routes = [
     UserComponent,
     DashboardComponent,
     AcademicDataComponent,
+    PaymentComponent,
   ],
   imports: [
     NgbModule,

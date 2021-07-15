@@ -1,0 +1,26 @@
+.info {
+    display: flex;
+    flex-wrap: wrap;
+    p{
+        font-size: 0.875rem;
+        margin: 0px !important;
+    }
+    ul{
+        margin: 0px;
+    }
+
+    .col-md-6 {
+        flex-wrap: wrap;
+    }
+}
+
+.table-responsive {
+    border-radius: 0.25rem;
+    box-shadow: 0 15px 35px rgb(50 50 93 / 10%), 0 5px 15px rgb(0 0 0 / 7%) !important;
+}
+
+.shape {
+    span {
+        position: inherit !important;
+    }
+}
