@@ -223,6 +223,7 @@
 
                     .navbar-nav .nav-link {
                         padding: $navbar-vertical-nav-link-padding-y $navbar-vertical-nav-link-padding-x;
+                        font-weight: $font-weight-bold;
 
                         &.active {
                             &:before {

@@ -1,3 +1,4 @@
+@import '../bootstrap/functions';
 
 // Global settings
 
@@ -321,6 +322,7 @@ $font-size-xs:                ($font-size-base * .75);
 
 $font-weight-light:           300 !default;
 $font-weight-normal:          400 !default;
+$font-weight-regular:         500 !default;
 $font-weight-bold:            600 !default;
 $font-weight-extra-bold:      700 !default;
 
