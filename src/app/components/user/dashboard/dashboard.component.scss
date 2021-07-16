@@ -1,4 +1,29 @@
+@import '/src/assets/scss/custom/variables.scss';
 
 .section-profile-cover {
-    height: 300px !important;
+    height: 0px;
+}
+
+.info {
+    display: flex;
+    flex-wrap: wrap;
+    p{
+        font-size: 0.875rem;
+        margin: 0px !important;
+        color: $gray-800;
+        font-weight: $font-weight-regular;
+    }
+    ul{
+        margin: 0px;
+        padding: 1rem 0px;
+    }
+    .col-md-6 {
+        flex-wrap: wrap;
+        display: flex;
+        padding-left: 0px;
+    }
+}
+
+img {
+    max-width: 100px;
 }

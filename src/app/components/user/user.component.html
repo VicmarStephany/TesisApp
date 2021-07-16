@@ -2,7 +2,7 @@
 <app-sidebar [menu]="menu"></app-sidebar>
 <div class="main-content">
   <!-- Top navbar -->
-  <app-navbar-admin></app-navbar-admin>
+  <app-navbar-admin [menu]="menu"></app-navbar-admin>
   <!-- Pages -->
   <router-outlet></router-outlet>
   <div class="container-fluid">

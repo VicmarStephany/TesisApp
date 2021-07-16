@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StudentMenu } from 'src/app/utils/sidebar-menu';
+import { CoordMenu, StudentMenu } from 'src/app/utils/sidebar-menu';
 import { Menu } from 'src/app/utils/sidebar.model';
 
 @Component({
@@ -9,12 +9,32 @@ import { Menu } from 'src/app/utils/sidebar.model';
 })
 export class UserComponent implements OnInit {
 
+  type: number = 3;
+
   menu: Array<Menu>;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.menu = StudentMenu;
+    this.setMenu(this.type);
+  }
+
+  setMenu(n){
+    switch (n) {
+      case 1:
+        this.menu = StudentMenu;
+        break;
+      case 2:
+        //this.menu = AdminMenu;
+        break;
+      case 3:
+        this.menu = CoordMenu;
+        break;
+      case 4:
+        //this.menu = ProfMenu;
+      default:
+        break;
+    }
   }
 
 }

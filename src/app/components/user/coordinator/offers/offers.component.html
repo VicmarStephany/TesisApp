@@ -1,0 +1,62 @@
+<section class="section-shaped my-0">
+  <div class="shape mt-5 p-3">
+    <div class="card shadow border-0">
+      <div class="card-body py-3">
+        <div class="header-card col-md-12 p-0">
+          <h2 class="mt-2">Lista de oferta académica</h2>
+          <button type="button" class="btn btn-primary" [routerLink]="['/user-panel/offers/create']">Nueva Oferta</button>
+        </div>
+        <hr class="m-3" />
+        <div class="">
+          <div class="form-group mt-3">
+            <label>Programa: </label>
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option *ngFor="let type of typeList">{{ type }}</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Duración</th>
+                <th scope="col">Modalidad</th>
+                <th scope="col">Sede</th>
+                <th scope="col">Pensum</th>
+                <th scope="col">Aranceles</th>
+                <th scope="col">Editar/Eliminar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>123</th>
+                <td>Doctorado en Ciencias</td>
+                <td>Doctorado en ciencias descripción</td>
+                <td>6 meses</td>
+                <td>A distancia</td>
+                <td>Vicerrectorado Puerto Ordaz</td>
+                <td>link</td>
+                <td>Pendiente</td>
+                <td>
+                  <button class="btn btn-icon btn-2 btn-primary" type="button">
+                    <span class="btn-inner--icon">
+                        <i class="ni ni-ruler-pencil"></i>
+                    </span>
+                  </button>
+                  <button class="btn btn-icon btn-2 btn-primary" type="button">
+                    <span class="btn-inner--icon">
+                        <i class="ni ni-fat-remove"></i>
+                    </span>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

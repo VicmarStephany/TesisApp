@@ -101,3 +101,11 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
+.header-card {
+    h2 {
+        font-weight: $font-weight-normal;
+        color: $gray-900;
+    }
+    
+}

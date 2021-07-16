@@ -10,17 +10,37 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AcademicDataComponent } from './student/academic-data/academic-data.component';
 import { PaymentComponent } from './student/payment/payment.component';
+import { OffersComponent } from './coordinator/offers/offers.component';
+import { StudentsComponent } from './coordinator/students/students.component';
+import { PaymentsComponent } from './coordinator/payments/payments.component';
+import { NotesComponent } from './coordinator/notes/notes.component';
+import { OfferEditComponent } from './coordinator/offers/offer-edit/offer-edit.component';
 
 const routes: Routes = [
 
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '', component: UserComponent,
     children: [
+      // Students routes
       { path: 'dashboard', component: DashboardComponent },
       { path: 'profile', component: ProfileComponent},
       { path: 'academic', component: AcademicDataComponent},
-      { path: 'payment', component: PaymentComponent}
-    ]},
+      { path: 'payment', component: PaymentComponent},
+
+      // Coord Routes
+      { path: 'offers', component: OffersComponent,
+        children: [
+          { path: 'edit', component: OfferEditComponent},
+          { path: 'create', component: OfferEditComponent},
+        ]
+      },
+      { path: 'students', component: StudentsComponent},
+      { path: 'notes', component: NotesComponent},
+      { path: 'payments', component: PaymentsComponent}
+
+
+    ],
+  },
 
 ];
 
@@ -30,6 +50,12 @@ const routes: Routes = [
     DashboardComponent,
     AcademicDataComponent,
     PaymentComponent,
+    ProfileComponent,
+    OffersComponent,
+    StudentsComponent,
+    PaymentsComponent,
+    NotesComponent,
+    OfferEditComponent
   ],
   imports: [
     NgbModule,
