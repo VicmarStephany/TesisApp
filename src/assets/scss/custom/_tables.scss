@@ -17,6 +17,10 @@
     }
 
     td {
+
+        color: $black !important;
+        font-size: $font-size-sm !important;
+
         .progress {
             height: 3px;
             width: 120px;

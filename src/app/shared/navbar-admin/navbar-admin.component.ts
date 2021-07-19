@@ -26,7 +26,7 @@ export class NavbarAdminComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.personal = [{ title: "Mi Perfil", path: "/profile" }, { title: "Configuración", path: "/profile" }];
+    this.personal = [{ title: "Mi Perfil", path: "/profile" }, { title: "Configuración", path: "/settings" }];
     this.listTitles = this.menu.filter(listTitle => listTitle);
     this.user = JSON.parse(localStorage.getItem('user'));
     console.log(this.user)
@@ -35,13 +35,15 @@ export class NavbarAdminComponent implements OnInit {
     var titlee = this.location.prepareExternalUrl(this.location.path());
     if (titlee.charAt(11) === '/') {
       titlee = titlee.slice(11);
+      if (titlee.indexOf('/', 1) > 0) {
+        titlee = titlee.slice(0, titlee.indexOf('/', 1));
+      }
     }
 
     for (var item = 0; item <= this.listTitles.length; item++) {
       if (this.listTitles[item].path === titlee) {
         return this.listTitles[item].title;
       } else {
-
         let personalT = this.testPersonalMenu(titlee, item);
         if (personalT != false) {
           return personalT;

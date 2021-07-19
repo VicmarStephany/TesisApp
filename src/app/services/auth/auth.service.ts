@@ -19,7 +19,7 @@ export class AuthService {
         console.log(res['d']);
         localStorage.setItem('authToken', res['d'].token);
         localStorage.setItem('user', JSON.stringify(res['d']));
-        this.router.navigateByUrl('/user-panel/dashboard');
+        this.router.navigateByUrl('/user-panel/profile');
         //location.reload();
       }, (err) => {
         console.log(err)

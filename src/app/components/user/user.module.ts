@@ -15,6 +15,7 @@ import { StudentsComponent } from './coordinator/students/students.component';
 import { PaymentsComponent } from './coordinator/payments/payments.component';
 import { NotesComponent } from './coordinator/notes/notes.component';
 import { OfferEditComponent } from './coordinator/offers/offer-edit/offer-edit.component';
+import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
 
@@ -28,15 +29,12 @@ const routes: Routes = [
       { path: 'payment', component: PaymentComponent},
 
       // Coord Routes
-      { path: 'offers', component: OffersComponent,
-        children: [
-          { path: 'edit', component: OfferEditComponent},
-          { path: 'create', component: OfferEditComponent},
-        ]
-      },
+      { path: 'offers', component: OffersComponent},
+      { path: 'offers/:id', component: OfferEditComponent},
       { path: 'students', component: StudentsComponent},
       { path: 'notes', component: NotesComponent},
-      { path: 'payments', component: PaymentsComponent}
+      { path: 'payments', component: PaymentsComponent},
+      { path: 'settings', component: SettingsComponent}
 
 
     ],
@@ -55,7 +53,8 @@ const routes: Routes = [
     StudentsComponent,
     PaymentsComponent,
     NotesComponent,
-    OfferEditComponent
+    OfferEditComponent,
+    SettingsComponent
   ],
   imports: [
     NgbModule,
