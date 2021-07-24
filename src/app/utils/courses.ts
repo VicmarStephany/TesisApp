@@ -17,3 +17,9 @@ export const Modes = [
     {id: 2, name: 'Remoto' },
     {id: 3, name: 'Semipresencial'}
 ]
+
+export const StatusPay = [
+    {id: 1, name: 'Aprobado'},
+    {id: 2, name: 'En Proceso'},
+    {id: 3, name: 'Rechazado'}
+]

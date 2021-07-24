@@ -43,7 +43,7 @@
         height: 100%;
 
         span {
-            position: absolute;
+            position: inherit;
         }
 
         +.container {

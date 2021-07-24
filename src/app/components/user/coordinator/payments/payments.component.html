@@ -1,1 +1,75 @@
-<p>payments works!</p>
+<section class="section-shaped my-0">
+    <div class="shape mt-5 p-3">
+      <div class="card shadow border-0">
+        <div class="card-body py-3">
+          <div class="header-card col-md-12 p-0">
+            <h2 class="mt-2">Listado pago de estudiantes</h2>
+            <!-- <button
+              type="button"
+              class="btn btn-primary"
+              [routerLink]="['/user-panel/offers/create']"
+            >
+              Nueva Oferta
+            </button> -->
+          </div>
+          <hr class="m-3" />
+          <div class="row col-md-12 p-0">
+            <div class="form-group mt-3 col-md-3">
+              <label>Programa: </label>
+              <select class="form-control" >
+                <option *ngFor="let type of typeList">{{ type }}</option>
+              </select>
+            </div>
+            <div class="form-group mt-3 col-md-3">
+                <label>Estatus de pago: </label>
+                <select class="form-control" >
+                  <option *ngFor="let status of statusList">{{ status.name }}</option>
+                </select>
+              </div>
+
+          </div>
+          <div class="table-responsive mt-3">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">ID de pago</th>
+                  <th scope="col">Cédula</th>
+                  <th scope="col">Apellidos y Nombres</th>
+                  <th scope="col">Programa</th>
+                  <th scope="col">Estatus de pago</th>
+                  <th scope="col">Aranceles</th>
+                  <th scope="col">Comprobante de pago</th>
+                  <th scope="col">Aprobar/Rechazar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>123</th>
+                  <td>22.222.222</td>
+                  <td>Rojas Rojas Vicmar Stephany</td>
+                  <td>Doctorado en ciencias</td>
+                  <td>Aprobado</td>
+                  <td>Bs. 4.525.785</td>
+                  <td>Link</td>
+                  <td class="d-flex j-center">
+                    <button class="btn btn-icon btn-2 btn-success" type="button" placement="top" ngbTooltip="Aprobar">
+                      <span class="btn-inner--icon">
+                        <i class="ni ni-check-bold"></i>
+                      </span>
+                    </button>
+                    <button class="btn btn-icon btn-2 btn-danger" type="button"  placement="top" ngbTooltip="Rechazar">
+                      <span class="btn-inner--icon">
+                        <i class="ni ni-fat-remove"></i>
+                      </span>
+                    </button>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

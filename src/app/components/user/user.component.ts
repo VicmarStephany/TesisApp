@@ -9,7 +9,7 @@ import { Menu } from 'src/app/utils/sidebar.model';
 })
 export class UserComponent implements OnInit {
 
-  type: number = 3;
+  type: number = 1;
 
   menu: Array<Menu>;
 

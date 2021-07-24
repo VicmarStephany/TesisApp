@@ -1,27 +1,10 @@
 <main class="profile-page">
-  <section class="section-profile-cover section-shaped my-0">
-    <!-- Circles background -->
-    <app-bubbles></app-bubbles>
-    <!-- SVG separator -->
-    <div class="separator separator-bottom separator-skew">
-      <svg
-        x="0"
-        y="0"
-        viewBox="0 0 2560 100"
-        preserveAspectRatio="none"
-        version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
-      </svg>
-    </div>
-  </section>
-  <section class="section">
-    <div class="container">
-      <div class="card card-profile shadow mt--300">
-        <div class="px-4">
-          <div class="mt-5 d-flex col-sm-12">
-            <div class="col-sm-2">
+  <section class="section-shaped my-0">
+    <div class="mt-5 p-3">
+      <div class="card shadow border-0">
+        <div class="card-body py-3">
+          <div class="mt-3 px-0 d-flex col-sm-12">
+            <div class="col-sm-2 px-0">
               <img
                 src="./assets/img/theme/team-1-800x800.jpg"
                 alt="Rounded image"
@@ -29,78 +12,86 @@
                 style="width: 100px"
               />
             </div>
-            <div class="col-sm-10 wrap">
-              <div class="m-3 font-weight-400">
-                <h5>Nombres y Apellidos</h5>
-                <p>{{ user.nombres }}</p>
+            <div class="info col-sm-10 wrap px-0">
+              <div class="col-md-6">
+                <ul>
+                  <p>Cédula de identidad:</p>
+                  <p>Nombres:</p>
+                  <p>Apellidos:</p>
+                  <p>Expediente:</p>
+                  <p>Correo electrónico</p>
+                </ul>
               </div>
-              <div class="p-3 font-weight-400">
-                <h5>Nombres y Apellidos</h5>
-                <p >{{ user.nombres }}</p>
+              <div class="col-md-6">
+                <ul>
+                  <p>Programa:</p>
+                  <p>Unidades de crédito cursadas:</p>
+                  <p>Unidades de crédito aprobadas:</p>
+                  <p>Índice académico:</p>
+                </ul>
               </div>
+
             </div>
           </div>
-          <div class="mt-3 pt-3 pb-5 border-top text-center">
-            <div class="container">
-              <div class="row justify-content-center">
-                <div class="col-lg">
-                  <!-- Tabs with icons -->
-                  <ngb-tabset
-                    [justify]="'center'"
-                    class="custom-tab-content flex-column flex-md-row"
-                    type="pills"
-                  >
-                    <ngb-tab>
-                      <ng-template ngbTabTitle>
-                        <i class="ni ni-cloud-upload-96 mr-2"></i> Home
-                      </ng-template>
-                      <ng-template ngbTabContent>
-                        <p class="description">
-                          Raw denim you probably haven't heard of them jean
-                          shorts Austin. Nesciunt tofu stumptown aliqua, retro
-                          synth master cleanse. Mustache cliche tempor,
-                          williamsburg carles vegan helvetica. Reprehenderit
-                          butcher retro keffiyeh dreamcatcher synth.
-                        </p>
-                        <p class="description">
-                          Raw denim you probably haven't heard of them jean
-                          shorts Austin. Nesciunt tofu stumptown aliqua, retro
-                          synth master cleanse.
-                        </p>
-                      </ng-template>
-                    </ngb-tab>
-                    <ngb-tab>
-                      <ng-template ngbTabTitle>
-                        <i class="ni ni-bell-55 mr-2"></i> Profile
-                      </ng-template>
-                      <ng-template ngbTabContent>
-                        <p class="description">
-                          Cosby sweater eu banh mi, qui irure terry richardson
-                          ex squid. Aliquip placeat salvia cillum iphone. Seitan
-                          aliquip quis cardigan american apparel, butcher
-                          voluptate nisi qui.
-                        </p>
-                      </ng-template>
-                    </ngb-tab>
-                    <ngb-tab>
-                      <ng-template ngbTabTitle>
-                        <i class="ni ni-calendar-grid-58 mr-2"></i> Messages
-                      </ng-template>
-                      <ng-template ngbTabContent>
-                        <p class="description">
-                          Raw denim you probably haven't heard of them jean
-                          shorts Austin. Nesciunt tofu stumptown aliqua, retro
-                          synth master cleanse. Mustache cliche tempor,
-                          williamsburg carles vegan helvetica. Reprehenderit
-                          butcher retro keffiyeh dreamcatcher synth.
-                        </p>
-                      </ng-template>
-                    </ngb-tab>
-                  </ngb-tabset>
-                </div>
+          <hr class="m-3" />
+          <!-- <div class="mt-3 pt-3 pb-5 border-top text-center">
+            <div class="row justify-content-center">
+              <div class="col-lg">
+                <ngb-tabset
+                  [justify]="'center'"
+                  class="custom-tab-content flex-column flex-md-row"
+                  type="pills"
+                >
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <i class="ni ni-cloud-upload-96 mr-2"></i> Home
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <p class="description">
+                        Raw denim you probably haven't heard of them jean shorts
+                        Austin. Nesciunt tofu stumptown aliqua, retro synth
+                        master cleanse. Mustache cliche tempor, williamsburg
+                        carles vegan helvetica. Reprehenderit butcher retro
+                        keffiyeh dreamcatcher synth.
+                      </p>
+                      <p class="description">
+                        Raw denim you probably haven't heard of them jean shorts
+                        Austin. Nesciunt tofu stumptown aliqua, retro synth
+                        master cleanse.
+                      </p>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <i class="ni ni-bell-55 mr-2"></i> Profile
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <p class="description">
+                        Cosby sweater eu banh mi, qui irure terry richardson ex
+                        squid. Aliquip placeat salvia cillum iphone. Seitan
+                        aliquip quis cardigan american apparel, butcher
+                        voluptate nisi qui.
+                      </p>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <i class="ni ni-calendar-grid-58 mr-2"></i> Messages
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <p class="description">
+                        Raw denim you probably haven't heard of them jean shorts
+                        Austin. Nesciunt tofu stumptown aliqua, retro synth
+                        master cleanse. Mustache cliche tempor, williamsburg
+                        carles vegan helvetica. Reprehenderit butcher retro
+                        keffiyeh dreamcatcher synth.
+                      </p>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Courses, StatusPay } from 'src/app/utils/courses';
 
 @Component({
   selector: 'app-payments',
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./payments.component.scss']
 })
 export class PaymentsComponent implements OnInit {
+  
+  public typeList: Array<string> = Courses;
+  public statusList: Array<any> = StatusPay;
+
 
   constructor() { }
 
