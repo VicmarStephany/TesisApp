@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CoordMenu, StudentMenu } from 'src/app/utils/sidebar-menu';
+import { AdminMenu, CoordMenu, ProfeMenu, StudentMenu } from 'src/app/utils/sidebar-menu';
 import { Menu } from 'src/app/utils/sidebar.model';
 
 @Component({
@@ -11,7 +11,7 @@ export class UserComponent implements OnInit {
 
   type: number = 1;
 
-  menu: Array<Menu>;
+  menu: Array<Menu>; 
 
   constructor() { }
 
@@ -25,13 +25,13 @@ export class UserComponent implements OnInit {
         this.menu = StudentMenu;
         break;
       case 2:
-        //this.menu = AdminMenu;
+        this.menu = AdminMenu;
         break;
       case 3:
         this.menu = CoordMenu;
         break;
       case 4:
-        //this.menu = ProfMenu;
+        this.menu = ProfeMenu;
       default:
         break;
     }

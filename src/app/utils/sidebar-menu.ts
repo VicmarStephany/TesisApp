@@ -5,11 +5,19 @@ export const StudentMenu: Menu[] = [
   { path: '/academic', title: 'Datos Académicos', icon: 'ni-hat-3 text-blue', class: '' },
   { path: '/payment', title: 'Registro de Pago', icon: 'ni-credit-card text-orange', class: '' },
 ];
+//hacer este de abajo bien 
+export const AdminMenu: Menu[] = [
+  { path: '/users', title: 'Consultar usuarios', icon: 'ni-single-02', class: ''},
+  { path: '/v-classroom', title: 'Aulas virtuales', icon: 'ni-laptop', class: ''}, 
+  { path: '/user-role', title: 'Roles de usuario', icon: 'ni-key-25', class: ''},
+]
 
-//{ path: '/', title: '',  icon:'ni-single-02 text-yellow', class: '' },
-//{ path: '/tables', title: 'Tables',  icon:'ni-bullet-list-67 text-red', class: '' },
-//{ path: '/login', title: 'Login',  icon:'ni-key-25 text-info', class: '' },
-//{ path: '/register', title: 'Register',  icon:'ni-circle-08 text-pink', class: '' }
+export const ProfeMenu: Menu[] = [
+  { path: '/grades', title: 'Actas', icon: 'ni-paper-diploma', class: ''},  
+  { path: '/notes', title: 'Reporte de notas', icon: 'ni-chart-bar-32', class: ''},
+  { path: '/students', title: 'Estudiantes', icon: 'ni-badge', class: ''}, 
+  { path: '/virtual-classroom', title: 'Aulas virtuales', icon: 'ni-badge', class: ''},
+]
 
 export const CoordMenu: Menu[] = [
   { path: '/offers', title: 'Oferta académica', icon: 'ni-paper-diploma', class: ''},
@@ -18,6 +26,3 @@ export const CoordMenu: Menu[] = [
   { path: '/payments', title: 'Pagos', icon: 'ni-credit-card text-orange', class: ''}
   
 ]
-
-//{ path: '/', title: 'Aranceles', icon: '', class: ''},
-//{ path: '/', title: 'Ofertas', icon: '', class: ''}

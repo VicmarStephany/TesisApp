@@ -1,83 +1,136 @@
 <section class="section-shaped my-0">
-    <div class="shape mt-5 p-3">
-      <div class="card shadow border-0">
-        <div class="card-body py-3">
-          <div class="header-card col-md-12 p-0">
-            <h2 class="mt-2">Registrar pago</h2>
-          </div>
-          <hr class="m-3" />
+  <div class="shape mt-5 p-3">
+    <div class="card shadow border-0">
+      <div class="card-body py-3">
+        <div class="header-card col-md-12 p-0">
+          <h2 class="mt-2">Registrar pago</h2>
         </div>
-        <div class="p-3">
-          <h2 class="px-3">Actualizar datos</h2>
-          <div class="row col-md-12">
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>Nuevo correo electrónico:</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Correo electrónico"
-                />
-              </div>
+        <hr class="m-3" />
+      </div>
+      <div class="p-3">
+        <form [formGroup]="paymentForm" (submit)="submit()">
+        <div class="row col-md-12">
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Tipo de pago</label>
+              <select class="form-control" formControlName="type">
+                <option *ngFor="let method of methodList">
+                  {{ method.name }}
+                </option>
+              </select>
             </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>Nuevo número de teléfono:</label>
+          </div>
+          <div class="col-md-3">
+            <label>Fecha de pago: </label>
+            <div class="form-group" [ngClass]="{ focused: focus2 === true }">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="ni ni-calendar-grid-58"></i
+                  ></span>
+                 </div><!--[(ngModel)]="model" -->
                 <input
+                  class="form-control datepicker"
+                  placeholder="Ingresar fecha"
+                  name="dp"
+                  formControlName="date"
+                  ngbDatepicker
+                  #d="ngbDatepicker"
+                  (click)="d.toggle()"
+                  (focus)="focus2 = true"
+                  (blur)="focus2 = false"
                   type="text"
-                  class="form-control"
-                  placeholder="Teléfono"
-                />
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>Nueva dirección:</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Dirección"
+                  autocomplete="off"
                 />
               </div>
             </div>
           </div>
-          <div class="d-flex j-center mt-2">
-            <button class="f-button btn btn-success" type="submit">
-              Actualizar
-            </button>
-          </div>
-        </div>
-        <div class="p-3">
-          <h2 class="px-3">Cambiar contraseña</h2>
-          <div class="row col-md-12">
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>Contraseña actual:</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Contraseña actual"
-                />
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>Nueva contraseña:</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Nueva contraseña"
-                />
-              </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Banco origen: </label>
+              <select class="form-control" formControlName="fromBank">
+                <option *ngFor="let bank of bankList">
+                  {{ bank.name }}
+                </option>
+              </select>
             </div>
           </div>
-          <div class="d-flex j-center mt-2">
-            <button class="f-button btn btn-success" type="submit">
-              Actualizar
-            </button>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Banco destino: </label>
+              <select class="form-control" formControlName="toBank">
+                <option *ngFor="let bank of bankList">
+                  {{ bank.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>N° de transacción: </label>
+              <input type="text" class="form-control" formControlName="transactionId" placeholder="Número de transacción" />
+            </div>
           </div>
         </div>
+        <div class="d-flex j-center mt-2">
+          <button [disabled]="paymentForm.invalid"  class="f-button btn btn-success" type="submit">
+            Enviar
+          </button>
+        </div>
+      </form>
       </div>
     </div>
-  </section>
-  
+    <div class="card shadow border-0 mt-3">
+      <div class="card-body py-3">
+        <div class="header-card col-md-12 p-0">
+          <h2 class="mt-2">Pagos registrados</h2>
+        </div>
+        <hr class="m-3" />
+      </div>
+      <div class="p-3">
+      <div class="table-responsive">
+        <table class="table align-items-center table-flush">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Fecha</th>
+              <th scope="col">Nro referencia</th>
+              <th scope="col">Banco/Método</th>
+              <th scope="col">Monto</th>
+              <th scope="col">Estatus</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">
+                <div class="media align-items-center">
+                  <div class="media-body">
+                    <span class="mb-0 text-sm">12/06/2021</span>
+                  </div>
+                </div>
+              </th>
+              <td>516546785</td>
+              <td>Banesco</td>
+              <td>Bs. 15.000</td>
+              <td>Aprobado</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <div class="media align-items-center">
+                  <div class="media-body">
+                    <span class="mb-0 text-sm">12/08/2021</span>
+                  </div>
+                </div>
+              </th>
+              <td>5165796789</td>
+              <td>Banesco</td>
+              <td>Bs. 15.000</td>
+              <td>Aprobado</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+
+    </div>
+  </div>
+</section>
