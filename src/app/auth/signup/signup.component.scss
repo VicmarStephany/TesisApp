@@ -1,0 +1,19 @@
+
+.d-flex {
+    flex-wrap: wrap;
+
+    label{
+        font-size: 0.9rem;
+        color: #0034af;
+        font-weight: 500;
+
+        span {
+            color: red;
+        }
+    }
+
+    .input-group{
+        min-width: 220px;
+    }
+}
+

@@ -7,7 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthRoutingModule } from './auth.routing';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
 
@@ -25,6 +25,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
+    NgbModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
