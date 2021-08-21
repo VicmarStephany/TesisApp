@@ -1,0 +1,70 @@
+<section class="section-shaped my-0">
+    <div class="shape mt-5 p-3">
+      <div class="card shadow border-0">
+        <div class="card-body py-3">
+          <div class="header-card col-md-12 p-0">
+            <h2 class="mt-2">Usuarios registrados</h2>
+          </div>
+          <hr class="m-3" />
+          <div class="row col-md-12 p-0">
+            <div class="form-group mt-3 col-md-3">
+              <label>Usuario: </label>
+              <select class="form-control" >
+                  <option *ngFor="let user of userType">{{ user.name }}</option>
+                </select>
+            </div>
+            <div class="form-group mt-3 col-md-3">
+              <label>Programa: </label>
+              <select class="form-control" >
+                  <option *ngFor="let type of typeList">{{ type }}</option>
+              </select>
+            </div>
+            <div class="form-group mt-3 col-md-3">
+              <label>Cédula: </label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Nro de Cédula"
+              />
+            </div>
+          </div>
+          <div class="table-responsive mt-3">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">N° Cédula</th>
+                  <th scope="col">Nombres y Apellidos</th>
+                  <th scope="col">Programa</th>
+                  <th scope="col">Título</th>
+                  <th scope="col">Role</th>      
+                  <th scope="col">Editar</th>      
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>V-26.562.875</th>
+                  <td>Rojas Rojas Vicmar Stephany</td>
+                  <td>Doctorado</td>
+                  <td>Doctorado en Ciencias</td>
+                  <td>Estudiante</td>
+                  <td>
+                    <button
+                    class="btn btn-icon btn-2 btn-info"
+                    type="button"
+                    placement="top"
+                    ngbTooltip="Editar"
+                  >
+                    <span class="btn-inner--icon">
+                      <i class="ni ni-badge"></i>
+                    </span>
+                  </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

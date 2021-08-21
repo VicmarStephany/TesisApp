@@ -1,0 +1,17 @@
+
+.header-card {
+    display: flex;
+    justify-content: space-between;
+    button {
+        padding: 10px 15px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        max-height: 45px;
+    }
+}
+
+.btn-out {
+    text-transform: none !important;
+    font-size: 0.8rem !important;
+    padding: 2px 9px !important;
+}

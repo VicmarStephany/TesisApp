@@ -57,12 +57,35 @@
 }
 
 .btn-link {
-  font-weight: $btn-font-weight;
-  box-shadow: none;
+  // font-weight: $btn-font-weight;
+  // box-shadow: none;
 
-  &:hover {
+  // &:hover {
+  //   box-shadow: none;
+  //   transform: none;
+  // }
+  font-weight: $font-weight-bold;
+  color: $link-color;
+  background-color: transparent;
+
+  @include hover {
+    color: $link-hover-color !important;
+    text-decoration: $link-hover-decoration;
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  &:focus,
+  &.focus {
+    text-decoration: $link-hover-decoration;
+    border-color: transparent;
     box-shadow: none;
-    transform: none;
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $btn-link-disabled-color;
+    pointer-events: none;
   }
 }
 

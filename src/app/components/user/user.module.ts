@@ -19,6 +19,8 @@ import { SettingsComponent } from './settings/settings.component';
 import { UsersComponent } from './admin/users/users.component';
 import { VclassroomComponent } from './admin/vclassroom/vclassroom.component';
 import { UserRoleComponent } from './admin/user-role/user-role.component';
+import { ReportComponent } from './coordinator/notes/report/report.component';
+import { CreateActaComponent } from './coordinator/notes/create-acta/create-acta.component';
 
 const routes: Routes = [
 
@@ -35,14 +37,18 @@ const routes: Routes = [
       { path: 'offers', component: OffersComponent},//listo
       { path: 'offers/:id', component: OfferEditComponent},//falta el edit/create 
       { path: 'students', component: StudentsComponent},//listo
-      { path: 'notes', component: NotesComponent},
       { path: 'payments', component: PaymentsComponent},
       { path: 'settings', component: SettingsComponent},//listo
       
       //Admin routes
       { path: 'users', component: UsersComponent},
-      { path: 'v-classroom', component: VclassroomComponent},
-      { path: 'user-role', component: UserRoleComponent}
+      { path: 'v-classroom', component: VclassroomComponent},//falta
+      { path: 'user-role', component: UserRoleComponent},//
+
+      //Profesor routes
+      { path: 'notes', component: NotesComponent},
+      { path: 'notes/report/:id', component: ReportComponent},
+      { path: 'notes/create', component: CreateActaComponent},
     ],
   },
 
@@ -62,7 +68,9 @@ const routes: Routes = [
     OfferEditComponent,
     SettingsComponent,
     UsersComponent,
-    UserRoleComponent
+    UserRoleComponent,
+    ReportComponent,
+    CreateActaComponent
   ],
   imports: [
     NgbModule,
