@@ -7,7 +7,7 @@
           <button
           type="button"
           class="btn btn-primary"
-          [routerLink]="['/user-panel/offers/create']"
+          [routerLink]="['/user-panel/notes/create']"
         >
           Cargar Acta
         </button>
@@ -62,7 +62,8 @@
                       class="btn btn-out btn-outline-primary"
                       type="button"
                       placement="top"
-                      ngbTooltip="Editar"
+                      ngbTooltip="Reporte de notas"
+                      [routerLink]="['/user-panel/notes/report/'+ 15]"
                     >Reporte
                     </button>
                   </td>

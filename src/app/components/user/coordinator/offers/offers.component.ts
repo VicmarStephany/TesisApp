@@ -11,7 +11,7 @@ export class OffersComponent implements OnInit {
   public campusList: Array<any> = Campus;
   public modesList: Array<any> = Modes;
 
-
+  public userId: any = 5;
   constructor() { }
 
   ngOnInit(): void {

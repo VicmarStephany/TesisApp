@@ -31,19 +31,20 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },//listo
       { path: 'profile', component: ProfileComponent},//listo
       { path: 'academic', component: AcademicDataComponent},//listo
-      { path: 'payment', component: PaymentComponent},
+      { path: 'payment', component: PaymentComponent},//listo
 
       // Coord Routes
       { path: 'offers', component: OffersComponent},//listo
-      { path: 'offers/:id', component: OfferEditComponent},//falta el edit/create 
+      { path: 'offers/create', component: OfferEditComponent},//Listo
+      { path: 'offers/edit/:id', component: OfferEditComponent},//Listo
       { path: 'students', component: StudentsComponent},//listo
-      { path: 'payments', component: PaymentsComponent},
+      { path: 'payments', component: PaymentsComponent},//Listo
       { path: 'settings', component: SettingsComponent},//listo
       
       //Admin routes
       { path: 'users', component: UsersComponent},
       { path: 'v-classroom', component: VclassroomComponent},//falta
-      { path: 'user-role', component: UserRoleComponent},//
+      { path: 'user-role', component: UserRoleComponent},//Falta editar role
 
       //Profesor routes
       { path: 'notes', component: NotesComponent},

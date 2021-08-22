@@ -3,14 +3,14 @@
 .btn {
   position: relative;
   text-transform: $btn-text-transform;
-  transition: $transition-base;
+  //transition: $transition-base;
   will-change: transform;
   letter-spacing: $btn-letter-spacing;
   font-size: $input-btn-font-size;
 
   &:hover {
-    @include box-shadow($btn-hover-box-shadow);
-    transform: translateY(-1px);
+    //@include box-shadow($btn-hover-box-shadow);
+    //transform: translateY(-1px);
   }
 
   &:not(:last-child) {
@@ -26,7 +26,7 @@
 .input-group {
   .btn {
     margin-right: 0;
-    transform: translateY(0);
+    //transform: translateY(0);
   }
 }
 

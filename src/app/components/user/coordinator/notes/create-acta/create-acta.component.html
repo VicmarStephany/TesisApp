@@ -1,1 +1,65 @@
-<p>create-acta works!</p>
+<section class="section-shaped my-0">
+  <div class="shape mt-5 p-3">
+    <div class="card shadow border-0">
+      <div class="card-body py-3">
+        <div class="header-card col-md-12 p-0">
+          <h2 class="mt-2">Nueva Acta</h2>
+        </div>
+        <hr class="m-3" />
+        <div class="card-body py-2">
+          <div class="row col-md-12 p-0">
+            <div class="form-group mt-3 col-md-3">
+              <label>Lapso </label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option *ngFor="let item of lapsoList">
+                  {{ item.name }}
+                </option>
+              </select>
+            </div>
+            <div class="form-group mt-3 col-md-3">
+              <label>Asignatura </label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option *ngFor="let item of subjectList">
+                  {{ item.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <form>
+            <div class="table-responsive">
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Nro</th>
+                    <th scope="col">Cédula</th>
+                    <th scope="col">Apellidos y Nombres</th>
+                    <th scope="col">Nota</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>1</th>
+                    <th scope="row">
+                      <div class="media align-items-center">
+                        <div class="media-body">
+                          <span class="mb-0 text-sm">26.562.875</span>
+                        </div>
+                      </div>
+                    </th>
+                    <td>Vicmar Stephany Rojas Rojas</td>
+                    <td>
+                      <input type="text" style="max-width: 50px" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-md-12 py-3 px-0">
+              <button type="button" class="btn btn-success">Cargar Acta</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
