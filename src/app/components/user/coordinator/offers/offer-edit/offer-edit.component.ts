@@ -21,7 +21,7 @@ export class OfferEditComponent implements OnInit {
   constructor(location: Location, public route: ActivatedRoute) { 
     this.location = location;
     console.log(this.route.url);
-    this.path = this.route.url._value[1].path; 
+    //this.path = this.route.url._value[1].path; 
   }
 
   ngOnInit(): void {

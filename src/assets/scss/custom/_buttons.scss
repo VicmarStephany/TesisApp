@@ -8,13 +8,16 @@
   letter-spacing: $btn-letter-spacing;
   font-size: $input-btn-font-size;
 
+  margin-left: 10px;
+  margin-right: 10px;
+
   &:hover {
     //@include box-shadow($btn-hover-box-shadow);
     //transform: translateY(-1px);
   }
 
   &:not(:last-child) {
-    margin-right: 0.5rem;
+    //margin-right: 0.5rem;
   }
 }
 
@@ -189,4 +192,12 @@ a.btn-icon-only {
   padding: 10px 15px;
   font-size: $font-size-sm;
   font-weight: $font-weight-regular;
+}
+
+//Table buttons
+
+.btn-outline-custom {
+  text-transform: none !important;
+  font-size: 0.8rem !important;
+  padding: 2px 9px !important;
 }

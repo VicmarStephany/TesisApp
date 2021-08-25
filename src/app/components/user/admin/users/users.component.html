@@ -9,14 +9,14 @@
         <div class="row col-md-12 p-0">
           <div class="form-group mt-3 col-md-3">
             <label>Usuario: </label>
-            <select class="form-control" >
-                <option *ngFor="let user of userType">{{ user.name }}</option>
-              </select>
+            <select class="form-control">
+              <option *ngFor="let user of userType">{{ user.name }}</option>
+            </select>
           </div>
           <div class="form-group mt-3 col-md-3">
             <label>Programa: </label>
-            <select class="form-control" >
-                <option *ngFor="let type of typeList">{{ type }}</option>
+            <select class="form-control">
+              <option *ngFor="let type of typeList">{{ type }}</option>
             </select>
           </div>
           <div class="form-group mt-3 col-md-3">
@@ -43,7 +43,15 @@
             </thead>
             <tbody>
               <tr>
-                <th><a class="btn-link"> V-26.562.875 </a></th>
+                <th>
+                  <a
+                    class="btn-link btn-tooltip"
+                    placement="top"
+                    ngbTooltip="Ver Ficha académica"
+                  >
+                    V-26.562.875
+                  </a>
+                </th>
                 <td>Rojas Rojas Vicmar Stephany</td>
                 <td>Doctorado</td>
                 <td>Doctorado en Ciencias</td>

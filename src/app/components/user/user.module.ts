@@ -20,7 +20,7 @@ import { UsersComponent } from './admin/users/users.component';
 import { VclassroomComponent } from './admin/vclassroom/vclassroom.component';
 import { UserRoleComponent } from './admin/user-role/user-role.component';
 import { ReportComponent } from './coordinator/notes/report/report.component';
-import { CreateActaComponent } from './coordinator/notes/create-acta/create-acta.component';
+import { CreateActaComponent } from './professor/create-acta/create-acta.component';
 
 const routes: Routes = [
 
