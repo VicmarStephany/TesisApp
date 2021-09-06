@@ -21,6 +21,7 @@ import { VclassroomComponent } from './admin/vclassroom/vclassroom.component';
 import { UserRoleComponent } from './admin/user-role/user-role.component';
 import { ReportComponent } from './coordinator/notes/report/report.component';
 import { CreateActaComponent } from './professor/create-acta/create-acta.component';
+import { VirtualClassroomComponent } from './professor/virtual-classroom/virtual-classroom.component';
 
 const routes: Routes = [
 
@@ -50,6 +51,7 @@ const routes: Routes = [
       { path: 'notes', component: NotesComponent},
       { path: 'notes/report/:id', component: ReportComponent},
       { path: 'notes/create', component: CreateActaComponent},
+      { path: 'virtual-classroom', component: VirtualClassroomComponent}
     ],
   },
 
@@ -71,7 +73,9 @@ const routes: Routes = [
     UsersComponent,
     UserRoleComponent,
     ReportComponent,
-    CreateActaComponent
+    CreateActaComponent,
+    VirtualClassroomComponent,
+    VclassroomComponent
   ],
   imports: [
     NgbModule,

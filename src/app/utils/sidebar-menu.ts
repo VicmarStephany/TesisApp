@@ -13,10 +13,10 @@ export const AdminMenu: Menu[] = [
 ]
 
 export const ProfeMenu: Menu[] = [
-  { path: '/grades', title: 'Actas', icon: 'ni-paper-diploma', class: ''},  
-  { path: '/notes', title: 'Reporte de notas', icon: 'ni-chart-bar-32', class: ''},
+  //{ path: '/notes', title: 'Actas', icon: 'ni-paper-diploma', class: ''},  
+  { path: '/notes', title: 'Actas', icon: 'ni-chart-bar-32', class: ''},
   { path: '/students', title: 'Estudiantes', icon: 'ni-badge', class: ''}, 
-  { path: '/virtual-classroom', title: 'Aulas virtuales', icon: 'ni-badge', class: ''},
+  { path: '/virtual-classroom', title: 'Aulas virtuales', icon: 'ni-laptop', class: ''},
 ]
 
 export const CoordMenu: Menu[] = [

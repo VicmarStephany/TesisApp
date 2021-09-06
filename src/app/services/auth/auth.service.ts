@@ -13,17 +13,7 @@ export class AuthService {
   constructor(public http: HttpClient, public router: Router) { }
 
   login(data) {
-    return this.http.post(this.api + 'auth/login/', data).subscribe(
-      (res) => {
-        console.log(res);
-        console.log(res['d']);
-        localStorage.setItem('authToken', res['d'].token);
-        localStorage.setItem('user', JSON.stringify(res['d']));
-        this.router.navigateByUrl('/user-panel/profile');
-        //location.reload();
-      }, (err) => {
-        console.log(err)
-      })
+    return this.http.post(this.api + 'auth/login/', data)
   }
 
   logOut(){

@@ -5,38 +5,87 @@
     <div class="container pt-lg-md">
       <div class="row justify-content-center">
         <div class="col-lg-5">
+          <!-- <ng-spinner size="5" type="border" color="warning"></ng-spinner> -->
+          <ngx-bootstrap-spinner
+            bdColor="rgba(0, 0, 0, 0.8)"
+            size="default"
+            color="#fff"
+            type="border"
+            [fullScreen]="true"
+            loadingText="Cargando"
+          >
+          </ngx-bootstrap-spinner>
+          <app-alerts-section *ngIf="alertId > 0" [alertId]="alertId"></app-alerts-section>
           <div class="card bg-secondary shadow border-0">
             <div class="card-body px-lg-5 py-lg-5">
               <div class="text-center text-muted mb-4">
                 <h2 class="mb-0">Iniciar sesión</h2>
               </div>
               <form [formGroup]="login" (submit)="submit()">
-                <div class="form-group mb-3" [ngClass]="{'focused':focus===true}">
+                <div
+                  class="form-group mb-3"
+                  [ngClass]="{ focused: focus === true }"
+                >
                   <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                      <span class="input-group-text"
+                        ><i class="ni ni-email-83"></i
+                      ></span>
                     </div>
-                    <input class="form-control" placeholder="Correo electrónico" type="email" (focus)="focus=true"
-                      (blur)="focus=false" formControlName="email" required>
+                    <input
+                      class="form-control"
+                      placeholder="Correo electrónico"
+                      type="email"
+                      (focus)="focus = true"
+                      (blur)="focus = false"
+                      formControlName="email"
+                      required
+                    />
                   </div>
                 </div>
-                <div class="form-group" [ngClass]="{'focused':focus1===true}">
+                <div
+                  class="form-group"
+                  [ngClass]="{ focused: focus1 === true }"
+                >
                   <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                      <span class="input-group-text"
+                        ><i class="ni ni-lock-circle-open"></i
+                      ></span>
                     </div>
-                    <input class="form-control" placeholder="Contraseña" type="password" (focus)="focus1=true"
-                      (blur)="focus1=false" formControlName="password" required>
+                    <input
+                      class="form-control"
+                      placeholder="Contraseña"
+                      type="password"
+                      (focus)="focus1 = true"
+                      (blur)="focus1 = false"
+                      formControlName="password"
+                      required
+                    />
                   </div>
                 </div>
-                <div class="custom-control custom-control-alternative custom-checkbox">
-                  <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
+                <div
+                  class="
+                    custom-control custom-control-alternative custom-checkbox
+                  "
+                >
+                  <input
+                    class="custom-control-input"
+                    id=" customCheckLogin"
+                    type="checkbox"
+                  />
                   <label class="custom-control-label" for=" customCheckLogin">
                     <span>Recuerdame</span>
                   </label>
                 </div>
                 <div class="text-center">
-                  <button [disabled]="login.invalid" type="submit" class="btn btn-primary my-4">Iniciar Sesión</button>
+                  <button
+                    [disabled]="login.invalid"
+                    type="submit"
+                    class="btn btn-primary my-4"
+                  >
+                    Iniciar Sesión
+                  </button>
                 </div>
               </form>
             </div>

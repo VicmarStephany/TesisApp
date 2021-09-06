@@ -1,38 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UsersService } from 'src/app/services/users/users.service';
+import { User, userInfo } from 'src/app/utils/user.model';
 
-interface Country {
-  name: string;
-  flag: string;
-  area: number;
-  population: number;
-}
-
-const COUNTRIES: Country[] = [
-  {
-    name: 'Russia',
-    flag: 'f/f3/Flag_of_Russia.svg',
-    area: 17075200,
-    population: 146989754
-  },
-  {
-    name: 'Canada',
-    flag: 'c/cf/Flag_of_Canada.svg',
-    area: 9976140,
-    population: 36624199
-  },
-  {
-    name: 'United States',
-    flag: 'a/a4/Flag_of_the_United_States.svg',
-    area: 9629091,
-    population: 324459463
-  },
-  {
-    name: 'China',
-    flag: 'f/fa/Flag_of_the_People%27s_Republic_of_China.svg',
-    area: 9596960,
-    population: 1409517397
-  }
-];
 
 @Component({
   selector: 'app-dashboard',
@@ -41,12 +11,29 @@ const COUNTRIES: Country[] = [
 })
 export class DashboardComponent implements OnInit {
 
-  countries = COUNTRIES;
+  user: User;
+  userInfo: userInfo;
+  idUser: any;
 
+  constructor(private userService: UsersService, private router: Router) { }
 
-  constructor() { }
+  ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem('user'));
+    this.idUser = this.user.id
+    this.getUserInfo(this.idUser);
+  }
 
-  ngOnInit(): void {
+  getUserInfo(id) {
+    this.userService.getUser(id).subscribe(
+      (res) => {
+        if (res['s'] == true) {
+          this.userInfo = res['d'];
+          console.log(this.userInfo)
+        } else {
+          console.log('no hay sesión iniciada');
+          this.router.navigateByUrl("/login");
+        }
+    });
   }
 
 }

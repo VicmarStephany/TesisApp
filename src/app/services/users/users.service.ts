@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 const httpOptions = {
@@ -15,18 +16,21 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UsersService {
+
+  private messageStatus = new BehaviorSubject<any>([]);
+  currentStatus = this.messageStatus.asObservable();
+
   api = environment.api;
 
   constructor(public http: HttpClient, public router: Router) { }
 
   getUser(id){
-    return this.http.get(this.api + 'usuario/'+ id, httpOptions).subscribe(
-      (res)=>{
-        console.log(res);
-      },
-      (err)=>{
-        console.log(err)
-      }
-    )
+    return this.http.get(this.api + 'usuario/'+ id, httpOptions)
   }
+
+  changeStatus(status) {
+    this.messageStatus.next(status);
+  }
+
+
 }

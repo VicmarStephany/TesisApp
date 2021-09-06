@@ -4,7 +4,7 @@
       <div class="card shadow border-0">
         <div class="card-body py-3">
           <div class="mt-3 px-0 d-flex col-sm-12">
-            <div class="col-sm-2 px-0">
+            <div class="col-md-2 px-0">
               <img
                 src="./assets/img/theme/team-1-800x800.jpg"
                 alt="Rounded image"
@@ -12,22 +12,24 @@
                 style="width: 100px"
               />
             </div>
-            <div class="info col-sm-10 wrap px-0">
+            <div class="info col-md-10 wrap px-0">
               <div class="col-md-6">
                 <ul>
-                  <p>Cédula de identidad:</p>
-                  <p>Nombres:</p>
-                  <p>Apellidos:</p>
-                  <p>Expediente:</p>
-                  <p>Correo electrónico</p>
+                  <li>Cédula de identidad:</li>
+                  <li>Nombres:</li>
+                  <li>Apellidos:</li>
+                  <li>Expediente:</li>
+                  <li>Correo electrónico</li>
                 </ul>
               </div>
-              <div class="col-md-6">
-                <ul>
-                  <p>Programa:</p>
-                  <p>Unidades de crédito cursadas:</p>
-                  <p>Unidades de crédito aprobadas:</p>
-                  <p>Índice académico:</p>
+              <div *ngIf="userInfo" class="col-md-6">
+                <ul class="text-info">
+                  <li>...</li>
+                  <li>{{ userInfo.nombres }}</li>
+                  <li>{{ userInfo.apellidoPaterno }} {{ userInfo.apellidoMaterno }}</li>
+                  <li>...</li>
+                  <li>{{ userInfo.correo1 }}</li>
+
                 </ul>
               </div>
 

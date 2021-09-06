@@ -16,11 +16,19 @@
     ul{
         margin: 0px;
         padding: 1rem 0px;
+        margin-right: 50px;
+        
     }
     .col-md-6 {
         flex-wrap: wrap;
         display: flex;
         padding-left: 0px;
+    }
+
+    .info-text {
+        p{
+            color: $gray-900;
+        }
     }
 }
 

@@ -15,30 +15,31 @@
               </ul>
             </div>
             <div class="col-md-6">
-              <ul>
-                <p>Estatus:</p>
-                <p>Unidades de crédito cursadas:</p>
-                <p>Unidades de crédito aprobadas:</p>
-                <p>Índice académico:</p>
+              <ul class="text-info" *ngIf="userInfo">
+                <p>...</p>
+                <p>{{ userInfo.nombres}}</p>
+                <p>{{ userInfo.apellidoPaterno }} {{ userInfo.apellidoMaterno }}</p>
+                <p>...</p>
+                <p>...</p>
               </ul>
             </div>
           </div>
           <div class="col-md-6">
             <div class="col-md-6">
               <ul>
+                <p>Estatus:</p>
+                <p>Unidades de crédito cursadas:</p>
+                <p>Unidades de crédito aprobadas:</p>
+                <p>Índice académico:</p>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul class="text-info" *ngIf="userInfo">
                 <p>Cédula de identidad:</p>
                 <p>Nombres:</p>
                 <p>Apellidos:</p>
                 <p>Expediente:</p>
                 <p>Carrera:</p>
-              </ul>
-            </div>
-            <div class="col-md-6">
-              <ul>
-                <p>Estatus:</p>
-                <p>Unidades de crédito cursadas:</p>
-                <p>Unidades de crédito aprobadas:</p>
-                <p>Índice académico:</p>
               </ul>
             </div>
           </div>

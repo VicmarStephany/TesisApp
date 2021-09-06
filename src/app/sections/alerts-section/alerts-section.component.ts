@@ -13,10 +13,11 @@ export interface IAlert {
   templateUrl: './alerts-section.component.html',
   styleUrls: ['./alerts-section.component.css']
 })
-export class AlertsSectionComponent {
-  @Input()
+export class AlertsSectionComponent implements OnInit{
+  @Input('alertId') alertId: any;
   public alerts: Array<IAlert> = [];
   private backup: Array<IAlert>;
+
   constructor() {
       this.alerts.push({
           id: 1,
@@ -39,11 +40,15 @@ export class AlertsSectionComponent {
       }, {
           id: 4,
           type: 'danger',
-          strong: 'Danger!',
-          message: 'This is a danger alert—check it out!',
+          strong: 'Error: ',
+          message: 'al iniciar sesión. Por favor, revise usuario y/o contraseña.',
           icon: 'ni ni-support-16'
       });
       this.backup = this.alerts.map((alert: IAlert) => Object.assign({}, alert));
+  }
+
+  ngOnInit() {
+    console.log("aca alert: ",this.alertId, "-- ", this.alerts)
   }
 
   close(alert: IAlert) {

@@ -13,6 +13,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { AuthModule } from 'src/app/auth/auth.module';
 import { LandingComponent } from './landing.component';
 import { MainComponent } from './main/main.component';
+import { NgxSpinnerModule } from 'ngx-bootstrap-spinner';
 
 const routesL: Routes = [
 
@@ -50,6 +51,7 @@ const routesL: Routes = [
     SharedModule,
     AuthModule,
     RouterModule.forChild(routesL),
+    NgxSpinnerModule
   ]
 })
 export class LandingModule { }

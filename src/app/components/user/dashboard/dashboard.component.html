@@ -15,6 +15,13 @@
                 <p>Expediente:</p>
                 <p>Correo electrónico</p>
               </ul>
+              <ul *ngIf="userInfo" class="info-text">
+                <p>...</p>
+                <p>{{ userInfo.nombres }}</p>
+                <p>{{ userInfo.apellidoPaterno }} {{ userInfo.apellidoMaterno }}</p>
+                <p>...</p>
+                <p>{{ userInfo.correo1}}</p>
+              </ul>
             </div>
             <div class="col-md-6">
               <ul>
@@ -22,6 +29,13 @@
                 <p>Unidades de crédito cursadas:</p>
                 <p>Unidades de crédito aprobadas:</p>
                 <p>Índice académico:</p>
+              </ul>
+              <ul class="info-text">
+                <p>...</p>
+                <p>...</p>
+                <p>...</p>
+                <p>...</p>
+                
               </ul>
             </div>
           </div>
