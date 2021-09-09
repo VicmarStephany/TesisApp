@@ -41,12 +41,12 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr *ngFor="let user of userList">
                 <th>V-26.562.875</th>
-                <td>Rojas Rojas Vicmar Stephany</td>
+                <td>{{ user.nombres + ' ' +  user.apellidoPaterno + ' ' + user.apellidoMaterno}}</td>
                 <td>Doctorado</td>
                 <td>Doctorado en Ciencias</td>
-                <td>Estudiante</td>
+                <td>{{user.rol}}</td>
                 <td>
                   <button
                     class="btn btn-outline-custom btn-outline-primary"
