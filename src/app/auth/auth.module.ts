@@ -12,6 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgSpinnerModule } from 'ng-bootstrap-spinner';
 import { NgxSpinnerModule } from 'ngx-bootstrap-spinner';
 import { SectionsModule } from '../sections/sections.module';
+import { CitiesService } from '../services/cities/cities.service';
 
 const routes: Routes = [
 
@@ -44,7 +45,8 @@ const routes: Routes = [
     LoginComponent
   ],
   providers: [
-    AuthService
+    AuthService,
+    CitiesService
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

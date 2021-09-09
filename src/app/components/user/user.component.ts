@@ -21,11 +21,12 @@ export class UserComponent implements OnInit {
   constructor(private userService: UsersService, private router: Router) { 
     this.user = JSON.parse(localStorage.getItem('user'));
     this.type = this.user.rolId;
-    //this.getUserInfo(this.user.id)
+    
   }
 
   ngOnInit(): void {
     this.setMenu(this.type);
+    //this.setMenu(2);
     
   }
 

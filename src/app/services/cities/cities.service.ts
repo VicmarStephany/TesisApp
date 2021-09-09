@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 const httpOptions = {
@@ -15,28 +14,21 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class UsersService {
-
-  private messageStatus = new BehaviorSubject<any>([]);
-  currentStatus = this.messageStatus.asObservable();
+export class CitiesService {
 
   api = environment.api;
 
   constructor(public http: HttpClient, public router: Router) { }
 
-  getUser(id){
-    return this.http.get(this.api + 'usuario/'+ id, httpOptions)
+  getCountry(){
+    return this.http.get(this.api + 'pais', httpOptions)
   }
 
-  changeStatus(status) {
-    this.messageStatus.next(status);
+  getCities(){
+    return this.http.get(this.api + 'ciudades/venezuela', httpOptions)
   }
 
-
-
-  
-  createUser(data){
-    return this.http.put(this.api + 'usuario', data, httpOptions)
+  getParroquias(){
+    return this.http.get(this.api + 'parroquias/venezuela', httpOptions)
   }
-
 }

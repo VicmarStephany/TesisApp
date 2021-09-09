@@ -48,7 +48,7 @@ export class AlertsSectionComponent implements OnInit{
   }
 
   ngOnInit() {
-    console.log("aca alert: ",this.alertId, "-- ", this.alerts)
+    
   }
 
   close(alert: IAlert) {
