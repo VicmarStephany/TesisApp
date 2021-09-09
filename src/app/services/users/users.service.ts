@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 const httpOptions = {
@@ -28,9 +28,11 @@ export class UsersService {
     return this.http.get(this.api + 'usuario/'+ id, httpOptions)
   }
 
+  getAllUser(): Observable<any>{
+    return this.http.get(this.api + 'usuario', httpOptions)
+  }
+
   changeStatus(status) {
     this.messageStatus.next(status);
   }
-
-
 }

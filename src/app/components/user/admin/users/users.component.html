@@ -42,8 +42,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th>
+              <tr *ngFor="let user of userList">
+                <td>
                   <a
                     class="btn-link btn-tooltip"
                     placement="top"
@@ -51,13 +51,13 @@
                   >
                     V-26.562.875
                   </a>
-                </th>
-                <td>Rojas Rojas Vicmar Stephany</td>
+                </td>
+                <td>{{ user.nombres + ' ' +  user.apellidoPaterno + ' ' + user.apellidoMaterno}}</td>
                 <td>Doctorado</td>
                 <td>Doctorado en Ciencias</td>
                 <td>A distancia</td>
                 <td>Vicerrectorado Puerto Ordaz</td>
-                <td>Estudiante</td>
+                <td>{{user.rol}}</td>
               </tr>
             </tbody>
           </table>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { UsersService } from 'src/app/services/users/users.service';
 import { Courses } from 'src/app/utils/courses';
+import { User } from 'src/app/utils/user.model';
 import { Users } from 'src/app/utils/users';
 
 @Component({
@@ -12,10 +14,14 @@ export class UserRoleComponent implements OnInit {
   public typeList: Array<string> = Courses;
   public userType: Array<any> = Users;
   closeResult: string;
+  userList: User[] = [];
 
-  constructor(private modalService: NgbModal,) { }
+  constructor(private modalService: NgbModal,private usersService: UsersService) { }
 
   ngOnInit(): void {
+    this.usersService.getAllUser().subscribe((resp: User)=>{
+      this.userList = resp['d'];
+    });
   }
 
   openModal(content, type, modalDimension) {

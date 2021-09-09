@@ -25,8 +25,7 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.setMenu(this.type);
-    
+    this.setMenu(2);
   }
 
   setMenu(n){
