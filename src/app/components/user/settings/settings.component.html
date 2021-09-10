@@ -7,42 +7,103 @@
         </div>
         <hr class="m-3" />
       </div>
+      <ngx-bootstrap-spinner
+        bdColor="rgba(0, 0, 0, 0.8)"
+        size="default"
+        color="#fff"
+        type="border"
+        [fullScreen]="true"
+        loadingText="Actualizando"
+      >
+      </ngx-bootstrap-spinner>
       <div class="p-3">
+        <app-alerts-section
+          *ngIf="alertId > 0"
+          [alertId]="alertId"
+        ></app-alerts-section>
         <h2 class="px-3">Actualizar datos</h2>
-        <div class="row col-md-12">
-          <div class="col-md-4">
-            <div class="form-group">
-              <label>Nuevo correo electrónico:</label>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Correo electrónico"
-              />
+        <form *ngIf="userInfo" [formGroup]="updateForm">
+          <div class="row col-md-12">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Correo electrónico:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="{{ userInfo.correo1 }}"
+                  formControlName="correo1"
+                />
+              </div>
+              <div class="form-group">
+                <label>Correo electrónico secundario:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="{{ userInfo.correo2 }}"
+                  formControlName="correo2"
+                />
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Teléfono celular:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="{{ userInfo.celular1 }}"
+                  formControlName="celular1"
+                />
+              </div>
+              <div class="form-group">
+                <label>Teléfono celular secundario:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="{{ userInfo.celular2 }}"
+                  formControlName="celular2"
+                />
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Dirección habitacional:</label>
+                <textarea
+                  type="text"
+                  class="form-control"
+                  placeholder="{{ userInfo.direccion1 }}"
+                  formControlName="direccion1"
+                ></textarea>
+              </div>
+              <div class="form-group">
+                <label>Dirección hab. secundaria:</label>
+                <textarea
+                  type="text"
+                  class="form-control"
+                  placeholder="{{ userInfo.direccion2 }}"
+                  formControlName="direccion2"
+                ></textarea>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Teléfono habitacional:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="{{ userInfo.telefono1 }}"
+                  formControlName="telefono1"
+                />
+              </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label>Nuevo número de teléfono:</label>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Teléfono"
-              />
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label>Nueva dirección:</label>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Dirección"
-              />
-            </div>
-          </div>
-        </div>
+        </form>
         <div class="d-flex j-center mt-2">
-          <button class="f-button btn btn-success" type="submit">
+          <button
+            class="f-button btn btn-success"
+            type="submit"
+            [disabled]="updateForm.invalid"
+            (click)="updateInfo()"
+          >
             Actualizar
           </button>
         </div>
@@ -58,7 +119,7 @@
                   type="password"
                   class="form-control"
                   placeholder="Contraseña actual"
-                  formControlName= "currentPassword"
+                  formControlName="currentPassword"
                 />
               </div>
             </div>
@@ -69,14 +130,19 @@
                   type="password"
                   class="form-control"
                   placeholder="Nueva contraseña"
-                  formControlName= "newPassword"
+                  formControlName="newPassword"
                 />
               </div>
             </div>
           </div>
-        </form>        
+        </form>
         <div class="d-flex j-center mt-2">
-          <button class="f-button btn btn-success" type="submit" [disabled]="passwordForm.invalid" (click)="sendNewPassword()">
+          <button
+            class="f-button btn btn-success"
+            type="submit"
+            [disabled]="passwordForm.invalid"
+            (click)="sendNewPassword()"
+          >
             Actualizar
           </button>
         </div>

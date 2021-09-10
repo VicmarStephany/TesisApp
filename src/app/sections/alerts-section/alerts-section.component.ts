@@ -15,6 +15,7 @@ export interface IAlert {
 })
 export class AlertsSectionComponent implements OnInit{
   @Input('alertId') alertId: any;
+  @Input('message') messageAlert: string;
   public alerts: Array<IAlert> = [];
   private backup: Array<IAlert>;
 

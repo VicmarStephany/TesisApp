@@ -22,6 +22,7 @@ import { UserRoleComponent } from './admin/user-role/user-role.component';
 import { ReportComponent } from './coordinator/notes/report/report.component';
 import { CreateActaComponent } from './professor/create-acta/create-acta.component';
 import { VirtualClassroomComponent } from './professor/virtual-classroom/virtual-classroom.component';
+import { NgxSpinnerModule } from 'ngx-bootstrap-spinner';
 
 const routes: Routes = [
 
@@ -85,6 +86,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     CommonModule,
     SharedModule,
+    NgxSpinnerModule,
   ]
 })
 export class UserModule { }

@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   login: FormGroup;
   spinner = false;
   alertId: any = 0;
+  messageAlert: string;
 
   focus;
   focus1;
@@ -44,6 +45,7 @@ export class LoginComponent implements OnInit {
         if (res['s'] == false) {
           this.spinnerServ.hide();
           this.alertId = 3;
+          this.messageAlert = 'al iniciar sesión. Por favor, revise usuario y/o contraseña.';
           setTimeout(() => {
             this.alertId = 0;
           }, 3000);

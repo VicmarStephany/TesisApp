@@ -9,7 +9,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { NgSpinnerModule } from 'ng-bootstrap-spinner';
 import { NgxSpinnerModule } from 'ngx-bootstrap-spinner';
 import { SectionsModule } from '../sections/sections.module';
 import { CitiesService } from '../services/cities/cities.service';
@@ -36,7 +35,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     SharedModule,
     NgxSpinnerModule,
-    //NgSpinnerModule,
     SectionsModule
     
   ],

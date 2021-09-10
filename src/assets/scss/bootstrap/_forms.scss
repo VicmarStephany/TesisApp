@@ -164,6 +164,8 @@ select.form-control {
 
 textarea.form-control {
   height: auto;
+  min-height: calc(2.75rem + 2px);
+  //height: calc(2.75rem + 2px) !important;
 }
 // stylelint-enable no-duplicate-selectors
 
