@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { NotLoginGuard } from './auth/guard/not-login.guard';
 
 const routes: Routes = [
 
@@ -11,7 +12,8 @@ const routes: Routes = [
   },
   {
     path: 'user-panel',
-    loadChildren: () => import('./components/user/user.module').then(m => m.UserModule)
+    loadChildren: () => import('./components/user/user.module').then(m => m.UserModule),
+    canActivate: [NotLoginGuard]
   },
   {
     path: 'auth',

@@ -24,6 +24,7 @@ import { CreateActaComponent } from './professor/create-acta/create-acta.compone
 import { VirtualClassroomComponent } from './professor/virtual-classroom/virtual-classroom.component';
 import { NgxSpinnerModule } from 'ngx-bootstrap-spinner';
 import { ModalComponent } from './admin/user-role/modal/modal.component';
+import { AdminGuard } from 'src/app/auth/guard/admin.guard';
 
 const routes: Routes = [
 
@@ -41,13 +42,13 @@ const routes: Routes = [
       { path: 'offers/create', component: OfferEditComponent},//Listo
       { path: 'offers/edit/:id', component: OfferEditComponent},//Listo
       { path: 'students', component: StudentsComponent},//listo
-      { path: 'payments', component: PaymentsComponent},//Listo
       { path: 'settings', component: SettingsComponent},//listo
       
       //Admin routes
-      { path: 'users', component: UsersComponent},
-      { path: 'v-classroom', component: VclassroomComponent},//falta
-      { path: 'user-role', component: UserRoleComponent},//Falta editar role
+      { path: 'admin/users', component: UsersComponent, canActivate: [AdminGuard]},
+      { path: 'admin/v-classroom', component: VclassroomComponent, canActivate: [AdminGuard]},//falta
+      { path: 'admin/user-role', component: UserRoleComponent, canActivate: [AdminGuard]},
+      { path: 'admin/payments', component: PaymentsComponent, canActivate: [AdminGuard]},//Listo
 
       //Profesor routes
       { path: 'notes', component: NotesComponent},
