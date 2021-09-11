@@ -30,6 +30,7 @@ export class AuthService {
       (res) => {
         localStorage.removeItem('authToken');
         localStorage.removeItem('user');
+        localStorage.removeItem('info');
         console.log(res);
         this.router.navigateByUrl('/home');
         //location.reload();

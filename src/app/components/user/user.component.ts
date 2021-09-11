@@ -19,15 +19,17 @@ export class UserComponent implements OnInit {
   menu: Array<Menu>;
 
   constructor(private userService: UsersService, private router: Router) {
-    this.user = JSON.parse(localStorage.getItem('user'));
-    this.type = this.user.rolId;
-    this.idUser = this.user.id
+    
   }
 
   ngOnInit() {
     //this.setMenu(this.type);
-    this.setMenu(3);
-    this.getUserInfo(this.idUser);
+    this.user = JSON.parse(localStorage.getItem('user'));
+    this.userInfo = JSON.parse(localStorage.getItem('info'));
+    this.type = this.user.rolId;
+    this.idUser = this.user.id
+    this.setMenu(2);
+    //this.getUserInfo(this.idUser);
   }
 
 
@@ -37,7 +39,8 @@ export class UserComponent implements OnInit {
         if (res['s'] == true) {
           this.userInfo = res['d'];
           this.userService.setUserInfo(this.userInfo);
-          console.log(this.userInfo)
+          localStorage.setItem('info', JSON.stringify(this.userInfo))
+          //console.log(this.userInfo)
         } else {
           console.log('no hay sesión iniciada');
           this.router.navigateByUrl("/login");

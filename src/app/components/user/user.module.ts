@@ -23,6 +23,7 @@ import { ReportComponent } from './coordinator/notes/report/report.component';
 import { CreateActaComponent } from './professor/create-acta/create-acta.component';
 import { VirtualClassroomComponent } from './professor/virtual-classroom/virtual-classroom.component';
 import { NgxSpinnerModule } from 'ngx-bootstrap-spinner';
+import { ModalComponent } from './admin/user-role/modal/modal.component';
 
 const routes: Routes = [
 
@@ -76,7 +77,8 @@ const routes: Routes = [
     ReportComponent,
     CreateActaComponent,
     VirtualClassroomComponent,
-    VclassroomComponent
+    VclassroomComponent,
+    ModalComponent
   ],
   imports: [
     NgbModule,

@@ -31,6 +31,7 @@ export class ProfileComponent implements OnInit {
     this.userService.getUser(id).subscribe(
       (res) => {
         if (res['s'] == true) {
+          //console.log(res)
           this.userInfo = res['d'];
           console.log(this.userInfo)
         } else {

@@ -1,0 +1,78 @@
+<div class="">
+    <div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Asignar permisos</h2>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+            
+            (click)="activeModal.close('Close click')"
+          >
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h3 style="font-weight: 500; color: black">
+            Datos Personales
+          </h3>
+          <div class="info col-sm-10 wrap px-0">
+            <div class="col-md-4">
+              <ul>
+                <p>Cédula:</p>
+                <p>Nombres:</p>
+                <p>Apellidos:</p>
+                <p>Expediente:</p>
+                <p>Email:</p>
+              </ul>
+            </div>
+            <div class="col-md-8">
+              <ul class="info-text">
+                <p>...</p>
+                <p>{{ userInfo.nombres }}</p>
+                <p>{{ userInfo.apellidoPaterno + userInfo.apellidoMaterno }}</p>
+                <p>...</p>
+                <p>{{ userInfo.correo1 }}</p>
+              </ul>
+            </div>
+          </div>
+          <h3
+            style="
+              font-weight: 500;
+              margin-top: 1rem;
+              color: black;
+            "
+          >
+            Permiso de usuario
+          </h3>
+          <div class="info col-sm-10 wrap px-0">
+            <div class="col-md-4">
+              <p>Rango: </p>
+            </div>
+            <div class="col-md-8 info-text">
+              <div>
+                <select class="form-control">
+                  <option *ngFor="let user of userType">{{ user.name }}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success">
+            Asignar Permisos
+          </button>
+          <button
+            type="button"
+            class="btn btn-link ml-auto text-danger"
+            data-dismiss="modal"
+            (click)="activeModal.close('Close click')"
+          >
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>

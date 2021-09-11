@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { min } from 'moment';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { NgxSpinnerService } from "ngx-bootstrap-spinner";
+import { UsersService } from 'src/app/services/users/users.service';
 
 @Component({
   selector: 'app-login',
@@ -19,9 +20,13 @@ export class LoginComponent implements OnInit {
   focus;
   focus1;
   constructor(private fb: FormBuilder, private authService: AuthService,
-    private router: Router, private spinnerServ: NgxSpinnerService) { }
+    private router: Router, private spinnerServ: NgxSpinnerService, private userService: UsersService) { }
 
   ngOnInit() {
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('user');
+    localStorage.removeItem('info');
+
     this.login = this.fb.group({
       email: ['', Validators.required],// [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.min(8)]]
@@ -39,7 +44,6 @@ export class LoginComponent implements OnInit {
        spinner ends after 5 seconds 
     }, 50000);*/
     let data = { user: this.form.email.value, pass: this.form.password.value };
-    console.log(data)
     this.authService.login(data).subscribe(
       (res) => {
         if (res['s'] == false) {
@@ -51,15 +55,26 @@ export class LoginComponent implements OnInit {
           }, 3000);
           /**Insertar alert de error */
         } else {
-          console.log(res);
           localStorage.setItem('authToken', res['d'].token);
           localStorage.setItem('user', JSON.stringify(res['d']));
+          let id = res['d'].id;
+          this.userService.getUser(id).subscribe(
+            (res) => {
+              if (res['s'] == true) {
+                this.userService.setUserInfo(res['d']);
+                localStorage.setItem('info', JSON.stringify(res['d']))
+                setTimeout(() => {
+                  this.spinnerServ.hide();
+                  this.router.navigateByUrl('/user-panel/profile');
+                  //location.reload();
+                }, 2000);
+              } else {
+                console.log('no hay sesión iniciada');
+                //this.router.navigateByUrl("/login");
+              }
+            });
 
-          setTimeout(() => {
-            this.spinnerServ.hide();
-            this.router.navigateByUrl('/user-panel/profile');
-            //location.reload();
-          }, 2000);
+          
         }
       }, (err) => {
         console.log(err);

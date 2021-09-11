@@ -20,25 +20,21 @@ export class SettingsComponent implements OnInit {
 
   constructor(private authService: AuthService, private fb: FormBuilder,
     private usersService: UsersService, private spinnerServ: NgxSpinnerService) {
-
   }
 
   ngOnInit(): void {
-    this.usersService.userInfoData.subscribe(
-      res => {
-        this.userInfo = res;
-        console.log(this.userInfo);
-        this.updateForm = this.fb.group({
-          telefono1: [this.userInfo.telefono1, Validators.required],
-          celular1: [this.userInfo.celular1, Validators.required],
-          celular2: [this.userInfo.celular2, Validators.required],
-          correo1: [this.userInfo.correo1, Validators.required],
-          correo2: [this.userInfo.correo2, Validators.required],
-          direccion1: [this.userInfo.direccion1, Validators.required],
-          direccion2: [this.userInfo.direccion2, Validators.required]
-        })
-      }
-    )
+    this.userInfo = JSON.parse(localStorage.getItem('info'));
+
+    console.log(this.userInfo);
+    this.updateForm = this.fb.group({
+      telefono1: [this.userInfo.telefono1, Validators.required],
+      celular1: [this.userInfo.celular1, Validators.required],
+      celular2: [this.userInfo.celular2, Validators.required],
+      correo1: [this.userInfo.correo1, Validators.required],
+      correo2: [this.userInfo.correo2, Validators.required],
+      direccion1: [this.userInfo.direccion1, Validators.required],
+      direccion2: [this.userInfo.direccion2, Validators.required]
+    })
 
     this.passwordForm = new FormGroup({
       currentPassword: new FormControl('', [Validators.required]),
