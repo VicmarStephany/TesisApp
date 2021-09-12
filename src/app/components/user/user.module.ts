@@ -25,24 +25,31 @@ import { VirtualClassroomComponent } from './professor/virtual-classroom/virtual
 import { NgxSpinnerModule } from 'ngx-bootstrap-spinner';
 import { ModalComponent } from './admin/user-role/modal/modal.component';
 import { AdminGuard } from 'src/app/auth/guard/admin.guard';
+import { ProfeGuard } from 'src/app/auth/guard/profe.guard';
+import { StudentGuard } from 'src/app/auth/guard/student.guard';
+import { CoordGuard } from 'src/app/auth/guard/coord.guard';
 
 const routes: Routes = [
 
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '', component: UserComponent,
-    children: [
-      // Students routes
-      { path: 'dashboard', component: DashboardComponent },//listo
+    children: [ 
       { path: 'profile', component: ProfileComponent},//listo
-      { path: 'academic', component: AcademicDataComponent},//listo
-      { path: 'payment', component: PaymentComponent},//listo
+      { path: 'settings', component: SettingsComponent},//listo
+
+      // Students routes
+      { path: 'dashboard', component: DashboardComponent, canActivate: [StudentGuard]},//listo
+      { path: 'academic', component: AcademicDataComponent, canActivate: [StudentGuard]},//listo
+      { path: 'payment', component: PaymentComponent, canActivate: [StudentGuard]},//listo
 
       // Coord Routes
-      { path: 'offers', component: OffersComponent},//listo
-      { path: 'offers/create', component: OfferEditComponent},//Listo
-      { path: 'offers/edit/:id', component: OfferEditComponent},//Listo
-      { path: 'students', component: StudentsComponent},//listo
-      { path: 'settings', component: SettingsComponent},//listo
+      { path: 'offers', component: OffersComponent, canActivate: [CoordGuard]},//listo
+      { path: 'offers/create', component: OfferEditComponent, canActivate: [CoordGuard]},//Listo
+      { path: 'offers/edit/:id', component: OfferEditComponent, canActivate: [CoordGuard]},//Listo
+      { path: 'students', component: StudentsComponent, canActivate: [CoordGuard]},//listo
+      { path: 'coord/notes', component: NotesComponent, canActivate: [CoordGuard]},
+      { path: 'coord/notes/report/:id', component: ReportComponent, canActivate: [CoordGuard]},
+      { path: 'coord/notes/create', component: CreateActaComponent, canActivate: [CoordGuard]},
       
       //Admin routes
       { path: 'admin/users', component: UsersComponent, canActivate: [AdminGuard]},
@@ -51,13 +58,14 @@ const routes: Routes = [
       { path: 'admin/payments', component: PaymentsComponent, canActivate: [AdminGuard]},//Listo
 
       //Profesor routes
-      { path: 'notes', component: NotesComponent},
-      { path: 'notes/report/:id', component: ReportComponent},
-      { path: 'notes/create', component: CreateActaComponent},
-      { path: 'virtual-classroom', component: VirtualClassroomComponent}
+      { path: 'notes', component: NotesComponent, canActivate: [ProfeGuard]},
+      { path: 'notes/report/:id', component: ReportComponent, canActivate: [ProfeGuard]},
+      { path: 'notes/create', component: CreateActaComponent, canActivate: [ProfeGuard]},
+      { path: 'virtual-classroom', component: VirtualClassroomComponent},
+      { path: 'teacher/users', component: UsersComponent, canActivate: [ProfeGuard]},
+
     ],
   },
-
 ];
 
 @NgModule({
