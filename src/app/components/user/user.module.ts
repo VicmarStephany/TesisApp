@@ -62,7 +62,7 @@ const routes: Routes = [
       { path: 'notes/report/:id', component: ReportComponent, canActivate: [ProfeGuard]},
       { path: 'notes/create', component: CreateActaComponent, canActivate: [ProfeGuard]},
       { path: 'virtual-classroom', component: VirtualClassroomComponent},
-      { path: 'teacher/users', component: UsersComponent, canActivate: [ProfeGuard]},
+      { path: 'teacher/students', component: StudentsComponent, canActivate: [ProfeGuard]},
 
     ],
   },

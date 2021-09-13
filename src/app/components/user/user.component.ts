@@ -23,12 +23,13 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.setMenu(this.type);
+    
     this.user = JSON.parse(localStorage.getItem('user'));
     this.userInfo = JSON.parse(localStorage.getItem('info'));
     this.type = this.user.rolId;
     this.idUser = this.user.id
-    this.setMenu(2);
+    //this.setMenu(2); //<-- Esta comentala 
+    this.setMenu(this.type); //<---- Coloca esto, en vez de la línea de arriba
     //this.getUserInfo(this.idUser);
   }
 
