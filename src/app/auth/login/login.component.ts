@@ -58,6 +58,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('authToken', res['d'].token);
           localStorage.setItem('user', JSON.stringify(res['d']));
           let id = res['d'].id;
+          setTimeout(()=>{
           this.userService.getUser(id).subscribe(
             (res) => {
               if (res['s'] == true) {
@@ -67,14 +68,13 @@ export class LoginComponent implements OnInit {
                   this.spinnerServ.hide();
                   this.router.navigateByUrl('/user-panel/profile');
                   //location.reload();
-                }, 2000);
+                }, 1000);
               } else {
                 console.log('no hay sesión iniciada');
                 //this.router.navigateByUrl("/login");
               }
-            });
-
-          
+            })
+          }, 2000)
         }
       }, (err) => {
         console.log(err);

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from 'src/app/services/student/student.service';
 import { Courses } from 'src/app/utils/courses';
+import { BasicI } from 'src/app/utils/payment';
 
 @Component({
   selector: 'app-students',
@@ -11,7 +12,7 @@ export class StudentsComponent implements OnInit {
 
   student: any;
 
-  public typeList: Array<string> = Courses;
+  public typeList: Array<BasicI> = Courses;
 
   constructor(private studentService: StudentService) { }
 

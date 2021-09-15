@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { UsersService } from 'src/app/services/users/users.service';
 import { Courses } from 'src/app/utils/courses';
+import { BasicI } from 'src/app/utils/payment';
 import { User, userInfo } from 'src/app/utils/user.model';
 import { Users } from 'src/app/utils/users';
 import { ModalComponent } from './modal/modal.component';
@@ -12,7 +13,7 @@ import { ModalComponent } from './modal/modal.component';
   styleUrls: ['./user-role.component.scss']
 })
 export class UserRoleComponent implements OnInit {
-  public typeList: Array<string> = Courses;
+  public typeList: Array<BasicI> = Courses;
   public userType: Array<any> = Users;
   closeResult: string;
   userList: User[] = [];

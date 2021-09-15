@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Courses, StatusPay } from 'src/app/utils/courses';
+import { BasicI } from 'src/app/utils/payment';
 
 @Component({
   selector: 'app-payments',
@@ -8,7 +9,7 @@ import { Courses, StatusPay } from 'src/app/utils/courses';
 })
 export class PaymentsComponent implements OnInit {
   
-  public typeList: Array<string> = Courses;
+  public typeList: Array<BasicI> = Courses;
   public statusList: Array<any> = StatusPay;
 
 

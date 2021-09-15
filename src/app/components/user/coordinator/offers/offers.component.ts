@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Campus, Courses, Modes } from 'src/app/utils/courses';
+import { BasicI } from 'src/app/utils/payment';
 
 @Component({
   selector: 'app-offers',
@@ -7,7 +8,7 @@ import { Campus, Courses, Modes } from 'src/app/utils/courses';
   styleUrls: ['./offers.component.scss']
 })
 export class OffersComponent implements OnInit {
-  public typeList: Array<string> = Courses;
+  public typeList: Array<BasicI> = Courses;
   public campusList: Array<any> = Campus;
   public modesList: Array<any> = Modes;
 

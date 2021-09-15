@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-notes',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notes.component.scss']
 })
 export class NotesComponent implements OnInit {
+
+  path: string;
 
   public subjectList: Array<any> = [
     {id: 123, name:'Termodinámica I'}, 
@@ -17,9 +20,10 @@ export class NotesComponent implements OnInit {
     {id: 12354, name:'2021-II'},
   ]
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.path = this.route.snapshot['_urlSegment'].segments[1];
   }
 
 }

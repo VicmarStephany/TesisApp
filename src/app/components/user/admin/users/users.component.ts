@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/services/users/users.service';
 import { Courses } from 'src/app/utils/courses';
+import { BasicI } from 'src/app/utils/payment';
 import { User } from 'src/app/utils/user.model';
 import { Users } from 'src/app/utils/users';
 
@@ -11,7 +12,7 @@ import { Users } from 'src/app/utils/users';
 })
 export class UsersComponent implements OnInit {
 
-  public typeList: Array<string> = Courses;
+  public typeList: Array<BasicI> = Courses;
   public userType: Array<any> = Users;
   userList: User[] = [];
 

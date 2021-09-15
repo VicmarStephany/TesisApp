@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
-import { BankList, Method, PayMethod } from 'src/app/utils/payment';
+import { BankList, BasicI, PayMethod } from 'src/app/utils/payment';
 import { validateLocaleAndSetLanguage } from 'typescript';
 
 @Component({
@@ -10,8 +10,8 @@ import { validateLocaleAndSetLanguage } from 'typescript';
   styleUrls: ['./payment.component.scss']
 })
 export class PaymentComponent implements OnInit {
-  public methodList: Array<Method> = PayMethod;
-  public bankList: Array<Method> = BankList;
+  public methodList: Array<BasicI> = PayMethod;
+  public bankList: Array<BasicI> = BankList;
   
   public paymentForm: FormGroup;
 

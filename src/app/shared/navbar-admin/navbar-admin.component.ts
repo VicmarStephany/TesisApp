@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, Input } from '@angular/core';
-import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
-import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/utils/user.model';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { StudentMenu } from 'src/app/utils/sidebar-menu';
@@ -16,30 +16,28 @@ export class NavbarAdminComponent implements OnInit {
 
   public focus;
   public user: User;
-  public listTitles: any[];
-  public location: Location;
+  public listTitles: Array<Menu>;
+  public locationR: Location;
   public personal: Array<any> = [];
+  public path: Array<any>;
 
-  constructor(location: Location, private element: ElementRef,
-    private router: Router, private authService: AuthService) {
-    this.location = location;
+  constructor(private location: Location, private element: ElementRef,
+    private router: Router, private authService: AuthService, public route: ActivatedRoute) {
+    
   }
 
   ngOnInit() {
+    this.locationR = this.location;
     this.personal = [{ title: "Mi Perfil", path: "/profile" }, { title: "Configuración", path: "/settings" }];
     this.listTitles = this.menu.filter(listTitle => listTitle);
     this.user = JSON.parse(localStorage.getItem('user'));
-    console.log(this.user)
   }
   getTitle() {
-    var titlee = this.location.prepareExternalUrl(this.location.path());
-    if (titlee.charAt(11) === '/') {
-      titlee = titlee.slice(11);
-      if (titlee.indexOf('/', 1) > 0) {
-        titlee = titlee.slice(0, titlee.indexOf('/', 1));
-      }
-    }
-
+    let titlee: string;
+    //this.locationR = this.location;
+    this.path = this.route.snapshot['_urlSegment'].segments;
+    titlee = '/'+ this.path['1'].path;
+      
     for (var item = 0; item <= this.listTitles.length; item++) {
       if (this.listTitles[item].path === titlee) {
         return this.listTitles[item].title;

@@ -46,23 +46,23 @@ const routes: Routes = [
       { path: 'offers', component: OffersComponent, canActivate: [CoordGuard]},//listo
       { path: 'offers/create', component: OfferEditComponent, canActivate: [CoordGuard]},//Listo
       { path: 'offers/edit/:id', component: OfferEditComponent, canActivate: [CoordGuard]},//Listo
-      { path: 'students', component: StudentsComponent, canActivate: [CoordGuard]},//listo
-      { path: 'coord/notes', component: NotesComponent, canActivate: [CoordGuard]},
-      { path: 'coord/notes/report/:id', component: ReportComponent, canActivate: [CoordGuard]},
-      { path: 'coord/notes/create', component: CreateActaComponent, canActivate: [CoordGuard]},
+      { path: 'c-students', component: StudentsComponent, canActivate: [CoordGuard]},//listo
+      { path: 'c-notes', component: NotesComponent, canActivate: [CoordGuard]},
+      { path: 'c-notes/report/:id', component: ReportComponent, canActivate: [CoordGuard]},
+      { path: 'c-notes/create', component: CreateActaComponent, canActivate: [CoordGuard]},
       
       //Admin routes
-      { path: 'admin/users', component: UsersComponent, canActivate: [AdminGuard]},
-      { path: 'admin/v-classroom', component: VclassroomComponent, canActivate: [AdminGuard]},//falta
-      { path: 'admin/user-role', component: UserRoleComponent, canActivate: [AdminGuard]},
-      { path: 'admin/payments', component: PaymentsComponent, canActivate: [AdminGuard]},//Listo
+      { path: 'a-users', component: UsersComponent, canActivate: [AdminGuard]},
+      { path: 'a-v-classroom', component: VclassroomComponent, canActivate: [AdminGuard]},//falta
+      { path: 'a-user-role', component: UserRoleComponent, canActivate: [AdminGuard]},
+      { path: 'a-payments', component: PaymentsComponent, canActivate: [AdminGuard]},//Listo
 
       //Profesor routes
       { path: 'notes', component: NotesComponent, canActivate: [ProfeGuard]},
       { path: 'notes/report/:id', component: ReportComponent, canActivate: [ProfeGuard]},
       { path: 'notes/create', component: CreateActaComponent, canActivate: [ProfeGuard]},
       { path: 'virtual-classroom', component: VirtualClassroomComponent},
-      { path: 'teacher/students', component: StudentsComponent, canActivate: [ProfeGuard]},
+      { path: 'students', component: StudentsComponent, canActivate: [ProfeGuard]},
 
     ],
   },

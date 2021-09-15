@@ -43,8 +43,6 @@ export class UsersService {
     return this.http.patch(this.api + 'usuario/' + id, data, httpOptions)
   }
 
-
-
   setUserInfo(info) {
     this.userInfo.next(info);
   }
