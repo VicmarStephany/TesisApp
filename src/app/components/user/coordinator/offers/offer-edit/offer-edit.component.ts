@@ -17,6 +17,20 @@ export class OfferEditComponent implements OnInit {
   type: string;
   path: string;
   editOffer: OfferDetails;
+  emptyForm: OfferDetails = {
+    programaEstudioId: 1,
+    campusId: 1,
+    nombre: '',
+    modalidad: '',
+    descripcion: '',
+    codigo: '',
+    cantidadSemestres: 1,
+    duracion: '',
+    pensum: '',
+    costo: 0,
+    cantidadCupos: 30,
+    id: null
+  }
 
 
   public typeList: Array<BasicI> = Courses;
@@ -30,44 +44,66 @@ export class OfferEditComponent implements OnInit {
   ngOnInit(): void {
     this.route.url.subscribe(res => {
       this.path = res[1].path;
-      if (this.path.length > 2) {
-        //this.offerService.getOfferById(res[2].path).suscribe(res =>{})
+      let id;
+      if (this.path == 'edit') {
+        id = res[2].path;
+        this.offerService.getOfferById(id).subscribe(
+          res => {
+            let offers: Array<OfferDetails> = res['d'];
+            this.editOffer = offers['id'].filter(offer => offer.id == this.toNumber(id))[0];
+            this.fillForm(this.editOffer);
+          }
+        )
+      } else {
+        this.fillForm(this.emptyForm)
       }
     });
+  }
 
+  fillForm(form: OfferDetails) {
     this.offerForm = this.fb.group({
-      programaId: ['1', Validators.required],
-      campusId: ['1', Validators.required],
-      nombre: ['', Validators.required],
-      modalidad: ['presencial', Validators.required],
-      descripcion: ['', Validators.required],
-      codigo: ['', Validators.required],
-      cantidadSemestres: ['', Validators.required],
-      duracion: ['', Validators.required],
-      pensum: ['', Validators.required],
-      costo: ['', Validators.required],
+      programaEstudioId: [form.programaEstudioId, Validators.required],
+      campusId: [form.campusId, Validators.required],
+      nombre: [form.nombre, Validators.required],
+      modalidad: [form.modalidad, Validators.required],
+      descripcion: [form.descripcion, Validators.required],
+      codigo: [form.codigo, Validators.required],
+      cantidadSemestres: [form.cantidadSemestres, Validators.required],
+      duracion: [form.duracion, Validators.required],
+      pensum: [form.pensum, Validators.required],
+      costo: [form.costo, Validators.required],
+      cantidadCupos: [form.cantidadCupos, Validators.required],
+      id: [form.id]
     })
   }
 
-  checkType() {
-    if (this.path == 'edit') {
-
-    }
-  }
-
   submit() {
-    this.offerForm.controls['programaId'].setValue( parseInt(this.offerForm.value.programaId)) ;
-    this.offerForm.controls['campusId'].setValue( parseInt(this.offerForm.value.campusId)) ;
-    console.log(this.offerForm.value);
-    let data = this.offerForm.value;
-    this.offerService.createOffer(data).subscribe(
-      (res)=>{
-        console.log(res);
-      }
-    )
+    if (this.path == 'create') {
+      this.offerForm.controls['programaEstudioId'].setValue(parseInt(this.offerForm.value.programaEstudioId));
+      this.offerForm.controls['campusId'].setValue(parseInt(this.offerForm.value.campusId));
+      console.log(this.offerForm.value);
+      let data = this.offerForm.value;
+      this.offerService.createOffer(data).subscribe(
+        (res) => {
+          console.log(res);
+        }
+      )
+    } else {
+      let id = this.offerForm.controls.id.value;
+      this.offerForm.removeControl('programaEstudioId');
+      this.offerForm.removeControl('campusId');
+      this.offerForm.removeControl('id');
+      let data = this.offerForm.value;
+      this.offerService.editOffer(id,data ).subscribe(
+        (res) => {
+          console.log(res);
+        }
+      );
+    }
+
   }
 
-  toNumber(n) : number {
+  toNumber(n): number {
     return parseInt(n);
   }
 

@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { OfferDetails } from 'src/app/utils/offers';
 import { environment } from 'src/environments/environment';
 
 const httpOptions = {
@@ -23,11 +24,15 @@ export class OffersService {
     return this.http.get(this.api +'oferta', httpOptions)
   }
 
-  getOfferById(id) {
-
+  getOfferById(id): any {
+   return this.http.get(this.api +'oferta', httpOptions)
   }
 
   createOffer(offer){
     return this.http.put(this.api + 'oferta', offer, httpOptions)
+  }
+
+  editOffer(id, data) {
+    return this.http.patch(this.api +'oferta/' + id, data, httpOptions)
   }
 }

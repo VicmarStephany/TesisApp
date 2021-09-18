@@ -17,14 +17,8 @@ td {
     font-size: 0.85rem;
 }
 
-:host ngb-pagination{
-    .pagination{
-        .page-item {
-           &:active .page-link{
-            .sr-only {
-                display: none !important;
-            }
-           }
-        }
-    }
+.paginationC {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
 }

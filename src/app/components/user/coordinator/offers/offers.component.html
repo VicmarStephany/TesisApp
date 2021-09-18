@@ -72,22 +72,31 @@
             </tbody>
           </table>
         </div>
-        <ngb-pagination
-          [collectionSize]="totalSize"
-          [pageSize]="10"
-          [(page)]="page"
-          (pageChange)="refreshData()"
-          aria-disabled="true"
-          aria-current="false"
-        >
-          <span ngbPaginationPrevious aria-disabled="true" aria-current="false"
-            ><i _ngcontent-c9="" class="fa fa-angle-left" aria-disabled="true"></i
-          ></span>
-          <span ngbPaginationNext aria-current="false" aria-disabled="true"
-            ><i _ngcontent-c9="" class="fa fa-angle-right"></i
-          ></span>
-          <ng-template ngbPaginationNumber let-page>{{ page }}</ng-template>
-        </ngb-pagination>
+        <div class="paginationC">
+          <ngb-pagination
+            [collectionSize]="totalSize"
+            [pageSize]="10"
+            [(page)]="page"
+            (pageChange)="refreshData()"
+            aria-disabled="true"
+            aria-current="false"
+          >
+            <span
+              ngbPaginationPrevious
+              aria-disabled="true"
+              aria-current="false"
+              ><i
+                _ngcontent-c9=""
+                class="fa fa-angle-left"
+                aria-disabled="true"
+              ></i
+            ></span>
+            <span ngbPaginationNext aria-current="false" aria-disabled="true"
+              ><i _ngcontent-c9="" class="fa fa-angle-right"></i
+            ></span>
+            <ng-template ngbPaginationNumber let-page>{{ page }}</ng-template>
+          </ngb-pagination>
+        </div>
       </div>
     </div>
   </div>

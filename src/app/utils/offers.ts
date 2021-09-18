@@ -1,14 +1,16 @@
 export interface OfferDetails {
-    programaId: number,
+    programaEstudioId: number,
     campusId: number,
     nombre: string,
     modalidad: string,
     descripcion: string,
     codigo: string,
     cantidadSemestres: number,
+    cantidadCupos: number,
     duracion: string,
     pensum: string,
     costo: number,
+    id: number
 }
 
 export interface Offer {

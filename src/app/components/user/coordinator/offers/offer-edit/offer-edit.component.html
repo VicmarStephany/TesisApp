@@ -8,14 +8,22 @@
           </h2>
         </div>
         <hr class="m-3" />
-        <div class="">
+        <div *ngIf="offerForm" class="">
           <form [formGroup]="offerForm" (submit)="submit()">
-            <div class="row col-md-12">
-              <div class="col-md-4">
+            <div class="d-flex wrap">
+              <div *ngIf="path == 'create'" class="col-md-4">
                 <div class="form-group">
                   <label>Tipo de programa: </label>
-                  <select class="form-control" formControlName="programaId" >
-                    <option [value]="toNumber(type.id)" *ngFor="let type of typeList">{{ type.name }}</option>
+                  <select
+                    class="form-control"
+                    formControlName="programaEstudioId"
+                  >
+                    <option
+                      [value]="toNumber(type.id)"
+                      *ngFor="let type of typeList"
+                    >
+                      {{ type.name }}
+                    </option>
                   </select>
                 </div>
               </div>
@@ -41,8 +49,6 @@
                   />
                 </div>
               </div>
-            </div>
-            <div class="row col-md-12">
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Descripción:</label>
@@ -55,7 +61,7 @@
                   ></textarea>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div *ngIf="path == 'create'" class="col-md-4">
                 <div class="form-group">
                   <label>Sede:</label>
                   <select class="form-control" formControlName="campusId">
@@ -75,8 +81,6 @@
                   </select>
                 </div>
               </div>
-            </div>
-            <div class="row col-md-12">
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Semestres/partes</label>
@@ -85,6 +89,17 @@
                     class="form-control"
                     formControlName="cantidadSemestres"
                     placeholder="Semestres/partes"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Cupos disponibles: </label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    formControlName="cantidadCupos"
+                    placeholder="Cupos"
                   />
                 </div>
               </div>
@@ -110,8 +125,6 @@
                   />
                 </div>
               </div>
-            </div>
-            <div class="row col-md-12">
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Aranceles:</label>
@@ -124,6 +137,7 @@
                 </div>
               </div>
             </div>
+
             <!-- <div class="row">
               <div class="col-md-6">
                 <div class="form-group has-success">
