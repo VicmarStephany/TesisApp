@@ -14,7 +14,7 @@
             <div class="form-group">
               <label>Tipo de pago</label>
               <select class="form-control" formControlName="type">
-                <option *ngFor="let BasicI of methodList">
+                <option *ngFor="let method of methodList">
                   {{ method.name }}
                 </option>
               </select>

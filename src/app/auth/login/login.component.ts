@@ -58,7 +58,6 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('authToken', res['d'].token);
           localStorage.setItem('user', JSON.stringify(res['d']));
           let id = res['d'].id;
-          setTimeout(()=>{
           this.userService.getUser(id).subscribe(
             (res) => {
               if (res['s'] == true) {
@@ -73,8 +72,13 @@ export class LoginComponent implements OnInit {
                 console.log('no hay sesión iniciada');
                 //this.router.navigateByUrl("/login");
               }
-            })
-          }, 2000)
+            }, (err)=> {
+              console.log(err);
+              this.spinnerServ.hide();
+              this.alertId = 3;
+              this.messageAlert = 'al iniciar sesión. Por favor, intente de nuevo.';
+            }
+          )
         }
       }, (err) => {
         console.log(err);

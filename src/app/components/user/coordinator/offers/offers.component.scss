@@ -16,3 +16,15 @@ td {
     color: black;
     font-size: 0.85rem;
 }
+
+:host ngb-pagination{
+    .pagination{
+        .page-item {
+           &:active .page-link{
+            .sr-only {
+                display: none !important;
+            }
+           }
+        }
+    }
+}

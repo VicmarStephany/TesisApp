@@ -37,11 +37,11 @@ export class NavbarComponent implements OnInit {
                     window.scrollTo(0, 0);
             }
         });
-        this.location.subscribe((ev: PopStateEvent) => {
-            this.lastPoppedUrl = ev.url;
-        });
-        this.user = JSON.parse(localStorage.getItem('user'));
-        console.log(this.user)
+        //this.location.subscribe((ev: PopStateEvent) => {
+        //    this.lastPoppedUrl = ev.url;
+        //});
+        //this.user = JSON.parse(localStorage.getItem('user'));
+        //console.log(this.user)
     }
 
     isHome() {

@@ -16,13 +16,13 @@
         <div class="row col-md-12 p-0">
           <div class="form-group mt-3 col-md-3">
             <label>Programa: </label>
-            <select class="form-control" >
+            <select class="form-control">
               <option *ngFor="let type of typeList">{{ type.name }}</option>
             </select>
           </div>
           <div class="form-group mt-3 col-md-3">
             <label>Modalidad: </label>
-            <select class="form-control" >
+            <select class="form-control">
               <option *ngFor="let mode of modesList">{{ mode.name }}</option>
             </select>
           </div>
@@ -31,40 +31,33 @@
           <table class="table align-items-center table-flush">
             <thead class="thead-light">
               <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Descripción</th>
-                <th scope="col">Duración</th>
-                <th scope="col">Modalidad</th>
-                <th scope="col">Sede</th>
-                <th scope="col">Pensum</th>
-                <th scope="col">Aranceles</th>
-                <th scope="col">Editar/Eliminar</th>
+                <th scope="col">Código</th>
+                <th scope="col">Título</th>
+                <th scope="col">Programa</th>
+                <th scope="col">Ver más</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th>123</th>
-                <td>Doctorado en Ciencias</td>
-                <td>Doctorado en ciencias descripción</td>
-                <td>6 meses</td>
-                <td>A distancia</td>
-                <td>Vicerrectorado Puerto Ordaz</td>
-                <td>link</td>
-                <td>Pendiente</td>
-                <td class="d-flex" style="justify-content: space-around;">
+              <tr *ngFor="let offer of offers">
+                <th>{{ offer.codigo }}</th>
+                <td>{{ offer.carrera }}</td>
+                <td>{{ offer.programa }}</td>
+                <td class="d-flex" style="justify-content: space-around">
                   <button
-                    class="btn btn-icon btn-2 btn-info"
+                    class="btn btn-outline-custom btn-outline-primary"
                     type="button"
                     placement="top"
-                    ngbTooltip="Editar"
-                    [routerLink]="['/user-panel/offers/edit/'+ userId]"
+                    ngbTooltip="Ver más"
+                    [routerLink]="[
+                      '/user-panel/offers/edit/' + offer.carreraId
+                    ]"
                   >
                     <span class="btn-inner--icon">
-                      <i class="ni ni-palette"></i> 
+                      Ver más
+                      <!-- <i class="ni ni-palette"></i>  -->
                     </span>
                   </button>
-                  <button
+                  <!-- <button
                     class="btn btn-icon btn-2 btn-danger"
                     type="button"
                     placement="top"
@@ -73,44 +66,27 @@
                     <span class="btn-inner--icon">
                       <i class="ni ni-fat-remove"></i>
                     </span>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <th>123</th>
-                <td>Doctorado en Ciencias</td>
-                <td>Doctorado en ciencias descripción</td>
-                <td>6 meses</td>
-                <td>A distancia</td>
-                <td>Vicerrectorado Puerto Ordaz</td>
-                <td>link</td>
-                <td>Pendiente</td>
-                <td class="d-flex" style="justify-content: space-around;">
-                  <button
-                    class="btn btn-icon btn-2 btn-info"
-                    type="button"
-                    placement="top"
-                    ngbTooltip="Editar"
-                  >
-                    <span class="btn-inner--icon">
-                      <i class="ni ni-palette"></i>
-                    </span>
-                  </button>
-                  <button
-                    class="btn btn-icon btn-2 btn-danger"
-                    type="button"
-                    placement="top"
-                    ngbTooltip="Eliminar"
-                  >
-                    <span class="btn-inner--icon">
-                      <i class="ni ni-fat-remove"></i>
-                    </span>
-                  </button>
+                  </button> -->
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
+        <ngb-pagination
+          [collectionSize]="totalSize"
+          [pageSize]="10"
+          [(page)]="page"
+          (pageChange)="refreshData()"
+          aria-disabled="true"
+          aria-current="false"
+        >
+          <span ngbPaginationPrevious aria-disabled="true" aria-current="false"
+            ><i _ngcontent-c9="" class="fa fa-angle-left" aria-disabled="true"></i
+          ></span>
+          <span ngbPaginationNext aria-current="false" aria-disabled="true"
+            ><i _ngcontent-c9="" class="fa fa-angle-right"></i
+          ></span>
+        </ngb-pagination>
       </div>
     </div>
   </div>

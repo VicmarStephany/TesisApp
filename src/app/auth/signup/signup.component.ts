@@ -17,8 +17,8 @@ export class SignupComponent implements OnInit {
 
     registerForm: FormGroup;
 
-    constructor(private fb: FormBuilder, private citiesService: CitiesService, 
-                private usersService: UsersService) {
+    constructor(private fb: FormBuilder, private citiesService: CitiesService,
+        private usersService: UsersService) {
 
     }
 
@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit {
             idNumber: ['', Validators.required],
             sexo: ['', Validators.required],
             fechaNacimiento: ['', Validators.required],
-            ciudadNacimiento: ['', Validators.required],
+            ciudadNacimiento: ['ff', Validators.required],
             telefono1: ['', Validators.required],
             celular1: ['', Validators.required],
             celular2: ['', Validators.required],
@@ -41,8 +41,8 @@ export class SignupComponent implements OnInit {
             clave: [''],
             rol: ['estudiante'],
             codigoLapsoIngreso: ['1235'],
-            user: ['test'],
-            pass: ['test']
+            user: [''],
+            pass: ['']
         });
 
         this.citiesService.getCities().subscribe(
@@ -52,7 +52,6 @@ export class SignupComponent implements OnInit {
                 //console.log(this.cities)
             }
         )
-
         /*this.citiesService.getCountry().subscribe(
             (res)=>{
                 console.log(res)
@@ -67,9 +66,14 @@ export class SignupComponent implements OnInit {
 
     signup() {
         let date = this.toDate(this.registerForm.controls.fechaNacimiento.value);
+        let name = this.registerForm.controls.nombres.value;
+        let lastName = this.registerForm.controls.apellidoPaterno.value;
         this.registerForm.controls.fechaNacimiento.setValue(date);
-        console.log(this.registerForm.value);
+        this.registerForm.controls.user.setValue((name.slice(0, 1) + lastName).toLowerCase());
+        this.registerForm.controls.pass.setValue((lastName.slice(0, 1) + name).toLowerCase());
+        //console.log(this.registerForm.value);
         let data = this.registerForm.value;
+
         this.usersService.createUser(data).subscribe(
             res => {
                 console.log(res)

@@ -9,9 +9,9 @@ export const Courses: BasicI[] = [
 ]
 
 export const Campus = [
-    { id: '1', name: 'Vice-Rectorado Barquisimeto' },
+    { id: '3', name: 'Vice-Rectorado Barquisimeto' },
     { id: '2', name: 'Vice-Rectorado "Luis Caballero Mejías" - Caracas' },
-    { id: '3', name: 'Vice-Rectorado Puerto Ordaz' }
+    { id: '1', name: 'Vice-Rectorado Puerto Ordaz' }
 ]
 
 export const Modes = [

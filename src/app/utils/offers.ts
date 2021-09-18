@@ -1,4 +1,4 @@
-export interface Offer {
+export interface OfferDetails {
     programaId: number,
     campusId: number,
     nombre: string,
@@ -9,4 +9,11 @@ export interface Offer {
     duracion: string,
     pensum: string,
     costo: number,
+}
+
+export interface Offer {
+    carrera: string,
+    carreraId: number,
+    codigo: string,
+    programa: string
 }

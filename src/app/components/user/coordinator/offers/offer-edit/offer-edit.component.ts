@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { OffersService } from 'src/app/services/offer/offers.service';
 import { Campus, Courses, Modes } from 'src/app/utils/courses';
-import { Offer } from 'src/app/utils/offers';
+import { OfferDetails } from 'src/app/utils/offers';
 import { BasicI } from 'src/app/utils/payment';
 
 @Component({
@@ -16,7 +16,7 @@ export class OfferEditComponent implements OnInit {
   offerForm: FormGroup;
   type: string;
   path: string;
-  editOffer: Offer;
+  editOffer: OfferDetails;
 
 
   public typeList: Array<BasicI> = Courses;

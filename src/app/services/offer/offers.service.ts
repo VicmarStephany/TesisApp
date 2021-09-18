@@ -20,7 +20,7 @@ export class OffersService {
   constructor(public http: HttpClient, public router: Router) { }
 
   getOffers(){
-
+    return this.http.get(this.api +'oferta', httpOptions)
   }
 
   getOfferById(id) {
