@@ -1,12 +1,25 @@
-
-
 .card{
     position: relative;
     max-width: 300px;
     margin: 2rem 0px;
+    margin-right: 2.2rem;
 }
 
 .text-white{
     color: #ffffff;
     max-width: 70%;
+    text-align: justify;
+}
+
+.card-container {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    max-width: 1040px;
+    justify-content: unset;
+}
+
+.dropdown-divider {
+
+    border-top: 3px solid #ffc726;
 }

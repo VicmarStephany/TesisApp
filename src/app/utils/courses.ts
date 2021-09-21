@@ -1,11 +1,11 @@
 import { BasicI } from "./payment"
 
 export const Courses: BasicI[] = [
-    { id: '1', name: 'Especialidades'},
-    { id: '2', name: 'Maestrías'},
-    { id: '3', name: 'Doctorados'},
-    { id: '4', name: 'Diplomados'},
-    { id: '5', name: 'Cursos'}
+    { id: 'especializacion', name: 'Especialidades'},
+    { id: 'maestria', name: 'Maestrías'},
+    { id: 'doctorado', name: 'Doctorados'},
+    { id: 'diplomado', name: 'Diplomados'},
+    { id: 'curso', name: 'Cursos'}
 ]
 
 export const Campus = [

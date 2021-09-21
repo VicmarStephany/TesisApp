@@ -1,31 +1,46 @@
-<div class="section section-lg section-shaped">
-  <div class="shape shape-style-1 shape-default">
-  </div>
+<div class="section section-lg section-shaped" style="padding-bottom: 0.5rem;">
+  <div class="shape shape-style-1 shape-default"></div>
   <section class="section-lg container py-lg-md d-flex flex-column">
-    <h1 class="display-3  text-white">Oferta Académica</h1>
-    <p class="text-white">La Universidad Nacional Experimental Politécnica (UNEXPO), a través de la Dirección de Investigación y Postgrado
-      ofrece a los profesionales, la oportunidad de cursar estudios de cuarto nivel en diversas áreas de Maestrías,
-      Especializaciones Técnicas y Profesionales.</p>
+    <h1 class="display-3 text-white">Oferta Académica</h1>
+    <p class="text-white">
+      La Universidad Nacional Experimental Politécnica (UNEXPO), a través de la
+      Dirección de Investigación y Postgrado ofrece a los profesionales, la
+      oportunidad de cursar estudios de cuarto nivel en diversas áreas de
+      Maestrías, Especializaciones Técnicas y Profesionales.<br />
+      <br />
+      La Dirección de Investigación y Postgrado realiza estudios para definir
+      áreas prioritarias de investigación; desarrolla líneas de investigación en
+      función de las necesidades de la región y del país; fomenta la creación de
+      grupos de investigación; difunde y promociona las actividades de
+      investigación; estimula la participación de docentes en proyectos
+      multidisciplinarios; establece relaciones permanentes con otras
+      universidades organizaciones públicas y privadas e integra de manera
+      efectiva los resultados de las gestiones de investigación con la docencia
+      de postgrado y la extensión.
+    </p>
   </section>
 </div>
 
-<section class="container card-container">
-
-  <div *ngFor="let course of courses;let i=index" class="card shadow border-0">
+<section class="container card-container col-md-12 wrap">
+  <div
+    *ngFor="let course of courses; let i = index"
+    class="col-md-4 card shadow border-0"
+  >
     <div class="card-body py-5">
       <!-- <div class="icon icon-shape icon-shape-primary rounded-circle mb-4">
             <i class="ni ni-hat-3"></i>
           </div> -->
-      <h6 class="text-primary text-uppercase">{{course}}</h6>
-      <p class="description mt-3">Argon is a great free UI package based on Angular that includes the most
-        important components and features.</p>
-      <div>
-        <span class="badge badge-pill badge-primary">angular</span>
-        <span class="badge badge-pill badge-primary">ng-bootstrap</span>
-        <span class="badge badge-pill badge-primary">creative</span>
-      </div>
-      <a href="javascript:void(0)" class="btn btn-primary mt-4" [routerLink]="['/courses/'+course]">Conoce mas > </a>
+      <h2 class="text-primary text-uppercase">{{ course.name }}</h2>
+      <div class="dropdown-divider"></div>
+      <p class="description mt-3">
+        
+      </p>
+      <a
+        href="javascript:void(0)"
+        class="btn btn-success mt-4"
+        [routerLink]="['/courses/' + course.id]"
+        >Conoce mas >
+      </a>
     </div>
   </div>
-
 </section>

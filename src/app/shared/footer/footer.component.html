@@ -1,67 +1,64 @@
-<footer class="footer" [ngClass]="{'has-cards': getPath()!=='/user-profile' && getPath()!=='/register' && getPath()!=='/login'}">
-  <!-- <div class="container container-lg" *ngIf="getPath()!=='/user-profile' && getPath()!=='/register' && getPath()!=='/login'">
-    <div class="row">
-      <div class="col-md-6 mb-5 mb-md-0">
-        <div class="card card-lift--hover shadow border-0">
-          <a [routerLink]="['/landing']" title="Landing Page">
-            <img src="./assets/img/theme/landing.jpg" class="card-img">
-          </a>
-        </div>
-      </div>
-      <div class="col-md-6 mb-5 mb-lg-0">
-        <div class="card card-lift--hover shadow border-0">
-          <a [routerLink]="['/user-profile']" title="Profile Page">
-            <img src="./assets/img/theme/profile.jpg" class="card-img">
-          </a>
-        </div>
-      </div>
-    </div>
-  </div> -->
+<footer class="footer">
   <div class="container">
-    <div class="row row-grid align-items-center" [ngClass]="{'my-md': getPath()!=='/user-profile' && getPath()!=='/register' && getPath()!=='/login', 'mb-5':getPath()==='/user-profile' || getPath()==='/register' || getPath()==='/login'}">
-      <div class="col-lg-6">
-        <h3 class="text-primary font-weight-light mb-2">Thank you for supporting us!</h3>
-        <h4 class="mb-0 font-weight-light">Let's get in touch on any of these platforms.</h4>
-      </div>
-      <!-- <div class="col-lg-6 text-lg-center btn-wrapper">
-        <a target="_blank" href="https://twitter.com/creativetim" class="btn btn-neutral btn-icon-only btn-twitter btn-round btn-lg" ngbTooltip="Follow us">
-          <i class="fa fa-twitter"></i>
-        </a>
-        <a target="_blank" href="https://www.facebook.com/creativetim" class="btn btn-neutral btn-icon-only btn-facebook btn-round btn-lg" ngbTooltip="Like us">
-          <i class="fa fa-facebook-square"></i>
-        </a>
-        <a target="_blank" href="https://dribbble.com/creativetim" class="btn btn-neutral btn-icon-only btn-dribbble btn-lg btn-round" ngbTooltip="Follow us">
-          <i class="fa fa-dribbble"></i>
-        </a>
-        <a target="_blank" href="https://github.com/creativetimofficial" class="btn btn-neutral btn-icon-only btn-github btn-round btn-lg" ngbTooltip="Star on Github">
-          <i class="fa fa-github"></i>
-        </a>
-      </div> -->
-    </div>
-    <hr>
-    <div class="row align-items-center justify-content-md-between">
+    <div class="row row-grid align-items-center">
       <div class="col-md-6">
-        <div class="copyright">
-          &copy; {{test | date: 'yyyy'}}
-          <a href="https://www.creative-tim.com?ref=adsa-footer" target="_blank">UNEXPO</a>.
+        <h3 class="text-primary font-weight-normal mb-2">LA UNIVERSIDAD</h3>
+        <p class="font-weight-normal text-justify pb-2">
+          El compromiso de la comunidad unexpista es seguir firmes para mantener
+          viva la luz de esperanza, para que la UNEXPO siga fomentando e
+          impartiendo la Educación Politécnica con la excelencia que la
+          caracteriza.
+        </p>
+
+        <h4 class="text-primary font-weight-normal mb-2">REDES SOCIALES</h4>
+        <div class="col-md-6 btn-wrapper p-0">
+          <a
+            target="_blank"
+            href="https://twitter.com/Unexpove"
+            class="btn btn-neutral btn-icon-only btn-twitter btn-round btn-sm"
+            ngbTooltip="Síguenos"
+          >
+            <i class="fa fa-twitter"></i>
+          </a>
+          <a
+            target="_blank"
+            href="https://www.facebook.com/Unexpove"
+            class="btn btn-neutral btn-icon-only btn-facebook btn-round btn-sm"
+            ngbTooltip="Síguenos"
+          >
+            <i class="fa fa-facebook-square"></i>
+          </a>
+          <a
+            target="_blank"
+            href="https://www.instagram.com/Unexpove"
+            class="btn btn-neutral btn-icon-only btn-instagram btn-round btn-sm"
+            ngbTooltip="Síguenos"
+          >
+            <i class="fa fa-instagram"></i>
+          </a>
+          <a
+          target="_blank"
+          href="https://www.youtube.com/Unexpove"
+          class="btn btn-neutral btn-icon-only btn-youtube btn-round btn-sm"
+          ngbTooltip="Síguenos"
+        >
+          <i class="fa fa-youtube"></i>
+        </a>
         </div>
       </div>
-      <!-- <div class="col-md-6">
-        <ul class="nav nav-footer justify-content-end">
-          <li class="nav-item">
-            <a href="https://www.creative-tim.com?ref=adsa-footer" class="nav-link" target="_blank">Creative Tim</a>
-          </li>
-          <li class="nav-item">
-            <a href="https://www.creative-tim.com/presentation?ref=adsa-footer" class="nav-link" target="_blank">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a href="http://blog.creative-tim.com?ref=adsa-footer" class="nav-link" target="_blank">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a href="https://github.com/creativetimofficial/argon-design-system-angular/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>
-          </li>
-        </ul>
-      </div> -->
+      <div class="col-md-6"></div>
+    </div>
+    <hr />
+    <div class="row align-items-center justify-content-md-between">
+      <div class="col-md-12">
+        <div class="copyright">
+          &copy; {{ test | date: "yyyy" }}
+          <a href="/" target="_blank"
+            >Universidad Nacional Experimental Politécnica "Antonio José de
+            Sucre"</a
+          >.
+        </div>
+      </div>
     </div>
   </div>
 </footer>

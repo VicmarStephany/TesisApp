@@ -8,18 +8,45 @@
         <hr class="m-3" />
         <div class="row col-md-12 p-0">
           <div class="form-group mt-3 col-md-3">
-            <label>Programa: </label>
-            <select class="form-control" id="exampleFormControlSelect1">
-              <option *ngFor="let type of typeList">{{ type.name }}</option>
-            </select>
-          </div>
-          <div class="form-group mt-3 col-md-3">
             <label>Cédula: </label>
             <input
               type="text"
               class="form-control"
               placeholder="Nro de Cédula"
             />
+          </div>
+          <div class="form-group mt-3 col-md-3">
+            <label>Programa: </label>
+            <select
+              class="form-control"
+              [(ngModel)]="programId"
+              [value]="programId"
+              (click)="selected(programId, 1)"
+            >
+              <option [value]="type.id" *ngFor="let type of typeList">
+                {{ type.name }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group mt-3 col-md-3">
+            <label>Carrera: </label>
+            <select
+              class="form-control"
+              [(ngModel)]="offerSelected"
+              (click)="selected(offerSelected, 2)"
+            >
+              <option [value]="offer.carreraId" *ngFor="let offer of offers">
+                {{ offer.carrera }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group mt-3 col-md-3">
+            <label>Asignatura: </label>
+            <select class="form-control">
+              <option *ngFor="let subject of subjects">
+                {{ subject.nombre }}
+              </option>
+            </select>
           </div>
         </div>
         <div class="table-responsive mt-3">
@@ -32,7 +59,8 @@
                 <th scope="col">Título</th>
                 <th scope="col">Modalidad</th>
                 <th scope="col">Sede</th>
-                <th scope="col">Editar/Eliminar</th>
+                <th scope="col">Ver más</th>
+                <th *ngIf="type == 3" scope="col">Editar</th>
               </tr>
             </thead>
             <tbody>
@@ -43,17 +71,36 @@
                 <td>Doctorado en Ciencias</td>
                 <td>A distancia</td>
                 <td>Vicerrectorado Puerto Ordaz</td>
-                <td class="d-flex">
-                  <button class="btn btn-icon btn-2 btn-info" type="button" placement="top" ngbTooltip="Editar">
-                    <span class="btn-inner--icon">
-                      <i class="ni ni-palette"></i>
-                    </span>
+                <td class="d-flex" style="justify-content: space-around">
+                  <button
+                    class="btn btn-outline-custom btn-outline-primary"
+                    type="button"
+                    placement="top"
+                    ngbTooltip="Ver más"
+                    [routerLink]="[]"
+                  >
+                    <span class="btn-inner--icon"> Ver más </span>
                   </button>
-                  <button class="btn btn-icon btn-2 btn-danger" type="button"  placement="top" ngbTooltip="Eliminar">
+                </td>
+                <td *ngIf="type == 3" class="d-flex">
+                  <button
+                    class="btn btn-outline-custom btn-outline-success"
+                    type="button"
+                    placement="top"
+                    ngbTooltip="Editar"
+                  >
+                    <span class="btn-inner--icon"> Editar </span>
+                  </button>
+                  <!-- <button
+                    class="btn btn-icon btn-2 btn-danger"
+                    type="button"
+                    placement="top"
+                    ngbTooltip="Eliminar"
+                  >
                     <span class="btn-inner--icon">
                       <i class="ni ni-fat-remove"></i>
                     </span>
-                  </button>
+                  </button> -->
                 </td>
               </tr>
             </tbody>

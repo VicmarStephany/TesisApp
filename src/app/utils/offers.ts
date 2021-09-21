@@ -19,3 +19,11 @@ export interface Offer {
     codigo: string,
     programa: string
 }
+
+export interface Subject {
+    asignaturaId: number,
+    carrera: string,
+    carreraId: number,
+    codigo: string,
+    nombre: string
+}

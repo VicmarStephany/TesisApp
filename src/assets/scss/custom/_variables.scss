@@ -317,7 +317,7 @@ $font-family-alt: 'Open Sans', sans-serif !default;
 $font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
 $font-size-xl:                ($font-size-base * 1.5);
 $font-size-lg:                ($font-size-base * 1.25);
-$font-size-sm:                ($font-size-base * .8);
+$font-size-sm:                ($font-size-base * 1);
 $font-size-xs:                ($font-size-base * .73);
 
 $font-weight-light:           300 !default;
