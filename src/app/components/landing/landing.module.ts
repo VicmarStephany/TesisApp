@@ -14,6 +14,7 @@ import { AuthModule } from 'src/app/auth/auth.module';
 import { LandingComponent } from './landing.component';
 import { MainComponent } from './main/main.component';
 import { NgxSpinnerModule } from 'ngx-bootstrap-spinner';
+import { BrowserModule } from '@angular/platform-browser';
 
 const routesL: Routes = [
 

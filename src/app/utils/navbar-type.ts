@@ -8,10 +8,10 @@ export const HomeNav = [
 ]
 
 export const HomeNavChilds = [
-    {name: 'Especialidades', path: '/courses/'},
-    {name: 'Maestrías', path: '/courses/'},
-    {name: 'Doctorados', path: '/courses/'},
-    {name: 'Diplomados', path: '/courses/'},
-    {name: 'Cursos', path: '/courses/'}
+    {id: 'especializacion', name: 'Especialidades', path: '/courses/'},
+    {id: 'maestria', name: 'Maestrías', path: '/courses/'},
+    {id: 'doctorado', name: 'Doctorados', path: '/courses/'},
+    {id: 'diplomado', name: 'Diplomados', path: '/courses/'},
+    {id: 'curso', name: 'Cursos', path: '/courses/'}
 ]
 

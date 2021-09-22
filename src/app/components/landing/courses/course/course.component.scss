@@ -1,0 +1,27 @@
+
+.title{
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+p{
+    font-weight: 400;
+}
+
+h3{
+    font-weight: 500;
+    margin-bottom: 0px;
+    margin-top: 0.35rem;
+}
+
+.wrap{
+    display: flex;
+    flex-wrap: wrap;
+}
+ng-template{
+    border: 1px solid #00000029 !important;
+    margin-bottom: 0px !important;
+}
+.card-body{
+    order: 1px solid #b6cbd8 !important;
+}

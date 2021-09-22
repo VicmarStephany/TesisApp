@@ -59,74 +59,12 @@
             <a
               *ngFor="let item of navbarChild"
               class="dropdown-item"
-              [routerLink]="[item.path + item.name]"
-              (click)="checkType(item.name)"
+              [routerLink]="[item.path + item.id]"
+              (click)="checkType(item.id)"
               >{{ item.name }}
             </a>
           </div>
         </li>
-        <!--   <li class="nav-item dropdown">
-          <a
-            class="nav-link no-caret"
-            data-toggle="dropdown"
-            role="button"
-            [routerLink]="['/institution']"
-          >
-            <i class="ni ni-collection d-lg-none"></i>
-            <span class="nav-link-inner--text">Institución</span>
-          </a>
-        </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link no-caret"
-            data-toggle="dropdown"
-            role="button"
-            id="categoriesMenu"
-            aria-haspopup="true"
-            aria-expanded="false"
-            [routerLink]="['/courses/all']"
-          >
-            <i class="ni ni-collection d-lg-none"></i>
-            <span class="nav-link-inner--text">Oferta académica</span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="categoriesMenu">
-            <a
-              *ngFor="let course of courses"
-              class="dropdown-item"
-              [routerLink]="['/courses/' + course]"
-              (click)="checkType(course)"
-              >{{ course }}
-            </a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link no-caret"
-            data-toggle="dropdown"
-            role="button"
-            [routerLink]="['/info-board']"
-          >
-            <i class="ni ni-collection d-lg-none"></i>
-            <span class="nav-link-inner--text">Cartelera informativa</span>
-          </a>
-        </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link no-caret"
-            data-toggle="dropdown"
-            role="button"
-            [routerLink]="['/contact']"
-          >
-            <i class="ni ni-collection d-lg-none"></i>
-            <span class="nav-link-inner--text">Contáctanos</span>
-          </a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link no-caret" data-toggle="dropdown" role="button">
-            <i class="ni ni-collection d-lg-none"></i>
-            <span class="nav-link-inner--text">Aulas</span>
-          </a>
-        </li> -->
       </ul>
       <ul class="navbar-nav align-items-lg-center ml-lg-auto">
         <li class="nav-item dropdown">

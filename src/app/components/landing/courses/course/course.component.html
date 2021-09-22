@@ -1,25 +1,71 @@
 <div class="section section-shaped">
-    <div class="shape shape-style-1 shape-default">
-    </div>
-    <section class="section-sm container py-lg-md d-flex ">
-
-        <h1 class="display-3  text-white">{{ type.name }}</h1>
-    </section>
+  <div class="shape shape-style-1 shape-default"></div>
+  <section class="section-sm container py-lg-md d-flex pb-0">
+    <h1 class="display-3 text-white">{{ type.name }}</h1>
+  </section>
 </div>
 
-<section class="container">
-  <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
-    <ngb-panel *ngFor="let course of courses">
-      <ng-template ngbPanelHeader let-opened="opened" [closeOthers]="true" activeIds="{{course.carreraId}}">
+<section class="container my-5">
+  <ngb-accordion
+    #acc="ngbAccordion"
+    activeIds="ngb-panel-0"
+    [closeOthers]="true"
+  >
+    <ngb-panel *ngFor="let course of courses" id="{{ course.carreraId }}" class="card-header">
+      <ng-template ngbPanelHeader let-opened="opened" >
         <div class="d-flex align-items-center justify-content-between">
-          <span>{{ course.carrera }}</span>
-          <button ngbPanelToggle class="btn btn-link p-0"> <fa-icon [icon]="circle" size="lg"></fa-icon></button>
+          <span class="title">{{ course.carrera | titlecase }}</span>
+          <button
+            ngbPanelToggle
+            class="btn btn-link p-0"
+            (click)="getCarrera(course.carreraId)"
+          >
+            <fa-icon [icon]="circle" size="lg"></fa-icon>
+          </button>
         </div>
       </ng-template>
       <ng-template ngbPanelContent>
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+        <div class="col-md-12">
+          <h3>Título:</h3>
+          <p>{{ detail.nombre }}</p>
+          <h3>Descripción:</h3>
+          <p class="text-justify">{{ detail.descripcion }}</p>
+          <div class="col-md-12 wrap pl-0 d-flex">
+            <div class="col-md-6 pl-0">
+              <h3>Modalidad:</h3>
+              <p>{{ detail.modalidad | titlecase }}</p>
+            </div>
+            <div *ngIf="detail.modalidad != 'online'" class="col-md-6 pl-0">
+              <h3>Campus:</h3>
+              <p>{{ campusTransform(detail.campusId) }}</p>
+            </div>
+            <div class="col-md-6 pl-0">
+              <h3>Duración:</h3>
+              <p>
+                {{ detail.cantidadSemestres }} Semestres -
+                {{ detail.duracion }} Años
+              </p>
+            </div>
+            <div class="col-md-6 pl-0">
+              <h3>Cupos disponibles:</h3>
+              <p>{{ detail.cantidadCupos }} estudiantes</p>
+            </div>
+          </div>
+          <div class="col-md-12 pl-0 wrap">
+            <div class="col-md-6 pl-0">
+              <h3>Consultar pensum:</h3>
+              <a href="{{ detail.pensum }}" target="_blank">Ver pensum</a>
+            </div>
+            <div class="col-md-6 pl-0">
+              <h3>Costo:</h3>
+              <p>${{ detail.costo }} o su equivalente en Bs al cambio (tasa oficial BCV)</p>
+            </div>
+          </div>
+          <div class="col-md-12 pl-0 j-center d-flex mt-3">
+            <button class="btn btn-1 btn-primary" type="button">Preinscribirme</button>
+          </div>
+        </div>
       </ng-template>
     </ngb-panel>
   </ngb-accordion>
-
 </section>

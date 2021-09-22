@@ -12,7 +12,11 @@
                 <span>Sistema de Postgrado</span>
               </h1>
               <p class="lead text-white">
-                Especializaciones, Maestrías, Doctorados, Diplomados y Cursos.
+                La Universidad Nacional Experimental Politécnica (UNEXPO), a
+                través de la Dirección de Investigación y Postgrado ofrece a los
+                profesionales, la oportunidad de cursar estudios de cuarto nivel
+                en diversas áreas de Maestrías, Especializaciones Técnicas y
+                Profesionales.
               </p>
               <div class="btn-wrapper">
                 <a
@@ -60,19 +64,16 @@
                   >
                     <i class="ni ni-hat-3"></i>
                   </div>
-                  <h6 class="text-primary text-uppercase">Especializaciones</h6>
+                  <h4 class="text-primary text-uppercase font-weight-500">
+                    Especializaciones
+                  </h4>
                   <p class="description mt-3">
                     Argon is a great free UI package based on Angular that
                     includes the most important components and features.
                   </p>
-                  <div>
-                    <span class="badge badge-pill badge-primary">angular</span>
-                    <span class="badge badge-pill badge-primary"
-                      >ng-bootstrap</span
-                    >
-                    <span class="badge badge-pill badge-primary">creative</span>
-                  </div>
-                  <a href="javascript:void(0)" class="btn btn-primary mt-4"
+                  <a
+                    [routerLink]="['/courses/especializacion']"
+                    class="btn btn-primary mt-4"
                     >Conoce mas >
                   </a>
                 </div>
@@ -91,18 +92,17 @@
                   >
                     <i class="ni ni-atom"></i>
                   </div>
-                  <h6 class="text-success text-uppercase">Maestrías</h6>
+                  <h4 class="text-success text-uppercase font-weight-500">
+                    Maestrías
+                  </h4>
                   <p class="description mt-3">
                     Argon is a great free UI package based on Angular that
                     includes the most important components and features.
                   </p>
-                  <div>
-                    <span class="badge badge-pill badge-success">business</span>
-                    <span class="badge badge-pill badge-success">vision</span>
-                    <span class="badge badge-pill badge-success">success</span>
-                  </div>
-                  <a href="javascript:void(0)" class="btn btn-success mt-4"
-                    >Conoce mas
+                  <a
+                    [routerLink]="['/courses/maestria']"
+                    class="btn btn-success mt-4"
+                    >Conoce mas >
                   </a>
                 </div>
               </div>
@@ -120,19 +120,16 @@
                   >
                     <i class="ni ni-paper-diploma"></i>
                   </div>
-                  <h6 class="text-warning text-uppercase">Doctorados</h6>
+                  <h4 class="text-warning text-uppercase font-weight-500">
+                    Doctorados
+                  </h4>
                   <p class="description mt-3">
                     Argon is a great free UI package based on Angular that
                     includes the most important components and features.
                   </p>
-                  <div>
-                    <span class="badge badge-pill badge-warning"
-                      >marketing</span
-                    >
-                    <span class="badge badge-pill badge-warning">product</span>
-                    <span class="badge badge-pill badge-warning">launch</span>
-                  </div>
-                  <a href="javascript:void(0)" class="btn btn-warning mt-4"
+                  <a
+                    [routerLink]="['/courses/doctorado']"
+                    class="btn btn-warning mt-4"
                     >Conoce mas >
                   </a>
                 </div>
@@ -160,16 +157,17 @@
                     <div class="col-lg-8">
                       <h3 class="text-white">MISIÓN</h3>
                       <p class="lead text-white mt-3">
-                        I will be the leader of a company that ends up being
-                        worth billions of dollars, because I got the answers. I
-                        understand culture.
+                        La UNEXPO como institución pública de educación
+                        superior, fundamentalmente, en el área de la ingeniería
+                        y de la tecnología, tiene como Misión contribuir con el
+                        desarrollo humano, científico y tecnológico del país..
                       </p>
                     </div>
                     <div class="col-lg-3 ml-lg-auto">
                       <a
-                        href="https://www.creative-tim.com/product/argon-design-system-angular?ref=adsa-landing-page"
+                        [routerLink]="['/institution']"
                         class="btn btn-lg btn-block btn-white"
-                        >Download Angular</a
+                        >Seguir leyendo</a
                       >
                     </div>
                   </div>
@@ -180,20 +178,23 @@
               <div class="card bg-gradient-info shadow-lg border-0">
                 <div class="p-5">
                   <div class="row align-items-center">
-                    <div class="col-lg-3 ml-lg-auto">
-                      <a
-                        href="https://www.creative-tim.com/product/argon-design-system-angular?ref=adsa-landing-page"
-                        class="btn btn-lg btn-block btn-white"
-                        >Download Angular</a
-                      >
-                    </div>
                     <div class="col-lg-8">
                       <h3 class="text-white">VISIÓN</h3>
                       <p class="lead text-white mt-3">
-                        I will be the leader of a company that ends up being
-                        worth billions of dollars, because I got the answers. I
-                        understand culture.
+                        La UNEXPO tiene como Visión, ser una institución de
+                        educación superior que conjuga aspiraciones,
+                        conocimientos, habilidades, competencias, valores,
+                        actividades, procedimientos, procesos y ambientes con
+                        los diversos sectores sociales y el Estado, con el
+                        propósito de:..
                       </p>
+                    </div>
+                    <div class="col-lg-3 ml-lg-auto">
+                      <a
+                        [routerLink]="['/institution']"
+                        class="btn btn-lg btn-block btn-white"
+                        >Seguir leyendo</a
+                      >
                     </div>
                   </div>
                 </div>
@@ -205,7 +206,7 @@
     </div>
   </section>
 
-  <section class="section section-lg bg-secondary">
+  <!-- <section class="section section-lg bg-secondary">
     <div class="container">
       <div class="row justify-content-center text-center mb-lg">
         <div class="col-lg-8">
@@ -380,7 +381,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- CARTELERA INFORMATIVA -->
   <section class="section section-lg bg-gradient-default" id="info">
