@@ -115,8 +115,7 @@
                     class="
                       icon icon-shape icon-shape-warning
                       rounded-circle
-                      mb-4
-                    "
+                      mb-4"
                   >
                     <i class="ni ni-paper-diploma"></i>
                   </div>
@@ -142,16 +141,21 @@
   </section>
 
   <!-- LA INSTITUCIÓN  -->
-  <section class="section section-lg" id="institution">
+  <section class="section pt-0" id="institution">
     <div class="container">
       <div class="row row-grid align-items-center">
+        <div class="col-md-12 d-flex justify-content-center flow-col">
+          <div class="dropdown-divider"></div>
+          <a [routerLink]="['/institution']"><h2>¿QUIÉNES SOMOS?</h2></a>
+          <div class="dropdown-divider"></div>
+        </div>
         <!-- <div class="col-md-6 order-md-2">
             <img src="./assets/img/theme/promo-1.png" class="img-fluid floating">
           </div> -->
         <div class="col-md-12 order-md-1">
           <div class="">
             <div class="mt-4">
-              <div class="card bg-gradient-info shadow-lg border-0">
+              <div class="card bg-gradient-unexpo-dark shadow-lg border-0">
                 <div class="p-5">
                   <div class="row align-items-center">
                     <div class="col-lg-8">
@@ -175,7 +179,7 @@
               </div>
             </div>
             <div class="mt-4">
-              <div class="card bg-gradient-info shadow-lg border-0">
+              <div class="card bg-gradient-unexpo-dark shadow-lg border-0">
                 <div class="p-5">
                   <div class="row align-items-center">
                     <div class="col-lg-8">
@@ -384,16 +388,11 @@
   </section> -->
 
   <!-- CARTELERA INFORMATIVA -->
-  <section class="section section-lg bg-gradient-default" id="info">
-    <div class="container pt-lg pb-300">
+  <section class="section section-lg bg-gradient-unexpo" id="info">
+    <div class="container pb-300">
       <div class="row text-center justify-content-center">
         <div class="col-lg-10">
-          <h2 class="display-3 text-white">Cartelera Informativa</h2>
-          <p class="lead text-white">
-            According to the National Oceanic and Atmospheric Administration,
-            Ted, Scambos, NSIDClead scentist, puts the potentially record low
-            maximum sea ice extent tihs year down to low ice.
-          </p>
+          <h3 class="display-3 text-white font-weight-500">CARTELERA INFORMATIVA</h3>
         </div>
       </div>
 
@@ -486,7 +485,7 @@
         <div class="col-lg-8">
           <div class="card bg-gradient-secondary shadow">
             <div class="card-body p-lg-5">
-              <h4 class="mb-4">Contáctanos</h4>
+              <h3 class="mb-4 font-weight-500">CONTÁCTANOS</h3>
               <p>
                 ¿Tienes alguna duda? Déjanos tu mensaje y te contactaremos a la
                 brevedad posible.
@@ -538,7 +537,7 @@
               <div>
                 <button
                   type="button"
-                  class="btn btn-default btn-round btn-block btn-lg"
+                  class="btn btn-primary btn-round btn-block btn-lg"
                 >
                   Enviar Mensaje
                 </button>

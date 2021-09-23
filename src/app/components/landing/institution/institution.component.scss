@@ -1,0 +1,15 @@
+
+.wrap{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+span{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1rem;
+    img{
+        max-width: 400px;
+        border-radius: 5px;
+    }
+}

@@ -3,3 +3,16 @@
 .lead {
     font-size: 1.1rem;
 }
+
+.dropdown-divider {
+
+    border-top: 3px solid #ffc726;
+}
+
+.flow-col{
+    flex-direction: column !important;
+    h2{
+        margin: 1rem;
+        text-align: center;
+    }
+}

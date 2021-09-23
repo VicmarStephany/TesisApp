@@ -10,6 +10,13 @@ const httpOptions = {
     tk: localStorage.getItem('authToken')
   })
 };
+const httpOptionsN = {
+  headers: new HttpHeaders({
+     'Content-Type':  'application/json',
+    // Authorization: 'my-auth-token'
+  })
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -20,11 +27,11 @@ export class ProgramsService {
   constructor(public http: HttpClient, public router: Router) { }
 
   getPrograms() {
-    return this.http.get(this.api +'programa', httpOptions);
+    return this.http.get(this.api +'programa', httpOptionsN);
   }
 
   getCarreras() {
-    return this.http.get(this.api +'carrera', httpOptions);
+    return this.http.get(this.api +'carrera', httpOptionsN);
   }
 
 }

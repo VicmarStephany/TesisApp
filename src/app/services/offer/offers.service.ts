@@ -11,6 +11,12 @@ const httpOptions = {
     tk: localStorage.getItem('authToken')
   })
 };
+const httpOptionsN = {
+  headers: new HttpHeaders({
+     'Content-Type':  'application/json',
+    // Authorization: 'my-auth-token'
+  })
+};
 @Injectable({
   providedIn: 'root'
 })
@@ -21,7 +27,7 @@ export class OffersService {
   constructor(public http: HttpClient, public router: Router) { }
 
   getOffers(){
-    return this.http.get(this.api +'oferta', httpOptions)
+    return this.http.get(this.api +'oferta', httpOptionsN)
   }
 
   getOfferById(id): any {
