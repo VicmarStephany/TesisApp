@@ -8,7 +8,7 @@ export const StudentMenu: Menu[] = [
 //hacer este de abajo bien 
 export const AdminMenu: Menu[] = [
   { path: '/a-users', title: 'Consultar usuarios', icon: 'ni-single-02', class: ''},
-  { path: '/a-v-classroom', title: 'Aulas virtuales', icon: 'ni-laptop', class: ''}, 
+  //{ path: '/a-v-classroom', title: 'Aulas virtuales', icon: 'ni-laptop', class: ''}, 
   { path: '/a-user-role', title: 'Roles de usuario', icon: 'ni-key-25', class: ''},
   { path: '/a-payments', title: 'Pagos', icon: 'ni-credit-card text-orange', class: ''}
 ]

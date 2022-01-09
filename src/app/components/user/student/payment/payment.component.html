@@ -71,6 +71,12 @@
               <input type="text" class="form-control" formControlName="transactionId" placeholder="Número de transacción" />
             </div>
           </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Monto: </label>
+              <input type="text" class="form-control" formControlName="amount" placeholder="Monto depositado" />
+            </div>
+          </div>
         </div>
         <div class="d-flex j-center mt-2">
           <button [disabled]="paymentForm.invalid"  class="f-button btn btn-success" type="submit">
@@ -100,20 +106,20 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr *ngFor="let item of paymentList">
               <th scope="row">
                 <div class="media align-items-center">
                   <div class="media-body">
-                    <span class="mb-0 text-sm">12/06/2021</span>
+                    <span class="mb-0 text-sm">{{item.date.day + '/' + item.date.month + '/' + item.date.year}}</span>
                   </div>
                 </div>
               </th>
-              <td>516546785</td>
-              <td>Banesco</td>
-              <td>Bs. 15.000</td>
-              <td>Aprobado</td>
+              <td>{{item.transactionId}}</td>
+              <td>{{item.type.name}}</td>
+              <td>{{item.amount}}</td>
+              <td>{{item.status}}</td>
             </tr>
-            <tr>
+            <!-- <tr>
               <th scope="row">
                 <div class="media align-items-center">
                   <div class="media-body">
@@ -125,7 +131,7 @@
               <td>Banesco</td>
               <td>Bs. 15.000</td>
               <td>Aprobado</td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
       </div>

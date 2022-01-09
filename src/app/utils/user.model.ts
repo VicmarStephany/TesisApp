@@ -5,7 +5,8 @@ export interface User {
     nombres: string,
     rol: string,
     rolId: number,
-    token: string
+    token: string,
+    documento: number
 }
 
 export interface userInfo {

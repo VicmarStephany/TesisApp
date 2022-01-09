@@ -21,6 +21,9 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
     this.usersService.getAllUser().subscribe((resp: User)=>{
       this.userList = resp['d'];
+      this.userList = this.userList.filter((word: User) => word.rol != 'administrativo');
+      this.userList = this.userList.filter((word: User) => word.rol != 'coordinador');
+      console.log(this.userList);
     });
   }
 

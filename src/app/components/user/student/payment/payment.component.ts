@@ -14,6 +14,7 @@ export class PaymentComponent implements OnInit {
   public bankList: Array<BasicI> = BankList;
   
   public paymentForm: FormGroup;
+  paymentList = [];
 
   model : NgbDate;
   model2 : NgbDate;
@@ -26,13 +27,14 @@ export class PaymentComponent implements OnInit {
 
   ngOnInit(): void {
     this.paymentForm = this.fb.group({
-      type: ['',  Validators.required],
+      type: [this.methodList[0],  Validators.required],
       date: ['', Validators.required],
-      fromBank: ['', Validators.required],
-      toBank: ['', Validators.required],
+      fromBank: [this.bankList[0], Validators.required],
+      toBank: [this.bankList[0], Validators.required],
       transactionId: ['', Validators.required],
-
-    })
+      amount: ['', Validators.required]
+    });
+    this.paymentList = JSON.parse(localStorage.getItem('paymentStorage')) ?? [];
   }
 
   onDateSelection(e){
@@ -46,8 +48,14 @@ export class PaymentComponent implements OnInit {
     return jsDate;
   }
 
-  submit(){
-    console.log(this.paymentForm.value)
+  submit(){   
+    const paymentStorageSet: any = {
+      ...this.paymentForm.value,
+      status: 'Espera de aprobación',
+    }
+    
+    this.paymentList.push(paymentStorageSet);
+    localStorage.setItem('paymentStorage', JSON.stringify(this.paymentList));
   }
 
 }
