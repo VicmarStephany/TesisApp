@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CitiesService } from 'src/app/services/cities/cities.service';
 import { UsersService } from 'src/app/services/users/users.service';
-import { Sexo } from 'src/app/utils/register';
+import { GradoAcademico, Sexo } from 'src/app/utils/register';
 import { Menu } from 'src/app/utils/sidebar.model';
 
 @Component({
@@ -14,15 +14,20 @@ export class SignupComponent implements OnInit {
     test: Date = new Date();
     sexo: Array<any> = Sexo;
     cities: Array<any> = [];
+    grado: Array<any> = GradoAcademico;
+    step1: boolean = true;
+    step2: boolean = false;
+
 
     registerForm: FormGroup;
+    infoAcademicaForm: FormGroup;
 
     constructor(private fb: FormBuilder, private citiesService: CitiesService,
         private usersService: UsersService) {
 
     }
 
-    ngOnInit() {
+    ngOnInit() {   
         this.registerForm = this.fb.group({
             nombres: ['', Validators.required],
             apellidoPaterno: ['', Validators.required],
@@ -45,11 +50,19 @@ export class SignupComponent implements OnInit {
             pass: ['']
         });
 
+        this.infoAcademicaForm = this.fb.group({
+            gradoAcademico: ['Licenciatura', Validators.required],
+            carrera: ['', Validators.required],
+            institucion: ['', Validators.required],
+            pais: ['', Validators.required],
+
+        });
+
         this.citiesService.getCities().subscribe(
             (res) => {
                 console.log(res)
                 this.cities = res['d'];
-                //console.log(this.cities)
+                console.log(this.cities)
             }
         )
         /*this.citiesService.getCountry().subscribe(
@@ -64,7 +77,7 @@ export class SignupComponent implements OnInit {
         )*/
     }
 
-    signup() {
+    primerPaso(){
         let date = this.toDate(this.registerForm.controls.fechaNacimiento.value);
         let name = this.registerForm.controls.nombres.value;
         let lastName = this.registerForm.controls.apellidoPaterno.value;
@@ -72,8 +85,12 @@ export class SignupComponent implements OnInit {
         this.registerForm.controls.user.setValue((name.slice(0, 1) + lastName).toLowerCase());
         this.registerForm.controls.pass.setValue((lastName.slice(0, 1) + name).toLowerCase());
         //console.log(this.registerForm.value);
-        let data = this.registerForm.value;
+        this.step1 = false;
+        this.step2 =  true;
+    }
 
+    signup() {
+        let data = this.registerForm.value;
         this.usersService.createUser(data).subscribe(
             res => {
                 console.log(res)
@@ -81,6 +98,8 @@ export class SignupComponent implements OnInit {
             }
         )
     }
+
+
 
     toDate(date) {
         let month;

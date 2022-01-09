@@ -9,11 +9,11 @@
             <div class="text-center text-muted pt-lg-5">
               <h2>Preinscripción</h2>
             </div>
-            <div class="card-body px-lg-5 pb-lg-5 pt-3">
+            <div *ngIf="step1" class="card-body px-lg-5 pb-lg-5 pt-3">
               <div class="text-center text-muted">
                 <h2 class="pb-5">Información personal</h2>
               </div>
-              <form role="form" [formGroup]="registerForm" (submit)="signup()">
+              <form role="form" [formGroup]="registerForm" (submit)="primerPaso()">
                 <div class="col-12 d-flex p-0">
                   <div class="form-group col-md-4">
                     <label>Nombres <span>*</span></label>
@@ -190,6 +190,69 @@
                 <div class="text-center">
                   <button
                     [disabled]="registerForm.invalid"
+                    type="submit"
+                    class="btn btn-primary mt-4"
+                  >
+                    Siguiente
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <div *ngIf="step2" class="card-body px-lg-5 pb-lg-5 pt-3">
+              <div class="text-center text-muted">
+                <h2 class="pb-5">Información académica</h2>
+              </div>
+              <form role="form" [formGroup]="infoAcademicaForm" (submit)="signup()">
+                <div class="col-12 d-flex p-0">
+                  <div class="form-group col-md-4">
+                    <label>Nivel de instrucción académica <span>*</span></label>
+                    <div class="input-group mb-3">
+                      <select class="form-control" formControlName="gradoAcademico">
+                        <option *ngFor="let type of grado" [value]="type.name">
+                          {{ type.name }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>Proyecto de carrera cursada<span>*</span></label>
+                    <div class="input-group mb-3">
+                      <input
+                        class="form-control"
+                        placeholder="carrera"
+                        formControlName="carrera"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>Institución<span>*</span></label>
+                    <div class="input-group mb-3">
+                      <input
+                        class="form-control"
+                        placeholder="institución"
+                        formControlName="institucion"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 d-flex p-0">
+                  <div class="form-group col-md-4">
+                    <label>País <span>*</span></label>
+                    <div class="input-group mb-3">
+                      <select class="form-control" formControlName="pais">
+                        <option *ngFor="let type of grado" [value]="type.name">
+                          {{ type.name }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button
+                    [disabled]="infoAcademicaForm.invalid"
                     type="submit"
                     class="btn btn-primary mt-4"
                   >
