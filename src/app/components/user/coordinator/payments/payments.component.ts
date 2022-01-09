@@ -17,7 +17,16 @@ export class PaymentsComponent implements OnInit {
 
   ngOnInit(): void {
     this.paymentList = JSON.parse(localStorage.getItem('paymentStorage')) ?? [];
-    console.log(this.paymentList);
+  }
+
+  approve(index: number): void{
+    this.paymentList[index].status = 'Aprobado';
+    localStorage.setItem('paymentStorage', JSON.stringify(this.paymentList));  
+  }
+
+  rejected(index: number): void{
+    this.paymentList[index].status = 'Rechazado';
+    localStorage.setItem('paymentStorage', JSON.stringify(this.paymentList));  
   }
 
 }

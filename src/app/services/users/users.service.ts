@@ -24,11 +24,18 @@ export class UsersService {
   userInfoData = this.userInfo.asObservable();
 
   api = environment.api;
+  private httpOptions = {
+    headers: new HttpHeaders({
+       'Content-Type':  'application/json',
+      // Authorization: 'my-auth-token'
+      tk: localStorage.getItem('authToken')
+    })
+  };
 
   constructor(public http: HttpClient, public router: Router) { }
 
   getUser(id){
-    return this.http.get(this.api + 'usuario/'+ id, httpOptions)
+    return this.http.get(this.api + 'usuario/'+ id,this.httpOptions)
   }
 
   getAllUser(): Observable<any>{

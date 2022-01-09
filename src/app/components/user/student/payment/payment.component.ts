@@ -35,6 +35,7 @@ export class PaymentComponent implements OnInit {
       amount: ['', Validators.required]
     });
     this.paymentList = JSON.parse(localStorage.getItem('paymentStorage')) ?? [];
+    console.log(JSON.parse(localStorage.getItem('user')));
   }
 
   onDateSelection(e){
@@ -52,6 +53,7 @@ export class PaymentComponent implements OnInit {
     const paymentStorageSet: any = {
       ...this.paymentForm.value,
       status: 'Espera de aprobación',
+      user: JSON.parse(localStorage.getItem('user'))
     }
     
     this.paymentList.push(paymentStorageSet);

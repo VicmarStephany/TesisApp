@@ -43,21 +43,21 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th>123</th>
-                  <td>22.222.222</td>
-                  <td>Rojas Rojas Vicmar Stephany</td>
+                <tr *ngFor="let item of paymentList; let i =  index">
+                  <th>{{item.transactionId}}</th>
+                  <td>{{item.cedula ? item.cedula : 'Sin cedula'}}</td>
+                  <td>{{item.user.apellidoPaterno + ' ' + item.user.apellidoMaterno + ' ' + item.user.nombres}}</td>
                   <td>Doctorado en ciencias</td>
-                  <td>Aprobado</td>
-                  <td>Bs. 4.525.785</td>
+                  <td>{{item.status}}</td>
+                  <td>{{item.amount}}</td>
                   <td>Link</td>
                   <td class="d-flex" style="justify-content: space-around;">
-                    <button class="btn btn-icon btn-2 btn-success" type="button" placement="top" ngbTooltip="Aprobar">
+                    <button (click)="approve(i)" class="btn btn-icon btn-2 btn-success" type="button" placement="top" ngbTooltip="Aprobar">
                       <span class="btn-inner--icon">
                         <i class="ni ni-check-bold"></i>
                       </span>
                     </button>
-                    <button class="btn btn-icon btn-2 btn-danger" type="button"  placement="top" ngbTooltip="Rechazar">
+                    <button (click)="rejected(i)" class="btn btn-icon btn-2 btn-danger" type="button"  placement="top" ngbTooltip="Rechazar">
                       <span class="btn-inner--icon">
                         <i class="ni ni-fat-remove"></i>
                       </span>

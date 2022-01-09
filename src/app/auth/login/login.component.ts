@@ -70,6 +70,7 @@ export class LoginComponent implements OnInit {
                 }, 1000);
               } else {
                 console.log('no hay sesión iniciada');
+                this.spinnerServ.hide();
                 //this.router.navigateByUrl("/login");
               }
             }, (err)=> {
