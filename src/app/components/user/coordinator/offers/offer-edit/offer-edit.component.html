@@ -7,6 +7,15 @@
             {{ path === "create" ? "Crear" : "Editar" }} oferta académica
           </h2>
         </div>
+        <ngx-bootstrap-spinner
+        bdColor="rgba(0, 0, 0, 0.8)"
+        size="default"
+        color="#fff"
+        type="border"
+        [fullScreen]="true"
+        loadingText="Actualizando"
+      >
+      </ngx-bootstrap-spinner>
         <hr class="m-3" />
         <div *ngIf="offerForm" class="">
           <form [formGroup]="offerForm" (submit)="submit()">
@@ -19,7 +28,7 @@
                     formControlName="programaEstudioId"
                   >
                     <option
-                      [value]="toNumber(type.id)"
+                      [value]="type.id"
                       *ngFor="let type of typeList"
                     >
                       {{ type.name }}
@@ -100,6 +109,17 @@
                     class="form-control"
                     formControlName="cantidadCupos"
                     placeholder="Cupos"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Cantidad de Secciones: </label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    formControlName="cantidadSecciones"
+                    placeholder="Secciones"
                   />
                 </div>
               </div>

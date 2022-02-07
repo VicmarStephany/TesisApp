@@ -15,19 +15,20 @@
             <div class="info col-md-10 wrap px-0">
               <div class="col-md-6">
                 <ul>
-                  <li>Cédula de identidad:</li>
+                  <li >Cédula de identidad:</li>
                   <li>Nombres:</li>
                   <li>Apellidos:</li>
-                  <li>Expediente:</li>
+                  <li *ngIf="user.rolId == 1">Expediente:</li>
                   <li>Correo electrónico</li>
                 </ul>
               </div>
               <div *ngIf="userInfo" class="col-md-6">
                 <ul class="text-info">
-                  <li>...</li>
+                  <li *ngIf="user.rolId != 2 ">{{ user.cedula }}</li>
+                  <li *ngIf="user.rolId == 2 ">Usuario Administrativo</li>
                   <li>{{ userInfo.nombres }}</li>
                   <li>{{ userInfo.apellidoPaterno }} {{ userInfo.apellidoMaterno }}</li>
-                  <li>...</li>
+                  <li *ngIf="user.rolId == 1">{{ user.id }}</li>
                   <li>{{ userInfo.correo1 }}</li>
 
                 </ul>

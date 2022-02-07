@@ -17,7 +17,7 @@ export const ProfeMenu: Menu[] = [
   //{ path: '/notes', title: 'Actas', icon: 'ni-paper-diploma', class: ''},  
   { path: '/notes', title: 'Actas', icon: 'ni-chart-bar-32', class: ''},
   { path: '/students', title: 'Estudiantes', icon: 'ni-badge', class: ''}, 
-  { path: '/virtual-classroom', title: 'Aulas virtuales', icon: 'ni-laptop', class: ''},
+  //{ path: '/virtual-classroom', title: 'Aulas virtuales', icon: 'ni-laptop', class: ''},
 ]
 
 export const CoordMenu: Menu[] = [

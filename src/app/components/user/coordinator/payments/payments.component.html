@@ -38,7 +38,7 @@
                   <th scope="col">Programa</th>
                   <th scope="col">Estatus de pago</th>
                   <th scope="col">Aranceles</th>
-                  <th scope="col">Comprobante de pago</th>
+                  <th scope="col">Datos del pago</th>
                   <th scope="col">Aprobar/Rechazar</th>
                 </tr>
               </thead>
@@ -50,7 +50,9 @@
                   <td>Doctorado en ciencias</td>
                   <td>{{item.status}}</td>
                   <td>{{item.amount}}</td>
-                  <td>Link</td>
+                  <td>
+                    <button (click)="openPopUp(item)" class="btn btn-icon btn-2 btn-success" type="button" placement="top" ngbTooltip="Ver más">Ver datos</button>
+                  </td>
                   <td class="d-flex" style="justify-content: space-around;">
                     <button (click)="approve(i)" class="btn btn-icon btn-2 btn-success" type="button" placement="top" ngbTooltip="Aprobar">
                       <span class="btn-inner--icon">

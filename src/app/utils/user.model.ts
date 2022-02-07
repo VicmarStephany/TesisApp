@@ -31,3 +31,12 @@ export interface userInfo {
     //usuarioClave: string,
     usuarioId: number,
 }
+
+export interface academicInfo {
+    gradoEstudios: string,
+    titulo: string,
+    anoPromocion: number,
+    institucion: string,
+    pais: string,
+    
+}

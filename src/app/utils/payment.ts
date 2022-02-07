@@ -3,6 +3,11 @@ export interface BasicI {
     name: string
 }
 
+export interface BasicII {
+    id: number,
+    name: string
+}
+
 export const PayMethod: BasicI[] = [
     {id: '1', name: 'Pago móvil'},
     {id: '2', name: 'Transferencia bancaria'},

@@ -10,7 +10,8 @@ export interface OfferDetails {
     duracion: string,
     pensum: string,
     costo: number,
-    id: number
+    id: number,
+    cantidadSecciones: number,
 }
 
 export interface Offer {

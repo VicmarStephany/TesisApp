@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CitiesService } from 'src/app/services/cities/cities.service';
 import { UsersService } from 'src/app/services/users/users.service';
-import { Sexo } from 'src/app/utils/register';
+import { BasicII } from 'src/app/utils/payment';
+import { City, Estados, Sexo } from 'src/app/utils/register';
 import { Menu } from 'src/app/utils/sidebar.model';
 
 @Component({
@@ -13,9 +14,17 @@ import { Menu } from 'src/app/utils/sidebar.model';
 export class SignupComponent implements OnInit {
     test: Date = new Date();
     sexo: Array<any> = Sexo;
-    cities: Array<any> = [];
 
-    registerForm: FormGroup;
+    cities: Array<City> = [];
+    citiesSelected: Array<City> = [];
+    estados: Array<BasicII> = Estados;
+    paises: Array<any> = [];
+    parroquias: Array<any> = [];
+
+    titlePage: number = 1;
+
+    personalInfoForm: FormGroup;
+    academicForm: FormGroup;
 
     constructor(private fb: FormBuilder, private citiesService: CitiesService,
         private usersService: UsersService) {
@@ -23,7 +32,7 @@ export class SignupComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.registerForm = this.fb.group({
+        this.personalInfoForm = this.fb.group({
             nombres: ['', Validators.required],
             apellidoPaterno: ['', Validators.required],
             apellidoMaterno: ['', Validators.required],
@@ -42,44 +51,75 @@ export class SignupComponent implements OnInit {
             rol: ['estudiante'],
             codigoLapsoIngreso: ['1235'],
             user: [''],
-            pass: ['']
+            pass: [''],
+            pais: ['VENEZUELA', Validators.required],
+            estado: ['', Validators.required]
         });
+        
+        this.academicForm = this.fb.group({
+            gradoEstudios: ['', Validators.required],
+            titulo: ['', Validators.required],
+            anoPromocion: [0, Validators.required],
+            institucion: ['', Validators.required],
+            pais: ['', Validators.required],
+        })
 
-        this.citiesService.getCities().subscribe(
-            (res) => {
-                console.log(res)
-                this.cities = res['d'];
-                //console.log(this.cities)
+        this.citiesService.getCountry().subscribe(
+            (res)=>{
+                this.paises = res['d'];
+                console.log(this.paises)
             }
         )
-        /*this.citiesService.getCountry().subscribe(
-            (res)=>{
-                console.log(res)
+        this.citiesService.getCities().subscribe(
+            (res) => {
+                this.cities = res['d'];
+                this.citiesSelected = this.cities.filter(city => city.estadoId == 1);
             }
         )
         this.citiesService.getParroquias().subscribe(
             (res)=>{
-                console.log(res)
-            }
-        )*/
-    }
-
-    signup() {
-        let date = this.toDate(this.registerForm.controls.fechaNacimiento.value);
-        let name = this.registerForm.controls.nombres.value;
-        let lastName = this.registerForm.controls.apellidoPaterno.value;
-        this.registerForm.controls.fechaNacimiento.setValue(date);
-        this.registerForm.controls.user.setValue((name.slice(0, 1) + lastName).toLowerCase());
-        this.registerForm.controls.pass.setValue((lastName.slice(0, 1) + name).toLowerCase());
-        //console.log(this.registerForm.value);
-        let data = this.registerForm.value;
-
-        this.usersService.createUser(data).subscribe(
-            res => {
-                console.log(res)
-
+                this.parroquias = res['d'];
             }
         )
+    }
+
+    personalInfo() {
+        let date = this.toDate(this.personalInfoForm.controls.fechaNacimiento.value);
+        let name = this.personalInfoForm.controls.nombres.value;
+        let lastName = this.personalInfoForm.controls.apellidoPaterno.value;
+        this.personalInfoForm.controls.fechaNacimiento.setValue(date);
+        this.personalInfoForm.controls.user.setValue((name.slice(0, 1) + lastName).toLowerCase());
+        this.personalInfoForm.controls.pass.setValue((lastName.slice(0, 1) + name).toLowerCase());
+        //console.log(this.personalInfoForm.value);
+        let data = this.personalInfoForm.value;
+
+        // this.usersService.createUser(data).subscribe(
+        //     res => {
+        //         console.log(res)
+        //     }
+        // )
+
+        this.titlePage = 2;
+    }
+
+    signup(){
+        
+    }
+
+    getCities(estado){
+        if (estado) {
+            this.citiesSelected = this.cities.filter(city => city.estadoId == estado);
+        }
+        console.log(this.citiesSelected)
+    }
+
+
+    getParroquias(){
+
+    }
+
+    setEstados() {
+
     }
 
     toDate(date) {

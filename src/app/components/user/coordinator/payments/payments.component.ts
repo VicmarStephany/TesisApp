@@ -29,4 +29,8 @@ export class PaymentsComponent implements OnInit {
     localStorage.setItem('paymentStorage', JSON.stringify(this.paymentList));  
   }
 
+  openPopUp(item) {
+    
+  }
+
 }

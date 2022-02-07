@@ -1,4 +1,4 @@
-import { BasicI } from "./payment"
+import { BasicI, BasicII } from "./payment"
 
 export const Courses: BasicI[] = [
     { id: 'especializacion', name: 'Especialidades'},
@@ -6,6 +6,14 @@ export const Courses: BasicI[] = [
     { id: 'doctorado', name: 'Doctorados'},
     { id: 'diplomado', name: 'Diplomados'},
     { id: 'curso', name: 'Cursos'}
+]
+
+export const Courses2: BasicII[] = [
+    { id: 2, name: 'Especialidades'},
+    { id: 3, name: 'Maestrias'},
+    { id: 4, name: 'Doctorados'},
+    { id: 1, name: 'Diplomados'},
+    { id: 5, name: 'Cursos'}
 ]
 
 export const Campus = [

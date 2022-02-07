@@ -1,11 +1,12 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-bootstrap-spinner';
 import { OffersService } from 'src/app/services/offer/offers.service';
-import { Campus, Courses, Modes } from 'src/app/utils/courses';
+import { Campus, Courses, Courses2, Modes } from 'src/app/utils/courses';
 import { OfferDetails } from 'src/app/utils/offers';
-import { BasicI } from 'src/app/utils/payment';
+import { BasicI, BasicII } from 'src/app/utils/payment';
 
 @Component({
   selector: 'app-offer-edit',
@@ -16,6 +17,7 @@ export class OfferEditComponent implements OnInit {
   offerForm: FormGroup;
   type: string;
   path: string;
+  spinner = false;
   editOffer: OfferDetails;
   emptyForm: OfferDetails = {
     programaEstudioId: 1,
@@ -29,15 +31,17 @@ export class OfferEditComponent implements OnInit {
     pensum: '',
     costo: 0,
     cantidadCupos: 30,
-    id: null
+    id: null,
+    cantidadSecciones: 1
   }
 
 
-  public typeList: Array<BasicI> = Courses;
+  public typeList: Array<BasicII> = Courses2;
   public campusList: Array<any> = Campus;
   public modesList: Array<any> = Modes;
 
-  constructor(public route: ActivatedRoute, private fb: FormBuilder, private offerService: OffersService) {
+  constructor(public route: ActivatedRoute, private fb: FormBuilder, private offerService: OffersService, 
+    private spinnerServ: NgxSpinnerService, private router: Router) {
 
   }
 
@@ -62,7 +66,7 @@ export class OfferEditComponent implements OnInit {
 
   fillForm(form: OfferDetails) {
     this.offerForm = this.fb.group({
-      programaEstudioId: [form.programaEstudioId, Validators.required],
+      programaEstudioId: [form.programaEstudioId,Validators.required],
       campusId: [form.campusId, Validators.required],
       nombre: [form.nombre, Validators.required],
       modalidad: [form.modalidad, Validators.required],
@@ -73,19 +77,26 @@ export class OfferEditComponent implements OnInit {
       pensum: [form.pensum, Validators.required],
       costo: [form.costo, Validators.required],
       cantidadCupos: [form.cantidadCupos, Validators.required],
-      id: [form.id]
-    })
+      id: [form.id],
+      cantidadSecciones: [form.cantidadSecciones, Validators.required]
+    });
+    console.log(this.offerForm.value, this.offerForm.value)
   }
 
   submit() {
+    this.spinnerServ.show();
     if (this.path == 'create') {
-      this.offerForm.controls['programaEstudioId'].setValue(parseInt(this.offerForm.value.programaEstudioId));
-      this.offerForm.controls['campusId'].setValue(parseInt(this.offerForm.value.campusId));
+      //this.offerForm.controls['programaEstudioId'].setValue(this.offerForm.value.programaEstudioId);
+      //this.offerForm.controls['campusId'].setValue(parseInt(this.offerForm.value.campusId));
       console.log(this.offerForm.value);
       let data = this.offerForm.value;
       this.offerService.createOffer(data).subscribe(
         (res) => {
           console.log(res);
+          setTimeout(() => {
+            this.spinnerServ.hide();
+            this.router.navigateByUrl("/user-panel/offers")
+          }, 3000);
         }
       )
     } else {
@@ -97,6 +108,7 @@ export class OfferEditComponent implements OnInit {
       this.offerService.editOffer(id,data ).subscribe(
         (res) => {
           console.log(res);
+          this.spinnerServ.hide();
         }
       );
     }

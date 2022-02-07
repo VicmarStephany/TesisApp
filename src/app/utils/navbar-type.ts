@@ -4,7 +4,7 @@ export const HomeNav = [
     {name: 'Oferta académica', path: '/courses/all', childs: true},
     {name: 'Cartelera informativa', path: '/info-board', childs: false},
     {name: 'Contáctanos', path: '/contact', childs: false},
-    {name: 'Aulas', path: '/', childs: false}
+    {name: 'Aulas', path: '', childs: false}
 ]
 
 export const HomeNavChilds = [
