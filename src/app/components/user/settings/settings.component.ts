@@ -58,7 +58,12 @@ export class SettingsComponent implements OnInit {
         } else {
           setTimeout(() => {
             this.spinnerServ.hide();
-            location.reload();
+            localStorage.setItem('info', JSON.stringify(res['d']));
+            this.alertId = 1;
+            this.messageAlert = 'Datos actualizados con éxito';
+          }, 2000);
+          setTimeout(() => {
+            this.alertId = 0;
           }, 3000);
         }
       }
@@ -81,7 +86,11 @@ export class SettingsComponent implements OnInit {
         } else {
           setTimeout(() => {
             this.spinnerServ.hide();
-            location.reload();
+            this.alertId = 1;
+            this.messageAlert = 'Datos actualizados con éxito';
+          }, 2000);
+          setTimeout(() => {
+            this.alertId = 0;
           }, 3000);
         }
       }

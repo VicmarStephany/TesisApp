@@ -15,19 +15,51 @@
         <hr class="m-3" />
         <div class="card-body py-2">
           <div class="row col-md-12 p-0">
+
             <div class="form-group mt-3 col-md-3">
               <label>Lapso </label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option *ngFor="let item of lapsoList">
-                  {{ item.name }}
+              <select class="form-control" id="exampleFormControlSelect1"
+                [(ngModel)]="lapsoSelected"
+              >
+                <option *ngFor="let lapso of lapsoList" [value]="lapso.codigo">
+                  {{ lapso.corte }}
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group mt-3 col-md-3">
+              <label>Programa: </label>
+              <select class="form-control" id="exampleFormControlSelect1"
+                class="form-control"
+                [(ngModel)]="programId"
+                [value]="programId"
+                (click)="selected(programId, 1)"
+              >
+              <option [value]="type.id" *ngFor="let type of typeList">
+                {{ type.name }}
+              </option>
+              </select>
+            </div>
+            <div class="form-group mt-3 col-md-3">
+              <label>Carrera: </label>
+              <select
+                class="form-control"
+                [(ngModel)]="offerSelected"
+                (click)="selected(offerSelected, 2)"
+              >
+                <option [value]="offer.carreraId" *ngFor="let offer of offers">
+                  {{ offer.carrera }}
                 </option>
               </select>
             </div>
             <div class="form-group mt-3 col-md-3">
-              <label>Asignatura </label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option *ngFor="let item of subjectList">
-                  {{ item.name }}
+              <label>Asignatura: </label>
+              <select class="form-control"
+                [(ngModel)]="asignaturaSelected"
+                (click)="getSecciones()"
+              >
+                <option *ngFor="let subject of subjects">
+                  {{ subject.nombre }}
                 </option>
               </select>
             </div>
@@ -63,6 +95,7 @@
                       type="button"
                       placement="top"
                       ngbTooltip="Reporte de notas"
+                      (click)="setData()"
                       [routerLink]="['/user-panel/'+path+'/report/'+ 15]"
                     >Reporte
                     </button>

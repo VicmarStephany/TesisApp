@@ -20,6 +20,7 @@
         <app-alerts-section
           *ngIf="alertId > 0"
           [alertId]="alertId"
+          [message]="messageAlert"
         ></app-alerts-section>
         <h2 class="px-3">Actualizar datos</h2>
         <form *ngIf="userInfo" [formGroup]="updateForm">

@@ -20,23 +20,30 @@ export class AlertsSectionComponent implements OnInit{
   private backup: Array<IAlert>;
 
   constructor() {
+    
       this.alerts.push({
+        id: 0,
+        type: 'success',
+        strong: 'Éxito!',
+        message: this.messageAlert,
+        icon: 'ni ni-like-2'
+      },{
           id: 1,
           type: 'success',
-          strong: 'Success!',
-          message: 'This is a success alert—check it out!',
+          strong: 'Éxito!',
+          message: this.messageAlert,
           icon: 'ni ni-like-2'
       }, {
           id: 2,
           strong: 'Info!',
           type: 'info',
-          message: 'This is an info alert—check it out!',
+          message: this.messageAlert,
           icon: 'ni ni-bell-55'
       }, {
           id: 3,
           type: 'warning',
           strong: 'Warning!',
-          message: 'This is a warning alert—check it out!',
+          message: this.messageAlert,
           icon: 'ni ni-bell-55'
       }, {
           id: 4,

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OffersService } from 'src/app/services/offer/offers.service';
 import { ProgramsService } from 'src/app/services/programs/programs.service';
 import { Campus, Courses, Modes } from 'src/app/utils/courses';
-import { Offer } from 'src/app/utils/offers';
+import { Offer, OfferDetails } from 'src/app/utils/offers';
 import { BasicI } from 'src/app/utils/payment';
 
 @Component({
@@ -16,17 +16,21 @@ export class OffersComponent implements OnInit {
   public modesList: Array<any> = Modes;
 
   public userId: any = 5;
-  public offers: Array<Offer>;
+  public offers: Array<OfferDetails> = [];
   public page = 1;
   public totalSize: number;
-  public pageSize = 20;
-  public data: Array<Offer>;
+  public pageSize = 10;
+  public data: Array<OfferDetails>;
+
+  public modalidad: string = '';
+  public programa: string = '';
 
   constructor(private offerService: OffersService, private programService: ProgramsService) { }
 
   ngOnInit(): void {
-    this.getOffers();
+    //this.getOffers();
     //this.refreshData();
+    this.filterOferta();
   }
 
   getOffers() {
@@ -51,8 +55,21 @@ export class OffersComponent implements OnInit {
   }
 
   refreshData() {
-    this.offers = this.data.map((country, i) => ({ id: i + 1, ...country })).slice(
+    this.offers = this.data.map((offer, i) => ({ id: i + 1, ...offer })).slice(
       (this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
   }
 
+  filterOferta(){
+    this.offerService.filterOffer(this.modalidad, this.programa).then(res =>{
+      if (res.s == true) {
+        this.offers = res.d['id']; 
+        this.totalSize = res.d['id'].length;
+        this.data = res.d['id'];
+        this.refreshData();
+        console.log(this.offers)
+      } else {
+        this.offers = [];
+      }
+    })
+  }
 }

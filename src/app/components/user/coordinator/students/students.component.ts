@@ -5,6 +5,7 @@ import { SubjectsService } from 'src/app/services/subjects/subjects.service';
 import { Courses } from 'src/app/utils/courses';
 import { Offer, Subject } from 'src/app/utils/offers';
 import { BasicI } from 'src/app/utils/payment';
+import { Student } from 'src/app/utils/student';
 import { User } from 'src/app/utils/user.model';
 
 @Component({
@@ -31,11 +32,18 @@ export class StudentsComponent implements OnInit {
   user: User;
   type:number;
   student: any;
-  offers: Array<Offer>;
+  carreras: Array<Offer>;
   subjects: Array<Subject>;
+
   programId: string = 'especializacion';
-  offerSelected: number = 7;
+  offerSelected: string = '';
   subjectSelected: number = 22;
+  documento: string ='';
+  asignatura: string = '';
+  nombre: string = '';
+  apellido: string = '';
+
+  estudiantesList: Student[] = []
 
   public typeList: Array<BasicI> = Courses;
 
@@ -61,9 +69,10 @@ export class StudentsComponent implements OnInit {
     this.programService.getCarreras().subscribe(
       (res) => {
         console.log(res);
-        this.offers = res['d'];
+        this.carreras = res['d'];
       }
     )
+    this.getEstudiantes();
   }
 
   selected(id, type) {
@@ -72,10 +81,11 @@ export class StudentsComponent implements OnInit {
         this.programService.getCarreras().subscribe(
           (res) => {
             let aux = res['d'];
-            this.offers = aux.filter(offer => offer.programa == id);
-            this.offers.length > 0 ? 
-              this.offerSelected = this.offers[0].carreraId : 
-              this.offers = this.noOffers
+            this.carreras = aux.filter(offer => offer.programa == id);
+            this.carreras.length > 0 ? 
+              this.offerSelected = this.carreras[0].carrera : 
+              (this.carreras = this.noOffers, this.offerSelected = 'no hay');
+              this.filtrarEstudiantes();
           }
         )
         break;
@@ -93,6 +103,44 @@ export class StudentsComponent implements OnInit {
       default:
         break;
     }
+  }
+
+  getEstudiantes() {
+    this.studentService.getStudents().subscribe(res=>{
+      if (res['s'] == true) {
+        this.estudiantesList = res['d'];
+      }
+      console.log(this.estudiantesList)
+    })
+  }
+
+  verCarrera(codigo: string): string {
+    for(let i=0; i< this.carreras.length;i++ )
+      if (this.carreras[i].codigo == codigo) {
+        return this.carreras[i].carrera;
+      } else {
+        return 'no encontrado';
+      }
+  }
+
+  verPrograma(codigo: string) {
+    for(let i=0; i< this.carreras.length;i++ )
+      if (this.carreras[i].codigo == codigo) {
+        return this.carreras[i].programa;
+      } else {
+        return 'no encontrado';
+      }
+  }
+
+  filtrarEstudiantes(){
+    this.studentService.filterStudents(this.documento, this.offerSelected,this.nombre, this.apellido ).subscribe(res =>{
+      console.log(res)
+      if (res['s'] == true) {
+        this.estudiantesList = res['d'];
+      } else {
+        this.estudiantesList = [];
+      }
+    })
   }
 
 }

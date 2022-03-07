@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ActasService } from 'src/app/services/actas/actas.service';
 
 @Component({
   selector: 'app-report',
@@ -17,9 +19,13 @@ export class ReportComponent implements OnInit {
     {id: 12354, name:'2021-II'},
   ]
 
-  constructor() { }
+  path: string;
+
+  constructor(private route: ActivatedRoute, private actasService: ActasService) { }
 
   ngOnInit(): void {
+    this.path = this.route.snapshot['_urlSegment'].segments[1];
+
   }
 
 }

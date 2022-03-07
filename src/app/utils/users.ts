@@ -1,6 +1,7 @@
 export const Users = [
-    {id: '1', name: 'Estudiante'},
-    {id: '2', name: 'Administrador'},
-    {id: '3', name: 'Coordinador'},
-    {id: '4', name: 'Profesor'},
+    {id: '', name: 'Todos'},
+    {id: 'estudiante', name: 'Estudiante'},
+    {id: 'administrador', name: 'Administrador'},
+    {id: 'coordinador', name: 'Coordinador'},
+    {id: 'docente', name: 'Docente'}
 ]

@@ -26,6 +26,7 @@
                 <ul class="text-info">
                   <li *ngIf="user.rolId != 2 ">{{ user.cedula }}</li>
                   <li *ngIf="user.rolId == 2 ">Usuario Administrativo</li>
+                  <li *ngIf="user.rolId == 3 ">Usuario Coordinador</li>
                   <li>{{ userInfo.nombres }}</li>
                   <li>{{ userInfo.apellidoPaterno }} {{ userInfo.apellidoMaterno }}</li>
                   <li *ngIf="user.rolId == 1">{{ user.id }}</li>

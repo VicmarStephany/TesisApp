@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { Response } from 'src/app/utils/response';
 import { environment } from 'src/environments/environment';
 
 const httpOptions = {
@@ -42,6 +43,10 @@ export class UsersService {
     return this.http.get(this.api + 'usuario', httpOptions)
   }
 
+  filterUsers(documento: string,rol: string,programa: string ): Promise<Response> {
+    return this.http.get(this.api +'usuario?documento='+documento+'&rol='+rol+'&programa='+programa, httpOptions).toPromise().then(res =>
+      res as Response)
+  }
   createUser(data){
     return this.http.put(this.api + 'usuario', data, httpOptions)
   }
@@ -52,6 +57,14 @@ export class UsersService {
 
   setUserInfo(info) {
     this.userInfo.next(info);
+  }
+
+  getRole() {
+    return this.http.get(this.api + 'rol', httpOptions);
+  }
+
+  editRole(id, data) {
+    return this.http.patch(this.api + 'rol/'+id, data, httpOptions)
   }
 
 }

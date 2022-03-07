@@ -47,6 +47,18 @@ import { NgbdModalContent } from './modal/modal.component';
   ],
   exports:[ SectionsComponent,
     AlertsSectionComponent,
+    ButtonsSectionComponent,
+    InputsSectionComponent,
+    CrsSectionComponent,
+    NavigationSectionComponent,
+    TabsSectionComponent,
+    AlertsSectionComponent,
+    TypographySectionComponent,
+    AngularSectionComponent,
+    NucleoSectionComponent,
+    VersionsSectionComponent,
+    NgbdModalComponent,
+    NgbdModalContent
    ]
 })
 export class SectionsModule { }

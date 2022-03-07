@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
+
 const httpOptions = {
   headers: new HttpHeaders({
      'Content-Type':  'application/json',
@@ -10,21 +11,22 @@ const httpOptions = {
     tk: localStorage.getItem('authToken')
   })
 };
+
 @Injectable({
   providedIn: 'root'
 })
-export class SubjectsService {
+export class ActasService {
 
   api = environment.api;
 
   constructor(public http: HttpClient, public router: Router) { }
 
-  getSubjects(idCourse) {
-    return this.http.get(this.api +'asignatura?carreraId='+idCourse, httpOptions);
+  getActas(lapso, materia) {
+    return this.http.get(this.api +'acta?lapso='+lapso+'&asignatura='+materia, httpOptions);
   }
 
-  getLapsos() {
-    return this.http.get(this.api + 'lapso' , httpOptions);
-
+  createActa(acta) {
+    return this.http.put(this.api +'/acta', acta, httpOptions);
   }
+
 }

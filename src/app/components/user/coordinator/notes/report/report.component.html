@@ -7,7 +7,7 @@
         </div>
         <hr class="m-3" />
         <div class="card-body py-2">
-          <div class="row col-md-12 p-0">
+          <!-- <div class="row col-md-12 p-0">
             <div class="form-group mt-3 col-md-3">
               <label>Lapso </label>
               <select class="form-control" id="exampleFormControlSelect1">
@@ -24,7 +24,7 @@
                 </option>
               </select>
             </div>
-          </div>
+          </div> -->
           <form>
             <div class="table-responsive">
               <table class="table align-items-center table-flush">
@@ -63,6 +63,8 @@
               </table>
             </div>
             <div class="col-md-12 py-3 px-0">
+              <button type="button" class="btn btn-danger" [routerLink]="['/user-panel/' + path]">Cancelar</button>
+
               <button type="button" class="btn btn-success">
                 Cargar reporte de acta
               </button>

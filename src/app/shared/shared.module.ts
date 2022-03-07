@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { BubblesComponent } from './bubbles/bubbles.component';
@@ -21,6 +21,8 @@ import  {MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
+import { FooterAuthComponent } from './footer-auth/footer-auth.component';
+import { SectionsModule } from '../sections/sections.module';
 
 
 @NgModule({
@@ -29,6 +31,7 @@ import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
     BubblesComponent,
     NavbarComponent,
     FooterComponent,
+    FooterAuthComponent,
     NavbarAuthComponent,
     NavbarLeftComponent,
     NavbarAdminComponent,
@@ -47,18 +50,23 @@ import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
     MatIconModule,
     MatListModule,
     MatButtonModule,
-    MatDialogModule 
+    MatDialogModule ,
+    SectionsModule
   ],
   exports:[
     SearchBarComponent,
     BubblesComponent,
     NavbarComponent,
     FooterComponent,
+    FooterAuthComponent,
     FontAwesomeModule,
     NavbarAuthComponent,
     NavbarLeftComponent,
     NavbarAdminComponent,
     SidebarComponent
-  ]
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+]
 })
 export class SharedModule { }

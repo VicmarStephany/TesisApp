@@ -16,14 +16,14 @@
         <div class="row col-md-12 p-0">
           <div class="form-group mt-3 col-md-3">
             <label>Programa: </label>
-            <select class="form-control">
-              <option *ngFor="let type of typeList">{{ type.name }}</option>
+            <select class="form-control" [value]="programa" [(ngModel)]="programa" (change)="filterOferta()">
+              <option *ngFor="let type of typeList" [value]="type.id" >{{ type.name }}</option>
             </select>
           </div>
           <div class="form-group mt-3 col-md-3">
             <label>Modalidad: </label>
-            <select class="form-control">
-              <option *ngFor="let mode of modesList">{{ mode.name }}</option>
+            <select class="form-control" [value]="modalidad" [(ngModel)]="modalidad" (change)="filterOferta()">
+              <option *ngFor="let mode of modesList" [value]="mode.id">{{ mode.name }}</option>
             </select>
           </div>
         </div>
@@ -40,7 +40,7 @@
             <tbody>
               <tr *ngFor="let offer of offers">
                 <th>{{ offer.codigo }}</th>
-                <td>{{ offer.carrera }}</td>
+                <td>{{ offer.nombre }}</td>
                 <td>{{ offer.programa }}</td>
                 <td class="d-flex" style="justify-content: space-around">
                   <button
@@ -49,7 +49,7 @@
                     placement="top"
                     ngbTooltip="Ver más"
                     [routerLink]="[
-                      '/user-panel/offers/edit/' + offer.carreraId
+                      '/user-panel/offers/edit/' + offer.id
                     ]"
                   >
                     <span class="btn-inner--icon">
@@ -68,6 +68,9 @@
                     </span>
                   </button> -->
                 </td>
+              </tr>
+              <tr class="p-3 d-flex" *ngIf="offers.length < 1">
+                <p class="font-weight-bold">No se encontraron resultados</p>
               </tr>
             </tbody>
           </table>

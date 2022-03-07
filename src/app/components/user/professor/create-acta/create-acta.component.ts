@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-create-acta',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-acta.component.scss']
 })
 export class CreateActaComponent implements OnInit {
+  
 
   public subjectList: Array<any> = [
     {id: 123, name:'Termodinámica I'}, 
@@ -16,10 +18,13 @@ export class CreateActaComponent implements OnInit {
     {id: 12344, name:'2021-I'},
     {id: 12354, name:'2021-II'},
   ]
+
+  path: string;
   
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.path = this.route.snapshot['_urlSegment'].segments[1];
   }
 
 }

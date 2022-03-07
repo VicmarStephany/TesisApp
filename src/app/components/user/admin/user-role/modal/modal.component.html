@@ -53,15 +53,15 @@
             </div>
             <div class="col-md-8 info-text">
               <div>
-                <select class="form-control">
-                  <option *ngFor="let user of userType">{{ user.name }}</option>
+                <select class="form-control" [(ngModel)]="rol">
+                  <option *ngFor="let user of userType" [value]="user.id">{{ user.name }}</option>
                 </select>
               </div>
             </div>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success">
+          <button type="button" class="btn btn-success" (click)="changeRole(userInfo.usuarioId, rol)">
             Asignar Permisos
           </button>
           <button

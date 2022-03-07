@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 import { AuthService } from './services/auth/auth.service';
 import { HomeModule } from './home/home.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SectionsModule } from './sections/sections.module';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     SharedModule,
     HomeModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SectionsModule
     
   ],
   exports: [

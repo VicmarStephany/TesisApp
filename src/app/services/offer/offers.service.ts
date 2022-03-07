@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { OfferDetails } from 'src/app/utils/offers';
+import { Response } from 'src/app/utils/response';
 import { environment } from 'src/environments/environment';
 
 const httpOptions = {
@@ -40,5 +41,10 @@ export class OffersService {
 
   editOffer(id, data) {
     return this.http.patch(this.api +'oferta/' + id, data, httpOptions)
+  }
+
+  filterOffer(modo, programa) : Promise<Response> {
+    return this.http.get(this.api +'oferta?modalidad='+modo+'&programa='+programa, httpOptions).toPromise()
+    .then(res =>  res as Response)
   }
 }

@@ -18,12 +18,20 @@ export class UserRoleComponent implements OnInit {
   closeResult: string;
   userList: User[] = [];
 
+  public documento: string= '';
+  public rol: string = '';
+  public programa: string = '';
+
+  roles: Array<any> = [];
+
   constructor(private modalService: NgbModal, private usersService: UsersService) { }
 
   ngOnInit(): void {
     this.usersService.getAllUser().subscribe((resp: User)=>{
       this.userList = resp['d'];
     });
+
+    this.getRoles();
   }
 
   open(id) {
@@ -37,7 +45,24 @@ export class UserRoleComponent implements OnInit {
           //poner alert de error
         } 
       }
-    )
-    
-}
+    )  
+  }
+
+  getRoles() {
+    this.usersService.getRole().subscribe(res =>{
+      console.log(res);
+    })
+  }
+
+  filtrarUsuarios(){
+    this.usersService.filterUsers(this.documento, this.rol, this.programa).then( res =>{
+      if (res.s == true){
+        this.userList = res.d;
+      } else {
+        this.userList = [];
+      }
+    })
+  }
+
+  
 }

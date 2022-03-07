@@ -25,7 +25,10 @@ export class StudentService {
   }
 
   getStudents() {
-    return this.http.get(this.api +'estudiantes', httpOptions);
+    return this.http.get(this.api +'estudiante', httpOptions);
   }
 
+  filterStudents(documento, carrera, nombre, apellido){
+    return this.http.get(this.api + 'estudiante?documento='+documento+'&carrera='+carrera+'&nombre='+nombre+'&apellido='+apellido, httpOptions)
+  }
 }

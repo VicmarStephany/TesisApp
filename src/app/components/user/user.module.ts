@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserComponent } from './user.component';
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -28,6 +28,7 @@ import { AdminGuard } from 'src/app/auth/guard/admin.guard';
 import { ProfeGuard } from 'src/app/auth/guard/profe.guard';
 import { StudentGuard } from 'src/app/auth/guard/student.guard';
 import { CoordGuard } from 'src/app/auth/guard/coord.guard';
+import { SectionsModule } from 'src/app/sections/sections.module';
 
 const routes: Routes = [
 
@@ -98,6 +99,11 @@ const routes: Routes = [
     CommonModule,
     SharedModule,
     NgxSpinnerModule,
+    SectionsModule
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ]
+  
 })
 export class UserModule { }
